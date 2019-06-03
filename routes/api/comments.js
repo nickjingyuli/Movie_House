@@ -5,7 +5,7 @@ const auth = require("../../middleware/auth");
 
 const Comment = require("../../models/Comment");
 const User = require("../../models/User");
-const Movie = require("../../models/Movie");
+const MovieRating = require("../../models/MovieRating");
 
 // @route    POST api/comments
 // @desc     Create or update a comment about a movie
@@ -61,9 +61,9 @@ router.post(
         await comment.save();
       }
       // Update average rating of the movie
-      let movie = await Movie.findOne({ movieId: movieId });
+      let movie = await MovieRating.findOne({ movieId: movieId });
       if (!movie && movieRating) {
-        movie = new Movie({
+        movie = new MovieRating({
           movieId: movieId,
           avgRating: movieRating,
           totalVotes: 1
@@ -84,7 +84,7 @@ router.post(
           currTotal = prevTotal + 1;
           currAvg = (prevTotal * movie.avgRating + movieRating) / currTotal;
         }
-        await Movie.findOneAndUpdate(
+        await MovieRating.findOneAndUpdate(
           { movieId: movieId },
           { $set: { avgRating: currAvg, totalVotes: currTotal } }
         );

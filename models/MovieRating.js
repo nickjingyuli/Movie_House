@@ -15,4 +15,4 @@ const MovieSchema = new mongoose.Schema({
   }
 });
 
-module.exports = Movie = mongoose.model("movie", MovieSchema);
+module.exports = MovieRating = mongoose.model("movieRating", MovieSchema);

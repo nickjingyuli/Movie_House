@@ -13,6 +13,22 @@ const UserSchema = new mongoose.Schema({
     type: Date,
     required: true
   },
+  watchLater: [
+    {
+      movieId: {
+        type: Number,
+        required: true
+      }
+    }
+  ],
+  likedMovies: [
+    {
+      movieId: {
+        type: Number,
+        required: true
+      }
+    }
+  ],
   date: {
     type: Date,
     default: Date.now

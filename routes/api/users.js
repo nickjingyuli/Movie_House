@@ -7,6 +7,10 @@ const { check, validationResult } = require("express-validator/check");
 
 const User = require("../../models/User");
 
+//@todo: Put wishList array
+
+//@todo: Put likedMovies array
+
 // @route    POST api/users
 // @desc     Register user
 // @access   Public
@@ -49,10 +53,15 @@ router.post(
           .json({ errors: [{ msg: "User already exists" }] });
       }
 
+      const wishList = [];
+      const likedMovies = [];
+
       user = new User({
         username,
         birthday,
-        password
+        password,
+        wishList,
+        likedMovies
       });
 
       user.birthday = enteredDate;

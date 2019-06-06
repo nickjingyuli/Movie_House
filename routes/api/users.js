@@ -6,8 +6,7 @@ const config = require("config");
 const { check, validationResult } = require("express-validator/check");
 
 const User = require("../../models/User");
-
-//@todo: Put wishList array
+const auth = require("../../middleware/auth");
 
 //@todo: Put likedMovies array
 
@@ -93,5 +92,38 @@ router.post(
     }
   }
 );
+
+//@todo: Add to watchLater array
+// @route    PUT api/users/watchlater/:movie_id
+// @desc     Add a movie to watch later
+// @access   Private
+router.put("/watchlater/:movieid", auth, async (req, res) => {
+  try {
+    const user = await User.findById(req.user.id);
+
+    // Check if a movie has already been liked by current user
+    if (
+      user.watchLater.filter(item => item.movieId === req.params.movieid)
+        .length > 0
+    ) {
+      return res
+        .status(400)
+        .json({ msg: "Movie already added to watch later" });
+    }
+
+    user.watchLater.unshift({ movieId: req.params.movieid });
+    await user.save();
+
+    res.json(user.watchLater);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
+});
+
+//@todo: Delete from watchLater array
+// @route    PUT api/users/watchlater/:movieid
+// @desc     Delete a movie from watch later
+// @access   Private
 
 module.exports = router;

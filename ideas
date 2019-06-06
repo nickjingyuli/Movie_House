@@ -7,4 +7,7 @@ User:
 Frontend:
 
 User:
-1. Add wish-list and liked movies buttons
+1. Add watch-later and liked movies buttons
+    a. Fire an action when logged in to get the watchlater and liked movies and put them in a state.
+    b. Use the state to check if the movie on current page is in the watchlater & liked lists.
+        If not, let user click the buttons(fire an action to update(api) and get(api) and put them in the state), if yes disable the buttons.

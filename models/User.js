@@ -16,15 +16,14 @@ const UserSchema = new mongoose.Schema({
   watchLater: [
     {
       movieId: {
-        type: Number,
-        required: true
+        type: String
       }
     }
   ],
   likedMovies: [
     {
       movieId: {
-        type: Number,
+        type: String,
         required: true
       }
     }

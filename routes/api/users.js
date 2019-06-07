@@ -8,8 +8,6 @@ const { check, validationResult } = require("express-validator/check");
 const User = require("../../models/User");
 const auth = require("../../middleware/auth");
 
-//@todo: Put likedMovies array
-
 // @route    POST api/users
 // @desc     Register user
 // @access   Public
@@ -93,17 +91,16 @@ router.post(
   }
 );
 
-//@todo: Add to watchLater array
-// @route    PUT api/users/watchlater/:movie_id
+// @route    PUT api/users/likedmovies/:movie_id
 // @desc     Add a movie to watch later
 // @access   Private
-router.put("/watchlater/:movieid", auth, async (req, res) => {
+router.put("/likedmovies/:movieid", auth, async (req, res) => {
   try {
     const user = await User.findById(req.user.id);
 
-    // Check if a movie has already been liked by current user
+    // Check if a movie has already been added by current user
     if (
-      user.watchLater.filter(item => item.movieId === req.params.movieid)
+      user.likedMovies.filter(item => item.movieId === req.params.movieid)
         .length > 0
     ) {
       return res
@@ -111,19 +108,95 @@ router.put("/watchlater/:movieid", auth, async (req, res) => {
         .json({ msg: "Movie already added to watch later" });
     }
 
-    user.watchLater.unshift({ movieId: req.params.movieid });
+    user.likedMovies.unshift({ movieId: req.params.movieid });
     await user.save();
 
-    res.json(user.watchLater);
+    res.json(user.likedMovies);
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server Error");
   }
 });
 
-//@todo: Delete from watchLater array
 // @route    PUT api/users/watchlater/:movieid
 // @desc     Delete a movie from watch later
 // @access   Private
+router.put("/watchlater/remove/:movieid", auth, async (req, res) => {
+  try {
+    const user = await User.findById(req.user.id);
+
+    // Check if a movie has already been added by current user
+    if (
+      user.likedMovies.filter(item => item.movieId === req.params.movieid)
+        .length === 0
+    ) {
+      return res
+        .status(400)
+        .json({ msg: "Movie hasn't been added to watch later" });
+    }
+    const removeIndex = user.likedMovies.indexOf(req.params.movieid);
+    user.likedMovies.splice(removeIndex, 1);
+    await user.save();
+
+    res.json(user.likedMovies);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
+});
+
+// @route    PUT api/users/likedmovies/:movie_id
+// @desc     Add a movie to watch later
+// @access   Private
+router.put("/likedmovies/:movieid", auth, async (req, res) => {
+  try {
+    const user = await User.findById(req.user.id);
+
+    // Check if a movie has already been added by current user
+    if (
+      user.likedMovies.filter(item => item.movieId === req.params.movieid)
+        .length > 0
+    ) {
+      return res
+        .status(400)
+        .json({ msg: "Movie already added to liked movies" });
+    }
+
+    user.likedMovies.unshift({ movieId: req.params.movieid });
+    await user.save();
+
+    res.json(user.likedMovies);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
+});
+
+// @route    PUT api/users/likedmovies/:movieid
+// @desc     Delete a movie from watch later
+// @access   Private
+router.put("/likedmovies/remove/:movieid", auth, async (req, res) => {
+  try {
+    const user = await User.findById(req.user.id);
+
+    // Check if a movie has already been added by current user
+    if (
+      user.likedMovies.filter(item => item.movieId === req.params.movieid)
+        .length === 0
+    ) {
+      return res
+        .status(400)
+        .json({ msg: "Movie hasn't been added to liked movies" });
+    }
+    const removeIndex = user.likedMovies.indexOf(req.params.movieid);
+    user.likedMovies.splice(removeIndex, 1);
+    await user.save();
+
+    res.json(user.likedMovies);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
+});
 
 module.exports = router;

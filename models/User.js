@@ -23,8 +23,7 @@ const UserSchema = new mongoose.Schema({
   likedMovies: [
     {
       movieId: {
-        type: String,
-        required: true
+        type: String
       }
     }
   ],

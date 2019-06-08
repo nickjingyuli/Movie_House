@@ -6,6 +6,9 @@ User:
 
 Frontend:
 
+Auth:
+1. Finish setAlert actions
+
 User:
 1. Add watch-later and liked movies buttons
     a. Fire an action when logged in to get the watchlater and liked movies and put them in a state.

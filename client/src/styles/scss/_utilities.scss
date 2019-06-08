@@ -22,6 +22,30 @@
   line-height: 1.1;
 }
 
+// Backgrounds
+.bg {
+  &-primary {
+    @include set-background($primary-color);
+    border: #ccc 1px solid;
+  }
+  &-light {
+    @include set-background($light-color);
+  }
+  &-dark {
+    @include set-background($dark-color);
+  }
+  &-success {
+    @include set-background($success-color);
+  }
+  &-danger {
+    @include set-background($danger-color);
+  }
+  &-white {
+    @include set-background(white);
+    border: #ccc 1px solid;
+  }
+}
+
 // Form styles
 .Form {
   input[type='text'],

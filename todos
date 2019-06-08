@@ -6,8 +6,8 @@ User:
 
 Frontend:
 
-Auth:
-1. Finish setAlert actions
+Navbar:
+1. When click movie link, it drops a drop down list including search and popular movie gallery
 
 User:
 1. Add watch-later and liked movies buttons

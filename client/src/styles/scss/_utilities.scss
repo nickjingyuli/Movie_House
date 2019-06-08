@@ -4,4 +4,28 @@
 .container {
   margin: auto;
   max-width: $max-width;
+  overflow: hidden;
+  padding: 0 2rem;
+  margin-top: 6rem;
+  margin-bottom: 3rem;
+}
+
+// Text styles
+.x-large {
+  font-size: 3rem;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.large {
+  font-size: 2rem;
+  line-height: 1.1;
+}
+
+// Form styles
+.Form {
+  input[type='text'],
+  input[type='date'] {
+    max-width: 300px;
+  }
 }

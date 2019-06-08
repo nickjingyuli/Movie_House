@@ -1,5 +1,6 @@
 @import "utilities";
 @import "config";
+@import "forms";
 
 * {
   box-sizing: border-box;
@@ -8,9 +9,10 @@
 }
 
 body {
-  font-family: "Raleway", sans-serif;
+  font-family: 'Saira Semi Condensed', sans-serif;
   font-size: 1rem;
   line-height: 1.6;
   background-color: white;
   color: #333333;
+
 }

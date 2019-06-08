@@ -47,7 +47,7 @@ router.post(
       if (user) {
         return res
           .status(400)
-          .json({ errors: [{ msg: "User already exists" }] });
+          .json({ errors: [{ msg: "Username already exists" }] });
       }
 
       const wishList = [];

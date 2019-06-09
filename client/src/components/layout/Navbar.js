@@ -1,33 +1,105 @@
 import React, { Fragment } from "react";
-import { Link } from "react-router-dom";
-import { Icon } from "semantic-ui-react";
+import { Link, withRouter } from "react-router-dom";
+import { Icon, Dropdown } from "semantic-ui-react";
+import { connect } from "react-redux";
+import { logout } from "../../actions/auth";
 import PropTypes from "prop-types";
 
-//@todo: WHen logged in change link
+const Navbar = ({ auth: { loading, isAuthenticated }, logout, history }) => {
+  const redirect = page => {
+    history.push(`/${page}`);
+  };
+  const guestLinks = (
+    <ul>
+      <li>
+        <Fragment>
+          <Icon name="film" />
+          <Dropdown text="Movies" icon="">
+            <Dropdown.Menu>
+              <Dropdown.Item
+                icon="search"
+                text="search"
+                onClick={() => redirect("search")}
+              />
+              <Dropdown.Item
+                icon="trophy"
+                text="Trending"
+                onClick={() => redirect("popular")}
+              />
+            </Dropdown.Menu>
+          </Dropdown>
+        </Fragment>
+      </li>
+      <li>
+        <Link to="/register">
+          <Icon name="signup" /> <span>Register </span>
+        </Link>
+      </li>
+      <li>
+        <Link to="login">
+          <Icon name="sign-in" /> <span>Login</span>
+        </Link>
+      </li>
+    </ul>
+  );
 
-const Navbar = props => {
+  const authLinks = (
+    <ul>
+      <li>
+        <Fragment>
+          <Icon name="film" />
+          <Dropdown text="Movies" icon="">
+            <Dropdown.Menu>
+              <Dropdown.Item
+                icon="search"
+                text="search"
+                onClick={() => redirect("search")}
+              />
+              <Dropdown.Item
+                icon="trophy"
+                text="Trending"
+                onClick={() => redirect("popular")}
+              />
+            </Dropdown.Menu>
+          </Dropdown>
+        </Fragment>
+      </li>
+      <li>
+        <Link to="/dashboard">
+          <Icon name="user circle" /> <span>Dashboard</span>
+        </Link>
+      </li>
+      <li>
+        <a onClick={logout} href="#!">
+          <Icon name="sign-out" /> <span>Logout</span>
+        </a>
+      </li>
+    </ul>
+  );
+
   return (
     <nav className="navbar bg-dark">
-      <Link to="/">
-        <h1>
-          <Icon name="coffee" /> Movie House
-        </h1>
-      </Link>
-      <ul>
-        <li>
-          <Link to="/">Movies</Link>
-        </li>
-        <li>
-          <Link to="register">Register</Link>
-        </li>
-        <li>
-          <Link to="login">Login</Link>
-        </li>
-      </ul>
+      <h1>
+        <Link to="/">
+          <Icon name="home" /> Movie House
+        </Link>
+      </h1>
+      <Fragment>
+        {!loading && (isAuthenticated ? authLinks : guestLinks)}
+      </Fragment>
     </nav>
   );
 };
 
-Navbar.propTypes = {};
+Navbar.propTypes = {
+  auth: PropTypes.object.isRequired
+};
 
-export default Navbar;
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+
+export default connect(
+  mapStateToProps,
+  { logout }
+)(withRouter(Navbar));

@@ -1,47 +1,29 @@
 import React, { Fragment, useState, useEffect } from "react";
 import { Button, Form, Message } from "semantic-ui-react";
+import { Redirect } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { register } from "../../actions/auth";
+import { login } from "../../actions/auth";
 import { clearAlert } from "../../actions/alert";
-import { Redirect } from "react-router-dom";
 
-const Register = ({ isAuthenticated, register, clearAlert, alerts }) => {
+const Register = ({ isAuthenticated, login, clearAlert, alerts }) => {
   useEffect(() => {
     clearAlert();
   }, [clearAlert]);
 
   const [formData, setFormData] = useState({
     username: "",
-    birthday: "",
-    password: "",
-    password2: ""
+    password: ""
   });
 
-  const [list, setList] = useState([]);
-
-  const { username, birthday, password, password2 } = formData;
+  const { username, password } = formData;
 
   const handleChange = e =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
   const handleSubmit = e => {
     e.preventDefault();
-    let tmpList = [];
-    const bday = new Date(birthday);
-    const today = new Date();
-    if (bday.getTime() > today.getTime()) {
-      tmpList.push("Birthday entered is after today");
-    }
-    if (password !== password2) {
-      tmpList.push("Passwords entered are not the same");
-    }
-    if (tmpList.length > 0) {
-      setList(tmpList);
-    } else {
-      setList([]);
-      register({ username, password, birthday });
-    }
+    login(username, password);
   };
 
   // Get the alerts
@@ -58,17 +40,13 @@ const Register = ({ isAuthenticated, register, clearAlert, alerts }) => {
 
   return (
     <Fragment>
-      <p className="x-large">Sign Up</p>
+      <p className="x-large">Login</p>
       <Form
         size="big"
         onSubmit={e => handleSubmit(e)}
-        error={list.length > 0 || allAlerts.length > 0}
+        error={allAlerts.length > 0}
       >
-        <Message
-          error
-          header="Something went wrong"
-          list={[...list, ...allAlerts]}
-        />
+        <Message error header="Something went wrong" list={[...allAlerts]} />
         <Form.Field>
           <label>Username</label>
           <input
@@ -76,16 +54,6 @@ const Register = ({ isAuthenticated, register, clearAlert, alerts }) => {
             value={username}
             onChange={e => handleChange(e)}
             placeholder="Username"
-            required
-          />
-        </Form.Field>
-        <Form.Field>
-          <label>Birthday</label>
-          <input
-            name="birthday"
-            value={birthday}
-            onChange={e => handleChange(e)}
-            type="date"
             required
           />
         </Form.Field>
@@ -98,22 +66,8 @@ const Register = ({ isAuthenticated, register, clearAlert, alerts }) => {
             placeholder="Password"
             type="password"
             required
-            minLength={6}
           />
         </Form.Field>
-        <Form.Field>
-          <label>Confirm Password</label>
-          <input
-            name="password2"
-            value={password2}
-            onChange={e => handleChange(e)}
-            placeholder="Confirm Password"
-            type="password"
-            required
-            minLength={6}
-          />
-        </Form.Field>
-
         <Button type="submit">Submit</Button>
       </Form>
     </Fragment>
@@ -122,7 +76,7 @@ const Register = ({ isAuthenticated, register, clearAlert, alerts }) => {
 
 Register.propTypes = {
   isAuthenticated: PropTypes.bool.isRequired,
-  register: PropTypes.func.isRequired,
+  login: PropTypes.func.isRequired,
   alerts: PropTypes.array.isRequired,
   clearAlert: PropTypes.func.isRequired
 };
@@ -134,5 +88,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { register, clearAlert }
+  { login, clearAlert }
 )(Register);

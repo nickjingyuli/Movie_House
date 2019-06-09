@@ -60,8 +60,10 @@ body {
   background-color: white;
   color: #333333; }
 
-h1, h2, h3, h4, h5, h6, button, input {
-  font-family: 'Saira Semi Condensed', sans-serif; }
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Saira Semi Condensed', sans-serif;
+  margin: 0;
+  padding: 0; }
 
 a {
   text-decoration: none;

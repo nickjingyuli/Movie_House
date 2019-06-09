@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { register } from "../../actions/auth";
 import { clearAlert } from "../../actions/alert";
-import { Redirect } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 const Register = ({ isAuthenticated, register, clearAlert, alerts }) => {
   useEffect(() => {
@@ -58,7 +58,7 @@ const Register = ({ isAuthenticated, register, clearAlert, alerts }) => {
 
   return (
     <Fragment>
-      <p className="x-large">Sign Up</p>
+      <h1 className="x-large">Register</h1>
       <Form
         size="big"
         onSubmit={e => handleSubmit(e)}
@@ -116,6 +116,9 @@ const Register = ({ isAuthenticated, register, clearAlert, alerts }) => {
 
         <Button type="submit">Submit</Button>
       </Form>
+      <p className="my-2">
+        Already have an account? <Link to="/login">Login</Link>
+      </p>
     </Fragment>
   );
 };

@@ -1,6 +1,6 @@
 import React, { Fragment, useState, useEffect } from "react";
 import { Button, Form, Message } from "semantic-ui-react";
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { login } from "../../actions/auth";
@@ -40,7 +40,7 @@ const Register = ({ isAuthenticated, login, clearAlert, alerts }) => {
 
   return (
     <Fragment>
-      <p className="x-large">Login</p>
+      <h1 className="x-large">Login</h1>
       <Form
         size="big"
         onSubmit={e => handleSubmit(e)}
@@ -70,6 +70,10 @@ const Register = ({ isAuthenticated, login, clearAlert, alerts }) => {
         </Form.Field>
         <Button type="submit">Submit</Button>
       </Form>
+
+      <p className="my-2">
+        Don't have an account? <Link to="/register">Register</Link>
+      </p>
     </Fragment>
   );
 };

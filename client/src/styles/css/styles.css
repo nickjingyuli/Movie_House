@@ -59,8 +59,8 @@
   padding: 5rem 0; }
 
 .container {
+  max-width: 1100px;
   margin: auto;
-  max-width: 900px;
   overflow: hidden;
   padding: 0 2rem;
   margin-top: 6rem;
@@ -74,6 +74,10 @@
 .large {
   font-size: 2rem;
   line-height: 1.1; }
+
+.lead {
+  font-size: 1.5rem;
+  margin-bottom: 1rem; }
 
 .bg-primary {
   background-color: #17a2b8;
@@ -100,6 +104,14 @@
   background-color: white;
   color: #333;
   border: #ccc 1px solid; }
+
+.dark-overlay {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7); }
 
 .Form input[type='text'],
 .Form input[type='date'] {
@@ -215,3 +227,21 @@ img {
     margin: 0 0.25rem; }
     .navbar a:hover {
       color: #17a2b8; }
+
+.landing {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  overflow-y: hidden;
+  background: url("../../img/cover.jpg") no-repeat center center/cover; }
+  .landing-inner {
+    color: white;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    text-align: center; }

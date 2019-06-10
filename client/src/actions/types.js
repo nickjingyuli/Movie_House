@@ -7,4 +7,5 @@ export const AUTH_ERROR = "AUTH_ERROR";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGIN_FAIL = "LOGIN_FAIL";
 export const LOG_OUT = "LOG_OUT";
-export const CLEAR_PROFILE = "CLEAR_PROFILE";
+export const LIKED_MOVIE_SUCCESS = "LIKED_MOVIE_SUCCESS";
+export const LIKED_MOVIE_FAIL = "LIKED_MOVIE_FAIL";

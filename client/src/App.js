@@ -11,6 +11,9 @@ import "./styles/css/styles.css";
 import Register from "./components/auth/Register";
 import Login from "./components/auth/Login";
 import Navbar from "./components/layout/Navbar";
+import Landing from "./components/layout/Landing";
+import PrivateRoute from "./components/routing/PrivateRoute";
+import Dashboard from "./components/dashboard/Dashboard";
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
@@ -25,12 +28,14 @@ const App = () => {
       <Router>
         <Fragment>
           <Navbar />
-          <div className="container">
+          <Route exact path="/" component={Landing} />
+          <section className="container">
             <Switch>
               <Route exact path="/register" component={Register} />
               <Route exact path="/login" component={Login} />
+              <PrivateRoute exact path="/dashboard" component={Dashboard} />
             </Switch>
-          </div>
+          </section>
         </Fragment>
       </Router>
     </Provider>

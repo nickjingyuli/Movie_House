@@ -6,10 +6,11 @@ User:
 
 Frontend:
 
-Landing
+Dashboard:
+
+Landing:
 
 Navbar:
-1. hover color primary on movies
 
 User:
 1. Add watch-later and liked movies buttons

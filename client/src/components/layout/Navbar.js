@@ -14,7 +14,7 @@ const Navbar = ({ auth: { loading, isAuthenticated }, logout, history }) => {
       <li>
         <Fragment>
           <Icon name="film" />
-          <Dropdown text="Movies" icon="">
+          <Dropdown text="Movies" icon="" className="drop">
             <Dropdown.Menu>
               <Dropdown.Item
                 icon="search"

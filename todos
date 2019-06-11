@@ -8,6 +8,10 @@ Frontend:
 
 Dashboard:
 
+1. Put getlikedmovieids in user action and reducer
+2. LoadUser()  when mounted to keep the freshest likedmovies and watchlater lists// 不用，因为app里有
+3. 需要一个moves state去hold所有moive objects. 建一个action去load所有movies。这个action可以在多个地方使用，比如在mount dashboard时候
+
 Landing:
 
 Navbar:

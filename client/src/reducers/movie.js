@@ -1,7 +1,9 @@
 import { LIKED_MOVIE_FAIL, LIKED_MOVIE_SUCCESS } from "../actions/types";
+import filterGenres from "../utils/filterGenres";
 
 const initialState = {
   likedMovies: [],
+  likedMoviesGenres: {},
   watchLater: [],
   currentResults: [],
   error: {},
@@ -14,6 +16,7 @@ export default function(state = initialState, action) {
     case LIKED_MOVIE_SUCCESS:
       return {
         ...state,
+        likedMoviesGenres: filterGenres(payload),
         likedMovies: payload,
         loading: false
       };

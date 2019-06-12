@@ -6,7 +6,10 @@ User:
 
 Frontend:
 
-Dashboard:
+dashboard:
+1. 把每个movie.id 换成 MovieItem Component
+2. 加 WatchLater. 和 Likes 用一个 tab display 然后有按钮去切换
+
 
 1. Put getlikedmovieids in user action and reducer
 2. LoadUser()  when mounted to keep the freshest likedmovies and watchlater lists// 不用，因为app里有

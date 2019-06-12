@@ -1,11 +1,11 @@
 import React, { Fragment } from "react";
 import PropTypes from "prop-types";
-import { Tab } from "semantic-ui-react";
+import { Tab, Icon } from "semantic-ui-react";
 
 const DisplayLikes = ({ all, movieGenres }) => {
   const panes = [
     {
-      menuItem: "All",
+      menuItem: <p>All</p>,
       render: () => (
         <Tab.Pane attached={false}>
           {all.map(item => (
@@ -319,11 +319,7 @@ const DisplayLikes = ({ all, movieGenres }) => {
   ];
   return (
     <Fragment>
-      <Tab
-        menu={{ fluid: true, vertical: true }}
-        menuPosition="right"
-        panes={panes}
-      />
+      <Tab menu={{ fluid: true, vertical: true }} panes={panes} />
     </Fragment>
   );
 };

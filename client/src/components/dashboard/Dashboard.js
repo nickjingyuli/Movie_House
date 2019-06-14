@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from "react";
+import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import Spinner from "../layout/Spinner";
@@ -9,7 +9,7 @@ const Dashboard = ({ auth }) => {
     <Spinner />
   ) : (
     <Fragment>
-      <h1 className="x-large">Welcome {auth.user.username}!</h1>
+      <h1 className="x-large">Welcome back {auth.user.username}!</h1>
       <div className="liked-movies-container">
         <h3>Movies you liked</h3>
         <Likes movies={auth.user.likedMovies} />

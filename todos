@@ -7,7 +7,7 @@ User:
 Frontend:
 
 dashboard:
-1. 把每个movie.id 换成 MovieItem Component
+1. 小屏时每排从五个减少。改变grid
 2. 把tab里的menuItem换成一个<p></p> 然后小屏时只显示字体缩小， 或者只显示icon。 或者小屏时直接取消tab, 换一种设计
 3. 加 WatchLater. 和 Likes 用一个 tab display 然后有按钮去切换
 

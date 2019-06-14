@@ -1,4 +1,8 @@
-import { LIKED_MOVIE_FAIL, LIKED_MOVIE_SUCCESS } from "../actions/types";
+import {
+  LIKED_MOVIE_FAIL,
+  LIKED_MOVIE_SUCCESS,
+  NO_LIKES
+} from "../actions/types";
 import filterGenres from "../utils/filterGenres";
 
 const initialState = {
@@ -24,6 +28,11 @@ export default function(state = initialState, action) {
       return {
         ...state,
         error: payload,
+        loading: false
+      };
+    case NO_LIKES:
+      return {
+        ...state,
         loading: false
       };
     default:

@@ -1,18 +1,26 @@
 import React, { Fragment } from "react";
 import PropTypes from "prop-types";
-import { Tab, Icon } from "semantic-ui-react";
+import { Tab } from "semantic-ui-react";
+import DBMovieItem from "../movie/DBMovieItem";
 
 const DisplayLikes = ({ all, movieGenres }) => {
   const panes = [
     {
-      menuItem: <p>All</p>,
-      render: () => (
-        <Tab.Pane attached={false}>
-          {all.map(item => (
-            <p>{item.id} </p>
-          ))}
-        </Tab.Pane>
-      )
+      menuItem: "All",
+      render: () =>
+        movieGenres.action.length === 0 ? (
+          <Tab.Pane attached={false}>
+            <p className="lead">No Movies</p>
+          </Tab.Pane>
+        ) : (
+          <Tab.Pane attached={false}>
+            <div className="poster-container">
+              {all.map(item => (
+                <DBMovieItem movie={item} />
+              ))}
+            </div>
+          </Tab.Pane>
+        )
     },
     {
       menuItem: "Action",
@@ -23,9 +31,11 @@ const DisplayLikes = ({ all, movieGenres }) => {
           </Tab.Pane>
         ) : (
           <Tab.Pane attached={false}>
-            {movieGenres.action.map(item => (
-              <p>{item.id} </p>
-            ))}
+            <div className="poster-container">
+              {movieGenres.action.map(item => (
+                <DBMovieItem movie={item} />
+              ))}
+            </div>
           </Tab.Pane>
         )
     },
@@ -38,9 +48,11 @@ const DisplayLikes = ({ all, movieGenres }) => {
           </Tab.Pane>
         ) : (
           <Tab.Pane attached={false}>
-            {movieGenres.adventure.map(item => (
-              <p>{item.id} </p>
-            ))}
+            <div className="poster-container">
+              {movieGenres.adventure.map(item => (
+                <DBMovieItem movie={item} />
+              ))}
+            </div>
           </Tab.Pane>
         )
     },
@@ -53,10 +65,11 @@ const DisplayLikes = ({ all, movieGenres }) => {
           </Tab.Pane>
         ) : (
           <Tab.Pane attached={false}>
-            {" "}
-            {movieGenres.animation.map(item => (
-              <p>{item.id} </p>
-            ))}
+            <div className="poster-container">
+              {movieGenres.animation.map(item => (
+                <DBMovieItem movie={item} />
+              ))}
+            </div>
           </Tab.Pane>
         )
     },
@@ -69,10 +82,11 @@ const DisplayLikes = ({ all, movieGenres }) => {
           </Tab.Pane>
         ) : (
           <Tab.Pane attached={false}>
-            {" "}
-            {movieGenres.comedy.map(item => (
-              <p>{item.id} </p>
-            ))}
+            <div className="poster-container">
+              {movieGenres.comedy.map(item => (
+                <DBMovieItem movie={item} />
+              ))}
+            </div>
           </Tab.Pane>
         )
     },
@@ -85,10 +99,11 @@ const DisplayLikes = ({ all, movieGenres }) => {
           </Tab.Pane>
         ) : (
           <Tab.Pane attached={false}>
-            {" "}
-            {movieGenres.crime.map(item => (
-              <p>{item.id} </p>
-            ))}
+            <div className="poster-container">
+              {movieGenres.crime.map(item => (
+                <DBMovieItem movie={item} />
+              ))}
+            </div>
           </Tab.Pane>
         )
     },
@@ -101,10 +116,11 @@ const DisplayLikes = ({ all, movieGenres }) => {
           </Tab.Pane>
         ) : (
           <Tab.Pane attached={false}>
-            {" "}
-            {movieGenres.documentary.map(item => (
-              <p>{item.id} </p>
-            ))}
+            <div className="poster-container">
+              {movieGenres.documentary.map(item => (
+                <DBMovieItem movie={item} />
+              ))}
+            </div>
           </Tab.Pane>
         )
     },
@@ -117,10 +133,11 @@ const DisplayLikes = ({ all, movieGenres }) => {
           </Tab.Pane>
         ) : (
           <Tab.Pane attached={false}>
-            {" "}
-            {movieGenres.drama.map(item => (
-              <p>{item.id} </p>
-            ))}
+            <div className="poster-container">
+              {movieGenres.drama.map(item => (
+                <DBMovieItem movie={item} />
+              ))}
+            </div>
           </Tab.Pane>
         )
     },
@@ -133,10 +150,11 @@ const DisplayLikes = ({ all, movieGenres }) => {
           </Tab.Pane>
         ) : (
           <Tab.Pane attached={false}>
-            {" "}
-            {movieGenres.family.map(item => (
-              <p>{item.id} </p>
-            ))}
+            <div className="poster-container">
+              {movieGenres.family.map(item => (
+                <DBMovieItem movie={item} />
+              ))}
+            </div>
           </Tab.Pane>
         )
     },
@@ -149,10 +167,11 @@ const DisplayLikes = ({ all, movieGenres }) => {
           </Tab.Pane>
         ) : (
           <Tab.Pane attached={false}>
-            {" "}
-            {movieGenres.fantasy.map(item => (
-              <p>{item.id} </p>
-            ))}
+            <div className="poster-container">
+              {movieGenres.fantasy.map(item => (
+                <DBMovieItem movie={item} />
+              ))}
+            </div>
           </Tab.Pane>
         )
     },
@@ -165,10 +184,11 @@ const DisplayLikes = ({ all, movieGenres }) => {
           </Tab.Pane>
         ) : (
           <Tab.Pane attached={false}>
-            {" "}
-            {movieGenres.history.map(item => (
-              <p>{item.id} </p>
-            ))}
+            <div className="poster-container">
+              {movieGenres.history.map(item => (
+                <DBMovieItem movie={item} />
+              ))}
+            </div>
           </Tab.Pane>
         )
     },
@@ -181,10 +201,11 @@ const DisplayLikes = ({ all, movieGenres }) => {
           </Tab.Pane>
         ) : (
           <Tab.Pane attached={false}>
-            {" "}
-            {movieGenres.horror.map(item => (
-              <p>{item.id} </p>
-            ))}
+            <div className="poster-container">
+              {movieGenres.horror.map(item => (
+                <DBMovieItem movie={item} />
+              ))}
+            </div>
           </Tab.Pane>
         )
     },
@@ -197,10 +218,11 @@ const DisplayLikes = ({ all, movieGenres }) => {
           </Tab.Pane>
         ) : (
           <Tab.Pane attached={false}>
-            {" "}
-            {movieGenres.music.map(item => (
-              <p>{item.id} </p>
-            ))}
+            <div className="poster-container">
+              {movieGenres.music.map(item => (
+                <DBMovieItem movie={item} />
+              ))}
+            </div>
           </Tab.Pane>
         )
     },
@@ -213,10 +235,11 @@ const DisplayLikes = ({ all, movieGenres }) => {
           </Tab.Pane>
         ) : (
           <Tab.Pane attached={false}>
-            {" "}
-            {movieGenres.mystery.map(item => (
-              <p>{item.id} </p>
-            ))}
+            <div className="poster-container">
+              {movieGenres.mystery.map(item => (
+                <DBMovieItem movie={item} />
+              ))}
+            </div>
           </Tab.Pane>
         )
     },
@@ -229,10 +252,11 @@ const DisplayLikes = ({ all, movieGenres }) => {
           </Tab.Pane>
         ) : (
           <Tab.Pane attached={false}>
-            {" "}
-            {movieGenres.romance.map(item => (
-              <p>{item.id} </p>
-            ))}
+            <div className="poster-container">
+              {movieGenres.romance.map(item => (
+                <DBMovieItem movie={item} />
+              ))}
+            </div>
           </Tab.Pane>
         )
     },
@@ -245,10 +269,11 @@ const DisplayLikes = ({ all, movieGenres }) => {
           </Tab.Pane>
         ) : (
           <Tab.Pane attached={false}>
-            {" "}
-            {movieGenres.scienceFiction.map(item => (
-              <p>{item.id} </p>
-            ))}
+            <div className="poster-container">
+              {movieGenres.scienceFiction.map(item => (
+                <DBMovieItem movie={item} />
+              ))}
+            </div>
           </Tab.Pane>
         )
     },
@@ -261,10 +286,11 @@ const DisplayLikes = ({ all, movieGenres }) => {
           </Tab.Pane>
         ) : (
           <Tab.Pane attached={false}>
-            {" "}
-            {movieGenres.tvMovie.map(item => (
-              <p>{item.id} </p>
-            ))}
+            <div className="poster-container">
+              {movieGenres.tvMovie.map(item => (
+                <DBMovieItem movie={item} />
+              ))}
+            </div>
           </Tab.Pane>
         )
     },
@@ -277,10 +303,11 @@ const DisplayLikes = ({ all, movieGenres }) => {
           </Tab.Pane>
         ) : (
           <Tab.Pane attached={false}>
-            {" "}
-            {movieGenres.thriller.map(item => (
-              <p>{item.id} </p>
-            ))}
+            <div className="poster-container">
+              {movieGenres.thriller.map(item => (
+                <DBMovieItem movie={item} />
+              ))}
+            </div>
           </Tab.Pane>
         )
     },
@@ -293,10 +320,11 @@ const DisplayLikes = ({ all, movieGenres }) => {
           </Tab.Pane>
         ) : (
           <Tab.Pane attached={false}>
-            {" "}
-            {movieGenres.war.map(item => (
-              <p>{item.id} </p>
-            ))}
+            <div className="poster-container">
+              {movieGenres.war.map(item => (
+                <DBMovieItem movie={item} />
+              ))}
+            </div>
           </Tab.Pane>
         )
     },
@@ -309,10 +337,11 @@ const DisplayLikes = ({ all, movieGenres }) => {
           </Tab.Pane>
         ) : (
           <Tab.Pane attached={false}>
-            {" "}
-            {movieGenres.action.map(item => (
-              <p>{item.id} </p>
-            ))}
+            <div className="poster-container">
+              {movieGenres.western.map(item => (
+                <DBMovieItem movie={item} />
+              ))}
+            </div>
           </Tab.Pane>
         )
     }
@@ -324,6 +353,9 @@ const DisplayLikes = ({ all, movieGenres }) => {
   );
 };
 
-DisplayLikes.propTypes = {};
+DisplayLikes.propTypes = {
+  all: PropTypes.array.isRequired,
+  movieGenres: PropTypes.object.isRequired
+};
 
 export default DisplayLikes;

@@ -85,9 +85,37 @@ img {
 
 }
 
-//.landing-inner {
-//  color: white;
-//  display: flex;
-//  justify-content: center;
-//  align-items: center;
-//}
+.poster-container {
+  display: grid;
+  grid-template-columns: repeat(4, 25%);
+
+  .card-container {
+    position: relative;
+    margin: 0 3px;
+    img {
+      display: block;
+    }
+
+    .movie-overlay {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+      opacity: 0;
+      color: $light-color;
+      background-color: $dark-color;
+      transition: $transition;
+    }
+    .movie-overlay:hover{
+      opacity: 0.9;
+      h5, .rating{
+        opacity: 1 ;
+      }
+    }
+  }
+
+}

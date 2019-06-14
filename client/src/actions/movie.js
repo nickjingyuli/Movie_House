@@ -1,8 +1,13 @@
 import axios from "axios";
-import { LIKED_MOVIE_FAIL, LIKED_MOVIE_SUCCESS } from "./types";
+import { LIKED_MOVIE_FAIL, LIKED_MOVIE_SUCCESS, NO_LIKES } from "./types";
 
 // load liked movies
 export const getLikedMovies = arr => async dispatch => {
+  if (arr.length === 0) {
+    dispatch({
+      type: NO_LIKES
+    });
+  }
   if (localStorage.token) {
     delete axios.defaults.headers.common["x-auth-token"];
   }

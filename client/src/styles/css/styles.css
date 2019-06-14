@@ -245,3 +245,29 @@ img {
     align-items: center;
     justify-content: center;
     text-align: center; }
+
+.poster-container {
+  display: grid;
+  grid-template-columns: repeat(4, 25%); }
+  .poster-container .card-container {
+    position: relative;
+    margin: 0 3px; }
+    .poster-container .card-container img {
+      display: block; }
+    .poster-container .card-container .movie-overlay {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      align-items: center;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+      opacity: 0;
+      color: #f4f4f4;
+      background-color: #343a40;
+      transition: 0.2s; }
+    .poster-container .card-container .movie-overlay:hover {
+      opacity: 0.9; }
+      .poster-container .card-container .movie-overlay:hover h5, .poster-container .card-container .movie-overlay:hover .rating {
+        opacity: 1; }

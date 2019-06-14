@@ -9,3 +9,4 @@ export const LOGIN_FAIL = "LOGIN_FAIL";
 export const LOG_OUT = "LOG_OUT";
 export const LIKED_MOVIE_SUCCESS = "LIKED_MOVIE_SUCCESS";
 export const LIKED_MOVIE_FAIL = "LIKED_MOVIE_FAIL";
+export const NO_LIKES = "NO_LIKES";

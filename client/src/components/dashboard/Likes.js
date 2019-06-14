@@ -1,4 +1,4 @@
-import React, { useEffect, Fragment, useState } from "react";
+import React, { useEffect, Fragment } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getLikedMovies } from "../../actions/movie";
@@ -12,7 +12,7 @@ const Likes = ({
 }) => {
   useEffect(() => {
     getLikedMovies(movies);
-  }, [getLikedMovies]);
+  }, [getLikedMovies, movies]);
 
   return loading ? (
     <Spinner />
@@ -27,7 +27,11 @@ const Likes = ({
   );
 };
 
-Likes.propTypes = {};
+Likes.propTypes = {
+  movieState: PropTypes.object.isRequired,
+  getLikedMovies: PropTypes.func.isRequired,
+  movies: PropTypes.array.isRequired
+};
 
 const mapStateToProps = state => ({
   movieState: state.movie

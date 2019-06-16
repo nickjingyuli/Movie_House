@@ -1,39 +1,53 @@
 import {
-  LIKED_MOVIE_FAIL,
-  LIKED_MOVIE_SUCCESS,
-  NO_LIKES
+  DB_MOVIE_FAIL,
+  DB_MOVIE_SUCCESS,
+  NO_MOVIES,
+  GET_ONE_MOVIE_FAIL,
+  GET_ONE_MOVIE_SUCCESS
 } from "../actions/types";
 import filterGenres from "../utils/filterGenres";
 
 const initialState = {
-  likedMovies: [],
-  likedMoviesGenres: {},
-  watchLater: [],
-  currentResults: [],
+  DBMovies: [],
+  DBMoviesGenres: {},
+  currentMovie: {},
   error: {},
-  loading: true
+  loading: true,
+  detailLoading: true
 };
 
 export default function(state = initialState, action) {
   const { type, payload } = action;
   switch (type) {
-    case LIKED_MOVIE_SUCCESS:
+    case DB_MOVIE_SUCCESS:
       return {
         ...state,
-        likedMoviesGenres: filterGenres(payload),
-        likedMovies: payload,
+        DBMoviesGenres: filterGenres(payload),
+        DBMovies: payload,
         loading: false
       };
-    case LIKED_MOVIE_FAIL:
+    case DB_MOVIE_FAIL:
       return {
         ...state,
         error: payload,
         loading: false
       };
-    case NO_LIKES:
+    case NO_MOVIES:
       return {
         ...state,
         loading: false
+      };
+    case GET_ONE_MOVIE_SUCCESS:
+      return {
+        ...state,
+        currentMovie: payload,
+        detailLoading: false
+      };
+    case GET_ONE_MOVIE_FAIL:
+      return {
+        ...state,
+        error: payload,
+        detailLoading: false
       };
     default:
       return state;

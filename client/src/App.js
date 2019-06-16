@@ -14,6 +14,7 @@ import Navbar from "./components/layout/Navbar";
 import Landing from "./components/layout/Landing";
 import PrivateRoute from "./components/routing/PrivateRoute";
 import Dashboard from "./components/dashboard/Dashboard";
+import MovieDetail from "./components/movie/MovieDetail";
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
@@ -33,6 +34,7 @@ const App = () => {
             <Switch>
               <Route exact path="/register" component={Register} />
               <Route exact path="/login" component={Login} />
+              <Route exact path="/detail/:id" component={MovieDetail} />
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
             </Switch>
           </section>

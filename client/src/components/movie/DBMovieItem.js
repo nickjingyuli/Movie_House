@@ -12,7 +12,7 @@ class DBMovieItem extends Component {
     return (
       <div className="card-container m-1">
         <img src={this.state.imgUrl} alt={this.props.movie.title} />
-        <div className="movie-overlay">
+        <div className="movie-overlay bd-radius">
           <h5>{this.props.movie.title}</h5>
           <Rating
             className="rating"

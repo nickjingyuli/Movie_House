@@ -1,22 +1,25 @@
 import React, { Fragment } from "react";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { Tab } from "semantic-ui-react";
 import DBMovieItem from "../movie/DBMovieItem";
 
-const DisplayLikes = ({ all, movieGenres }) => {
+const DisplayMovies = ({ all, movieGenres }) => {
   const panes = [
     {
       menuItem: "All",
       render: () =>
         movieGenres.action.length === 0 ? (
           <Tab.Pane attached={false}>
-            <p className="lead">No Movies</p>
+            <p className="lead">No movie here </p>
           </Tab.Pane>
         ) : (
           <Tab.Pane attached={false}>
             <div className="poster-container">
               {all.map(item => (
-                <DBMovieItem movie={item} />
+                <Link to={`/detail/${item.id}`}>
+                  <DBMovieItem movie={item} />
+                </Link>
               ))}
             </div>
           </Tab.Pane>
@@ -27,7 +30,7 @@ const DisplayLikes = ({ all, movieGenres }) => {
       render: () =>
         movieGenres.action.length === 0 ? (
           <Tab.Pane attached={false}>
-            <p className="lead">No Movies</p>
+            <p className="lead">No movie here </p>
           </Tab.Pane>
         ) : (
           <Tab.Pane attached={false}>
@@ -44,7 +47,7 @@ const DisplayLikes = ({ all, movieGenres }) => {
       render: () =>
         movieGenres.adventure.length === 0 ? (
           <Tab.Pane attached={false}>
-            <p className="lead">No Movies</p>
+            <p className="lead">No movie here </p>
           </Tab.Pane>
         ) : (
           <Tab.Pane attached={false}>
@@ -61,7 +64,7 @@ const DisplayLikes = ({ all, movieGenres }) => {
       render: () =>
         movieGenres.animation.length === 0 ? (
           <Tab.Pane attached={false}>
-            <p className="lead">No Movies</p>
+            <p className="lead">No movie here </p>
           </Tab.Pane>
         ) : (
           <Tab.Pane attached={false}>
@@ -78,7 +81,7 @@ const DisplayLikes = ({ all, movieGenres }) => {
       render: () =>
         movieGenres.comedy.length === 0 ? (
           <Tab.Pane attached={false}>
-            <p className="lead">No Movies</p>
+            <p className="lead">No movie here </p>
           </Tab.Pane>
         ) : (
           <Tab.Pane attached={false}>
@@ -95,7 +98,7 @@ const DisplayLikes = ({ all, movieGenres }) => {
       render: () =>
         movieGenres.crime.length === 0 ? (
           <Tab.Pane attached={false}>
-            <p className="lead">No Movies</p>
+            <p className="lead">No movie here </p>
           </Tab.Pane>
         ) : (
           <Tab.Pane attached={false}>
@@ -112,7 +115,7 @@ const DisplayLikes = ({ all, movieGenres }) => {
       render: () =>
         movieGenres.documentary.length === 0 ? (
           <Tab.Pane attached={false}>
-            <p className="lead">No Movies</p>
+            <p className="lead">No movie here </p>
           </Tab.Pane>
         ) : (
           <Tab.Pane attached={false}>
@@ -129,7 +132,7 @@ const DisplayLikes = ({ all, movieGenres }) => {
       render: () =>
         movieGenres.drama.length === 0 ? (
           <Tab.Pane attached={false}>
-            <p className="lead">No Movies</p>
+            <p className="lead">No movie here </p>
           </Tab.Pane>
         ) : (
           <Tab.Pane attached={false}>
@@ -146,7 +149,7 @@ const DisplayLikes = ({ all, movieGenres }) => {
       render: () =>
         movieGenres.family.length === 0 ? (
           <Tab.Pane attached={false}>
-            <p className="lead">No Movies</p>
+            <p className="lead">No movie here </p>
           </Tab.Pane>
         ) : (
           <Tab.Pane attached={false}>
@@ -163,7 +166,7 @@ const DisplayLikes = ({ all, movieGenres }) => {
       render: () =>
         movieGenres.fantasy.length === 0 ? (
           <Tab.Pane attached={false}>
-            <p className="lead">No Movies</p>
+            <p className="lead">No movie here </p>
           </Tab.Pane>
         ) : (
           <Tab.Pane attached={false}>
@@ -180,7 +183,7 @@ const DisplayLikes = ({ all, movieGenres }) => {
       render: () =>
         movieGenres.history.length === 0 ? (
           <Tab.Pane attached={false}>
-            <p className="lead">No Movies</p>
+            <p className="lead">No movie here </p>
           </Tab.Pane>
         ) : (
           <Tab.Pane attached={false}>
@@ -197,7 +200,7 @@ const DisplayLikes = ({ all, movieGenres }) => {
       render: () =>
         movieGenres.horror.length === 0 ? (
           <Tab.Pane attached={false}>
-            <p className="lead">No Movies</p>
+            <p className="lead">No movie here </p>
           </Tab.Pane>
         ) : (
           <Tab.Pane attached={false}>
@@ -214,7 +217,7 @@ const DisplayLikes = ({ all, movieGenres }) => {
       render: () =>
         movieGenres.music.length === 0 ? (
           <Tab.Pane attached={false}>
-            <p className="lead">No Movies</p>
+            <p className="lead">No movie here </p>
           </Tab.Pane>
         ) : (
           <Tab.Pane attached={false}>
@@ -231,7 +234,7 @@ const DisplayLikes = ({ all, movieGenres }) => {
       render: () =>
         movieGenres.mystery.length === 0 ? (
           <Tab.Pane attached={false}>
-            <p className="lead">No Movies</p>
+            <p className="lead">No movie here </p>
           </Tab.Pane>
         ) : (
           <Tab.Pane attached={false}>
@@ -248,7 +251,7 @@ const DisplayLikes = ({ all, movieGenres }) => {
       render: () =>
         movieGenres.romance.length === 0 ? (
           <Tab.Pane attached={false}>
-            <p className="lead">No Movies</p>
+            <p className="lead">No movie here </p>
           </Tab.Pane>
         ) : (
           <Tab.Pane attached={false}>
@@ -265,7 +268,7 @@ const DisplayLikes = ({ all, movieGenres }) => {
       render: () =>
         movieGenres.scienceFiction.length === 0 ? (
           <Tab.Pane attached={false}>
-            <p className="lead">No Movies</p>
+            <p className="lead">No movie here </p>
           </Tab.Pane>
         ) : (
           <Tab.Pane attached={false}>
@@ -282,7 +285,7 @@ const DisplayLikes = ({ all, movieGenres }) => {
       render: () =>
         movieGenres.tvMovie.length === 0 ? (
           <Tab.Pane attached={false}>
-            <p className="lead">No Movies</p>
+            <p className="lead">No movie here </p>
           </Tab.Pane>
         ) : (
           <Tab.Pane attached={false}>
@@ -299,7 +302,7 @@ const DisplayLikes = ({ all, movieGenres }) => {
       render: () =>
         movieGenres.thriller.length === 0 ? (
           <Tab.Pane attached={false}>
-            <p className="lead">No Movies</p>
+            <p className="lead">No movie here </p>
           </Tab.Pane>
         ) : (
           <Tab.Pane attached={false}>
@@ -316,7 +319,7 @@ const DisplayLikes = ({ all, movieGenres }) => {
       render: () =>
         movieGenres.war.length === 0 ? (
           <Tab.Pane attached={false}>
-            <p className="lead">No Movies</p>
+            <p className="lead">No movie here </p>
           </Tab.Pane>
         ) : (
           <Tab.Pane attached={false}>
@@ -333,7 +336,7 @@ const DisplayLikes = ({ all, movieGenres }) => {
       render: () =>
         movieGenres.action.length === 0 ? (
           <Tab.Pane attached={false}>
-            <p className="lead">No Movies</p>
+            <p className="lead">No movie here </p>
           </Tab.Pane>
         ) : (
           <Tab.Pane attached={false}>
@@ -348,14 +351,17 @@ const DisplayLikes = ({ all, movieGenres }) => {
   ];
   return (
     <Fragment>
-      <Tab menu={{ fluid: true, vertical: true }} panes={panes} />
+      <Tab
+        menu={{ color: "grey", inverted: true, fluid: true, vertical: true }}
+        panes={panes}
+      />
     </Fragment>
   );
 };
 
-DisplayLikes.propTypes = {
+DisplayMovies.propTypes = {
   all: PropTypes.array.isRequired,
   movieGenres: PropTypes.object.isRequired
 };
 
-export default DisplayLikes;
+export default DisplayMovies;

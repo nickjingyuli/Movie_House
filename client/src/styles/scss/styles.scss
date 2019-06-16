@@ -1,6 +1,7 @@
 @import "utilities";
 @import "config";
 @import "forms";
+@import "circle";
 
 * {
   box-sizing: border-box;
@@ -94,6 +95,7 @@ img {
     margin: 0 3px;
     img {
       display: block;
+      border-radius: $border-radius;
     }
 
     .movie-overlay {

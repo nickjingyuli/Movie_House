@@ -1,35 +1,35 @@
 import React, { useEffect, Fragment } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { getLikedMovies } from "../../actions/movie";
+import { getDBMovies } from "../../actions/movie";
 import Spinner from "../layout/Spinner";
-import DisplayLikes from "./DisplayLikes";
+import DisplayMovies from "./DisplayMovies";
 
-const Likes = ({
+const DBMovies = ({
   movies,
-  movieState: { loading, likedMovies, likedMoviesGenres },
-  getLikedMovies
+  movieState: { loading, DBMovies, DBMoviesGenres },
+  getDBMovies
 }) => {
   useEffect(() => {
-    getLikedMovies(movies);
-  }, [getLikedMovies, movies]);
+    getDBMovies(movies);
+  }, [getDBMovies, movies]);
 
   return loading ? (
     <Spinner />
   ) : (
     <Fragment>
-      {likedMovies.length === 0 ? (
-        <h3>You haven't liked any movies</h3>
+      {DBMovies.length === 0 ? (
+        <h3>No movie</h3>
       ) : (
-        <DisplayLikes all={likedMovies} movieGenres={likedMoviesGenres} />
+        <DisplayMovies all={DBMovies} movieGenres={DBMoviesGenres} />
       )}
     </Fragment>
   );
 };
 
-Likes.propTypes = {
+DBMovies.propTypes = {
   movieState: PropTypes.object.isRequired,
-  getLikedMovies: PropTypes.func.isRequired,
+  getDBMovies: PropTypes.func.isRequired,
   movies: PropTypes.array.isRequired
 };
 
@@ -39,5 +39,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getLikedMovies }
-)(Likes);
+  { getDBMovies }
+)(DBMovies);

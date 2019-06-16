@@ -10,7 +10,7 @@ class DBMovieItem extends Component {
 
   render() {
     return (
-      <div className="card-container m-1">
+      <div className="card-container m-1" key={this.props.movie.id}>
         <img src={this.state.imgUrl} alt={this.props.movie.title} />
         <div className="movie-overlay bd-radius">
           <h5>{this.props.movie.title}</h5>

@@ -1208,9 +1208,6 @@
 .c100.dark .fill {
   border-color: #c6ff00 !important; }
 
-.c100.dark > span {
-  color: #777777; }
-
 .c100.dark:after {
   background-color: #666666; }
 
@@ -1333,3 +1330,32 @@ img {
       opacity: 0.9; }
       .poster-container .card-container .movie-overlay:hover h5, .poster-container .card-container .movie-overlay:hover .rating {
         opacity: 1; }
+
+.top {
+  color: white;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 40% 60%; }
+  .top .tp-lft {
+    margin: auto;
+    margin-left: 0;
+    margin-bottom: 0;
+    width: 95%; }
+  .top .tp-rt {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start; }
+  .top .movie-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; }
+    .top .movie-info .basic-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start; }
+    .top .movie-info .rating {
+      padding-top: 2rem; }

@@ -119,5 +119,46 @@ img {
       }
     }
   }
-
 }
+
+//.detail-bg {
+//  background-color: #333 !important;
+//  color: white
+//}
+
+.top {
+  color: white;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 40% 60%;
+  .tp-lft {
+    margin: auto;
+    margin-left: 0;
+    margin-bottom: 0;
+    width: 95%;
+  }
+
+  .tp-rt {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .movie-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .basic-info {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+    }
+    .rating {
+      padding-top: 2rem;
+    }
+  }
+}
+

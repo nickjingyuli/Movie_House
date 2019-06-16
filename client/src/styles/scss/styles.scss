@@ -34,6 +34,7 @@ ul {
 
 img {
   width: 100%;
+  display: block;
 }
 
 .navbar {
@@ -94,7 +95,6 @@ img {
     position: relative;
     margin: 0 3px;
     img {
-      display: block;
       border-radius: $border-radius;
     }
 
@@ -141,20 +141,26 @@ img {
   .tp-rt {
     width: 90%;
     margin: auto;
-    display: flex;
+    display: grid;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
   }
   .movie-info {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 50% 50%;
+
     .basic-info {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: flex-start;
+
+      & > .icons {
+        width: 50%;
+        display: flex;
+        justify-content: space-around;
+      }
     }
     .rating {
       padding-top: 2rem;

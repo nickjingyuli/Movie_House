@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import { Label, Icon } from "semantic-ui-react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
@@ -9,6 +9,7 @@ const MovieDetail = ({
   match: {
     params: { id }
   },
+  isAuthenticated,
   movie: { detailLoading, currentMovie },
   getOneMovie
 }) => {
@@ -18,18 +19,28 @@ const MovieDetail = ({
     // return () => document.body.classList.remove("detail-bg");
   }, [getOneMovie, id]);
 
+  const [liked, setLike] = useState(true);
+  const [watched, setWatch] = useState(true);
+
+  const handleLike = () => {
+    setLike(!liked);
+  };
+  const handleWatch = () => {
+    setWatch(!watched);
+  };
+
   return detailLoading ? (
     <Spinner />
   ) : (
-    <div className="detail-container">
+    <Fragment>
       <div className="top bg-dark">
-        <div className="tp-lft">
+        <section className="tp-lft">
           <img
             src={`https://image.tmdb.org/t/p/w500/${currentMovie.poster_path}`}
             alt={currentMovie.title}
           />
-        </div>
-        <div className="tp-rt">
+        </section>
+        <section className="tp-rt">
           <div className="movie-info">
             <div className="basic-info">
               <h1>{currentMovie.title}</h1>
@@ -40,9 +51,27 @@ const MovieDetail = ({
               </div>
               <p>Released on: {currentMovie.release_date}</p>
               <p>Revenue: ${currentMovie.revenue}</p>
+              {isAuthenticated && (
+                <div className="icons">
+                  <Icon
+                    name={liked ? "heart" : "heart outline"}
+                    color={liked ? "red" : "white"}
+                    size="large"
+                    title="Likes"
+                    onClick={() => handleLike()}
+                  />
+                  <Icon
+                    name={watched ? "check circle" : "check circle outline"}
+                    color={watched ? "blue" : "white"}
+                    size="large"
+                    title="Wish List"
+                    onClick={() => handleWatch()}
+                  />
+                </div>
+              )}
             </div>
 
-            <div className="rating m-1">
+            <div className="rating m-2">
               <div
                 className={`c100 p${Math.round(
                   currentMovie.vote_average * 10
@@ -62,22 +91,24 @@ const MovieDetail = ({
             {/*  ))}*/}
             {/*</div>*/}
           </div>
-          <div className="my-2">
+          <div>
             <p className="lead">{currentMovie.overview}</p>
           </div>
-        </div>
+        </section>
       </div>
-    </div>
+    </Fragment>
   );
 };
 
 MovieDetail.propTypes = {
   movie: PropTypes.object.isRequired,
-  getOneMovie: PropTypes.func.isRequired
+  getOneMovie: PropTypes.func.isRequired,
+  isAuthenticated: PropTypes.bool.isRequired
 };
 
 const mapStateToProps = state => ({
-  movie: state.movie
+  movie: state.movie,
+  isAuthenticated: state.auth.isAuthenticated
 });
 
 export default connect(

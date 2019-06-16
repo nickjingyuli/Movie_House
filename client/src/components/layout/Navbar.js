@@ -36,7 +36,7 @@ const Navbar = ({ auth: { loading, isAuthenticated }, logout, history }) => {
         </Link>
       </li>
       <li>
-        <Link to="login">
+        <Link to="/login">
           <Icon name="sign-in" /> <span>Login</span>
         </Link>
       </li>
@@ -70,7 +70,7 @@ const Navbar = ({ auth: { loading, isAuthenticated }, logout, history }) => {
         </Link>
       </li>
       <li>
-        <a onClick={logout} href="#!">
+        <a onClick={logout} href="javascript:void(0)">
           <Icon name="sign-out" /> <span>Logout</span>
         </a>
       </li>

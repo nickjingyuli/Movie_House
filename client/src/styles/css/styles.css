@@ -1263,7 +1263,8 @@ ul {
   list-style: none; }
 
 img {
-  width: 100%; }
+  width: 100%;
+  display: block; }
 
 .navbar {
   display: flex;
@@ -1311,7 +1312,6 @@ img {
     position: relative;
     margin: 0 3px; }
     .poster-container .card-container img {
-      display: block;
       border-radius: 5px; }
     .poster-container .card-container .movie-overlay {
       display: flex;
@@ -1344,18 +1344,21 @@ img {
   .top .tp-rt {
     width: 90%;
     margin: auto;
-    display: flex;
+    display: grid;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start; }
   .top .movie-info {
-    display: flex;
-    align-items: center;
-    justify-content: space-between; }
+    display: grid;
+    grid-template-columns: 50% 50%; }
     .top .movie-info .basic-info {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: flex-start; }
+      .top .movie-info .basic-info > .icons {
+        width: 50%;
+        display: flex;
+        justify-content: space-around; }
     .top .movie-info .rating {
       padding-top: 2rem; }

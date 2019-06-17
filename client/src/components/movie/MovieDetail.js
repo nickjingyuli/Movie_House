@@ -77,7 +77,10 @@ const MovieDetail = ({
                 ))}
               </div>
               <p>Released on: {currentMovie.release_date}</p>
-              <p>Revenue: ${currentMovie.revenue}</p>
+              <p>
+                Revenue:{" "}
+                {currentMovie.revenue > 0 && `$ ${currentMovie.revenue}`}
+              </p>
               {isAuthenticated && user && (
                 <div className="icons">
                   <Icon

@@ -120,6 +120,13 @@
 .bd-radius {
   border-radius: 5px; }
 
+.center {
+  text-align: center; }
+
+.flex-center {
+  display: flex;
+  justify-content: center; }
+
 .m-1 {
   margin: 1rem; }
 
@@ -364,6 +371,13 @@
 
 .bd-radius {
   border-radius: 5px; }
+
+.center {
+  text-align: center; }
+
+.flex-center {
+  display: flex;
+  justify-content: center; }
 
 /****************************************************************
  *
@@ -1310,7 +1324,7 @@ img {
   grid-template-columns: repeat(4, 25%); }
   .poster-container .card-container {
     position: relative;
-    margin: 0 3px; }
+    margin: 3px; }
     .poster-container .card-container img {
       border-radius: 5px; }
     .poster-container .card-container .movie-overlay {
@@ -1337,11 +1351,8 @@ img {
   display: grid;
   grid-template-columns: 40% 60%; }
   .top .tp-lft {
-    margin: auto;
-    margin-left: 0;
-    margin-bottom: 0;
-    width: 95%;
-    visibility: hidden; }
+    margin: 0 auto auto 0;
+    width: 95%; }
   .top .tp-rt {
     width: 90%;
     margin: auto;

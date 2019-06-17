@@ -46,8 +46,6 @@ export default function(state = initialState, action) {
     case UNWISH_MOVIE_SUCCESS:
       return {
         ...state,
-        DBMoviesGenres: filterGenres(payload),
-        DBMovies: payload,
         loading: false
       };
     case LIKE_MOVIE_FAIL:

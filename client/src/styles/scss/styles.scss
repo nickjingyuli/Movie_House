@@ -93,7 +93,7 @@ img {
 
   .card-container {
     position: relative;
-    margin: 0 3px;
+    margin: 3px;
     img {
       border-radius: $border-radius;
     }
@@ -121,20 +121,13 @@ img {
   }
 }
 
-//.detail-bg {
-//  background-color: #333 !important;
-//  color: white
-//}
-
 .top {
   color: white;
   width: 100%;
   display: grid;
   grid-template-columns: 40% 60%;
   .tp-lft {
-    margin: auto;
-    margin-left: 0;
-    margin-bottom: 0;
+    margin: 0 auto auto 0;
     width: 95%;
   }
 

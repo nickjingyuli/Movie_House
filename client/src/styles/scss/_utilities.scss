@@ -73,3 +73,12 @@
 .bd-radius{
   border-radius: $border-radius;
 }
+
+.center {
+  text-align: center;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: center;
+}

@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from "react";
-import { Form, Radio } from "semantic-ui-react";
+import { Form, Icon, Radio } from "semantic-ui-react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import Spinner from "../layout/Spinner";
@@ -40,11 +40,16 @@ const Dashboard = ({ auth }) => {
             </Form.Field>
           </Form.Group>
         </Form>
-
         {value === "like" ? (
-          <h3>Movies you liked</h3>
+          <h3>
+            <Icon name="heart" color="red" />
+            Movies you liked
+          </h3>
         ) : (
-          <h3>Movies in your wish list</h3>
+          <h3>
+            <Icon name="check" color="blue" />
+            Movies in your wish list
+          </h3>
         )}
         <DBMovies
           movies={

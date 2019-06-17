@@ -14,6 +14,7 @@ import {
   UNWISH_MOVIE_SUCCESS,
   UNWISH_MOVIE_FAIL
 } from "./types";
+
 import { loadUser } from "./auth";
 
 // load Dashboard movies
@@ -27,7 +28,7 @@ export const getDBMovies = arr => async dispatch => {
     delete axios.defaults.headers.common["x-auth-token"];
   }
   let movieIds = [];
-  arr.forEach(movie => {
+  Array.from(arr).forEach(movie => {
     movieIds.push(movie.movieId);
   });
   const promises = movieIds.map(id =>
@@ -80,11 +81,11 @@ export const getOneMovie = id => async dispatch => {
 export const likeAMovie = id => async dispatch => {
   try {
     const res = await axios.put(`/api/users/likedmovies/${id}`);
+    await dispatch(getDBMovies(res));
     dispatch({
-      type: LIKE_MOVIE_SUCCESS,
-      payload: res.data
+      type: LIKE_MOVIE_SUCCESS
     });
-    dispatch(getOneMovie(id));
+    dispatch(loadUser());
   } catch (err) {
     console.log(err);
     dispatch({
@@ -96,11 +97,11 @@ export const likeAMovie = id => async dispatch => {
 export const unlikeAMovie = id => async dispatch => {
   try {
     const res = await axios.put(`/api/users/likedmovies/remove/${id}`);
+    await dispatch(getDBMovies(res));
     dispatch({
-      type: UNLIKE_MOVIE_SUCCESS,
-      payload: res.data
+      type: UNLIKE_MOVIE_SUCCESS
     });
-    dispatch(getOneMovie(id));
+    dispatch(loadUser());
   } catch (err) {
     console.log(err);
     dispatch({
@@ -112,11 +113,11 @@ export const unlikeAMovie = id => async dispatch => {
 export const wishAMovie = id => async dispatch => {
   try {
     const res = await axios.put(`/api/users/watchlater/${id}`);
+    await dispatch(getDBMovies(res));
     dispatch({
-      type: WISH_MOVIE_SUCCESS,
-      payload: res.data
+      type: WISH_MOVIE_SUCCESS
     });
-    dispatch(getOneMovie(id));
+    dispatch(loadUser());
   } catch (err) {
     console.log(err);
     dispatch({
@@ -128,11 +129,11 @@ export const wishAMovie = id => async dispatch => {
 export const unwishAMovie = id => async dispatch => {
   try {
     const res = await axios.put(`/api/users/watchlater/remove/${id}`);
+    await dispatch(getDBMovies(res));
     dispatch({
-      type: UNWISH_MOVIE_SUCCESS,
-      payload: res.data
+      type: UNWISH_MOVIE_SUCCESS
     });
-    dispatch(getOneMovie(id));
+    dispatch(loadUser());
   } catch (err) {
     console.log(err);
     dispatch({

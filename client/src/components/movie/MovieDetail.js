@@ -1,8 +1,14 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useEffect } from "react";
 import { Label, Icon } from "semantic-ui-react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { getOneMovie } from "../../actions/movie";
+import {
+  getOneMovie,
+  likeAMovie,
+  unlikeAMovie,
+  wishAMovie,
+  unwishAMovie
+} from "../../actions/movie";
 import Spinner from "../layout/Spinner";
 
 const MovieDetail = ({
@@ -11,7 +17,11 @@ const MovieDetail = ({
   },
   auth: { isAuthenticated, user },
   movie: { detailLoading, currentMovie },
-  getOneMovie
+  getOneMovie,
+  likeAMovie,
+  unlikeAMovie,
+  wishAMovie,
+  unwishAMovie
 }) => {
   useEffect(() => {
     getOneMovie(id);
@@ -19,14 +29,31 @@ const MovieDetail = ({
     // return () => document.body.classList.remove("detail-bg");
   }, [getOneMovie, id]);
 
-  const [liked, setLike] = useState(true);
-  const [watched, setWatch] = useState(true);
-
   const handleLike = () => {
-    setLike(!liked);
+    if (user.likedMovies && currentMovie) {
+      if (
+        user.likedMovies
+          .map(item => item.movieId)
+          .indexOf(currentMovie.id.toString()) > -1
+      ) {
+        unlikeAMovie(currentMovie.id);
+      } else {
+        likeAMovie(currentMovie.id);
+      }
+    }
   };
   const handleWatch = () => {
-    setWatch(!watched);
+    if (user.watchLater && currentMovie) {
+      if (
+        user.watchLater
+          .map(item => item.movieId)
+          .indexOf(currentMovie.id.toString()) > -1
+      ) {
+        unwishAMovie(currentMovie.id);
+      } else {
+        wishAMovie(currentMovie.id);
+      }
+    }
   };
 
   return detailLoading ? (
@@ -135,7 +162,11 @@ const MovieDetail = ({
 MovieDetail.propTypes = {
   movie: PropTypes.object.isRequired,
   getOneMovie: PropTypes.func.isRequired,
-  auth: PropTypes.object.isRequired
+  auth: PropTypes.object.isRequired,
+  likeAMovie: PropTypes.func.isRequired,
+  unlikeAMovie: PropTypes.func.isRequired,
+  wishAMovie: PropTypes.func.isRequired,
+  unwishAMovie: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
@@ -145,5 +176,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getOneMovie }
+  { getOneMovie, likeAMovie, unlikeAMovie, wishAMovie, unwishAMovie }
 )(MovieDetail);

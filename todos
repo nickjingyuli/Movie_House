@@ -6,6 +6,11 @@ User:
 
 Frontend:
 
+MovieDetail: 问题！！！！！
+1. user.likedMovies后端返回的时array of object，不是 array of ids
+2. 填DBMovies, genres state时，放入的不是movie object
+
+
 dashboard:
 1. 小屏时每排从五个减少。改变grid
 2. 把tab里的menuItem换成一个<p></p> 然后小屏时只显示字体缩小， 或者只显示icon。 或者小屏时直接取消tab, 换一种设计

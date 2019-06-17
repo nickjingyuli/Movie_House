@@ -21,7 +21,10 @@ export default function(movies) {
     war: [],
     western: []
   };
-  movies.forEach(movie => {
+  if (movies.length === 0) {
+    return result;
+  }
+  Array.from(movies).forEach(movie => {
     const genres = movie.genres.map(item => item.id);
     if (genres.indexOf(28) !== -1) {
       result.action.push(movie);

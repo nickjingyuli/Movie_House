@@ -1340,7 +1340,8 @@ img {
     margin: auto;
     margin-left: 0;
     margin-bottom: 0;
-    width: 95%; }
+    width: 95%;
+    visibility: hidden; }
   .top .tp-rt {
     width: 90%;
     margin: auto;

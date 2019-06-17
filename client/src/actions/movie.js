@@ -4,8 +4,17 @@ import {
   DB_MOVIE_SUCCESS,
   NO_MOVIES,
   GET_ONE_MOVIE_FAIL,
-  GET_ONE_MOVIE_SUCCESS
+  GET_ONE_MOVIE_SUCCESS,
+  LIKE_MOVIE_SUCCESS,
+  LIKE_MOVIE_FAIL,
+  UNLIKE_MOVIE_SUCCESS,
+  UNLIKE_MOVIE_FAIL,
+  WISH_MOVIE_SUCCESS,
+  WISH_MOVIE_FAIL,
+  UNWISH_MOVIE_SUCCESS,
+  UNWISH_MOVIE_FAIL
 } from "./types";
+import { loadUser } from "./auth";
 
 // load Dashboard movies
 export const getDBMovies = arr => async dispatch => {
@@ -65,5 +74,70 @@ export const getOneMovie = id => async dispatch => {
   }
   if (localStorage.token) {
     axios.defaults.headers.common["x-auth-token"] = localStorage.token;
+  }
+};
+
+export const likeAMovie = id => async dispatch => {
+  try {
+    const res = await axios.put(`/api/users/likedmovies/${id}`);
+    dispatch({
+      type: LIKE_MOVIE_SUCCESS,
+      payload: res.data
+    });
+    dispatch(getOneMovie(id));
+  } catch (err) {
+    console.log(err);
+    dispatch({
+      type: LIKE_MOVIE_FAIL,
+      payload: err
+    });
+  }
+};
+export const unlikeAMovie = id => async dispatch => {
+  try {
+    const res = await axios.put(`/api/users/likedmovies/remove/${id}`);
+    dispatch({
+      type: UNLIKE_MOVIE_SUCCESS,
+      payload: res.data
+    });
+    dispatch(getOneMovie(id));
+  } catch (err) {
+    console.log(err);
+    dispatch({
+      type: UNLIKE_MOVIE_FAIL,
+      payload: err
+    });
+  }
+};
+export const wishAMovie = id => async dispatch => {
+  try {
+    const res = await axios.put(`/api/users/watchlater/${id}`);
+    dispatch({
+      type: WISH_MOVIE_SUCCESS,
+      payload: res.data
+    });
+    dispatch(getOneMovie(id));
+  } catch (err) {
+    console.log(err);
+    dispatch({
+      type: WISH_MOVIE_FAIL,
+      payload: err
+    });
+  }
+};
+export const unwishAMovie = id => async dispatch => {
+  try {
+    const res = await axios.put(`/api/users/watchlater/remove/${id}`);
+    dispatch({
+      type: UNWISH_MOVIE_SUCCESS,
+      payload: res.data
+    });
+    dispatch(getOneMovie(id));
+  } catch (err) {
+    console.log(err);
+    dispatch({
+      type: UNWISH_MOVIE_FAIL,
+      payload: err
+    });
   }
 };

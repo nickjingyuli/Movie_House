@@ -9,7 +9,7 @@ const MovieDetail = ({
   match: {
     params: { id }
   },
-  isAuthenticated,
+  auth: { isAuthenticated, user },
   movie: { detailLoading, currentMovie },
   getOneMovie
 }) => {
@@ -51,18 +51,50 @@ const MovieDetail = ({
               </div>
               <p>Released on: {currentMovie.release_date}</p>
               <p>Revenue: ${currentMovie.revenue}</p>
-              {isAuthenticated && (
+              {isAuthenticated && user && (
                 <div className="icons">
                   <Icon
-                    name={liked ? "heart" : "heart outline"}
-                    color={liked ? "red" : "white"}
+                    name={
+                      user.likedMovies
+                        ? user.likedMovies
+                            .map(item => item.movieId)
+                            .indexOf(currentMovie.id.toString()) > -1
+                          ? "heart"
+                          : "heart outline"
+                        : "heart outline"
+                    }
+                    color={
+                      user.likedMovies
+                        ? user.likedMovies
+                            .map(item => item.movieId)
+                            .indexOf(currentMovie.id.toString()) > -1
+                          ? "red"
+                          : "white"
+                        : "white"
+                    }
                     size="large"
                     title="Likes"
                     onClick={() => handleLike()}
                   />
                   <Icon
-                    name={watched ? "check circle" : "check circle outline"}
-                    color={watched ? "blue" : "white"}
+                    name={
+                      user.watchLater
+                        ? user.watchLater
+                            .map(item => item.movieId)
+                            .indexOf(currentMovie.id.toString()) > -1
+                          ? "check circle"
+                          : "check circle outline"
+                        : "check circle outline"
+                    }
+                    color={
+                      user.watchLater
+                        ? user.watchLater
+                            .map(item => item.movieId)
+                            .indexOf(currentMovie.id.toString()) > -1
+                          ? "blue"
+                          : "white"
+                        : "white"
+                    }
                     size="large"
                     title="Wish List"
                     onClick={() => handleWatch()}
@@ -103,12 +135,12 @@ const MovieDetail = ({
 MovieDetail.propTypes = {
   movie: PropTypes.object.isRequired,
   getOneMovie: PropTypes.func.isRequired,
-  isAuthenticated: PropTypes.bool.isRequired
+  auth: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
   movie: state.movie,
-  isAuthenticated: state.auth.isAuthenticated
+  auth: state.auth
 });
 
 export default connect(

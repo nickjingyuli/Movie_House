@@ -8,6 +8,16 @@ class DBMovieItem extends Component {
     imgUrl: `https://image.tmdb.org/t/p/w500/${this.props.movie.poster_path}`
   };
 
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    if (prevProps.movie.poster_path !== this.props.movie.poster_path) {
+      this.setState({
+        imgUrl: `https://image.tmdb.org/t/p/w500/${
+          this.props.movie.poster_path
+        }`
+      });
+    }
+  }
+
   render() {
     return (
       <div className="card-container m-1" key={this.props.movie.id}>

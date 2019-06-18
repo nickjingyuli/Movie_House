@@ -1,26 +1,48 @@
 import React, { Fragment } from "react";
 import { Button, Form } from "semantic-ui-react";
 import PropTypes from "prop-types";
+import { connect } from "react-redux";
 
-const CommentForm = props => {
+const CommentForm = ({ currentState, userComment, toggle }) => {
   return (
     <Fragment>
-      <Form size="big" className="form m-3">
+      <Form size="big" className="comment-form">
         <Form.Field>
-          <p>Comment</p>
+          {currentState !== "add" ? <p>Your comment</p> : <p>Make a comment</p>}
           <Form.TextArea
-            placeholder="Write something about this movie..."
+            value={userComment && userComment.text}
+            placeholder={
+              currentState === "add" && `Write something about this movie...`
+            }
             style={{ background: "#333", color: "white" }}
+            disabled={currentState === "disabled"}
           />
-          <Button color="grey" inverted type="submit">
-            Submit
-          </Button>
+          {currentState === "disabled" ? (
+            <Button inverted onClick={() => toggle("edit")}>
+              Edit your comment
+            </Button>
+          ) : (
+            <Button color="grey" inverted type="submit">
+              Submit
+            </Button>
+          )}
         </Form.Field>
       </Form>
     </Fragment>
   );
 };
 
-CommentForm.propTypes = {};
+CommentForm.propTypes = {
+  currentState: PropTypes.string.isRequired,
+  userComment: PropTypes.object.isRequired,
+  toggle: PropTypes.func.isRequired
+};
 
-export default CommentForm;
+const mapStateToProps = state => ({
+  userComment: state.comment.userComment
+});
+
+export default connect(
+  mapStateToProps,
+  {}
+)(CommentForm);

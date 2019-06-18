@@ -130,6 +130,7 @@ img {
   width: 100%;
   display: grid;
   grid-template-columns: 40% 60%;
+  border-bottom: #cce2ff 1px solid;
   .tp-lft {
     margin: 0 auto auto 0;
     width: 95%;
@@ -165,6 +166,7 @@ img {
   }
 }
 
-// movie detail comment
-.comment-container {
-}
+//// movie detail comment
+//.comment-container {
+//  height: 500px;
+//}

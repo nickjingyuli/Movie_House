@@ -187,7 +187,10 @@
 .py-5 {
   padding: 5rem 0; }
 
-.form {
+#register-form {
+  width: 100%; }
+
+.comment-form {
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr; }
@@ -1352,7 +1355,8 @@ img {
   color: white;
   width: 100%;
   display: grid;
-  grid-template-columns: 40% 60%; }
+  grid-template-columns: 40% 60%;
+  border-bottom: #cce2ff 1px solid; }
   .top .tp-lft {
     margin: 0 auto auto 0;
     width: 95%; }

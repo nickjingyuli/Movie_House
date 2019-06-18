@@ -25,7 +25,26 @@ router.get("/", auth, async (req, res) => {
 // @access   Private
 router.get("/me", auth, async (req, res) => {
   try {
-    const comment = await Comment.findOne({ user: req.user.id });
+    const comment = await Comment.find({ user: req.user.id });
+    if (!comment) {
+      return res.status(400).json({ msg: "User comment not found" });
+    }
+    res.json(comment);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
+});
+
+// @route    GET api/comments/me/:id
+// @desc     GET current user's comment based on movie id
+// @access   Private
+router.get("/me/:id", auth, async (req, res) => {
+  try {
+    const comment = await Comment.find({
+      user: req.user.id,
+      movieId: req.params.id
+    });
     if (!comment) {
       return res.status(400).json({ msg: "User comment not found" });
     }

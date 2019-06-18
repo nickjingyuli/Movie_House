@@ -24,7 +24,8 @@ const initialState = {
   currentRating: null,
   error: {},
   loading: true,
-  detailLoading: true
+  detailLoading: true,
+  ratingLoading: true
 };
 
 export default function(state = initialState, action) {
@@ -80,12 +81,15 @@ export default function(state = initialState, action) {
     case GET_RATING_SUCCESS:
       return {
         ...state,
-        currentRating: payload
+        currentRating: payload,
+        ratingLoading: false
       };
     case GET_RATING_FAIL:
       return {
         ...state,
-        error: payload
+        currentRating: null,
+        error: payload,
+        ratingLoading: false
       };
     default:
       return state;

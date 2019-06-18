@@ -151,7 +151,7 @@ export const unwishAMovie = id => async dispatch => {
 // Get current movie rating
 export const getRating = id => async dispatch => {
   try {
-    const res = await axios.get(`api/movie-rating/${id}`);
+    const res = await axios.get(`/api/movie-rating/${id}`);
     dispatch({
       type: GET_RATING_SUCCESS,
       payload: res.data.avgRating

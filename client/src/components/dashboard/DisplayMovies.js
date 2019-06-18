@@ -17,7 +17,7 @@ const DisplayMovies = ({ all, movieGenres }) => {
           <Tab.Pane attached={false}>
             <div className="poster-container">
               {all.map(item => (
-                <Link to={`/detail/${item.id}`}>
+                <Link key={item.id} to={`/detail/${item.id}`}>
                   <DBMovieItem movie={item} />
                 </Link>
               ))}
@@ -36,7 +36,7 @@ const DisplayMovies = ({ all, movieGenres }) => {
           <Tab.Pane attached={false}>
             <div className="poster-container">
               {movieGenres.action.map(item => (
-                <Link to={`/detail/${item.id}`}>
+                <Link key={item.id} to={`/detail/${item.id}`}>
                   <DBMovieItem movie={item} />
                 </Link>
               ))}
@@ -55,7 +55,7 @@ const DisplayMovies = ({ all, movieGenres }) => {
           <Tab.Pane attached={false}>
             <div className="poster-container">
               {movieGenres.adventure.map(item => (
-                <Link to={`/detail/${item.id}`}>
+                <Link key={item.id} to={`/detail/${item.id}`}>
                   <DBMovieItem movie={item} />
                 </Link>
               ))}
@@ -74,7 +74,7 @@ const DisplayMovies = ({ all, movieGenres }) => {
           <Tab.Pane attached={false}>
             <div className="poster-container">
               {movieGenres.animation.map(item => (
-                <Link to={`/detail/${item.id}`}>
+                <Link key={item.id} to={`/detail/${item.id}`}>
                   <DBMovieItem movie={item} />
                 </Link>
               ))}
@@ -93,7 +93,7 @@ const DisplayMovies = ({ all, movieGenres }) => {
           <Tab.Pane attached={false}>
             <div className="poster-container">
               {movieGenres.comedy.map(item => (
-                <Link to={`/detail/${item.id}`}>
+                <Link key={item.id} to={`/detail/${item.id}`}>
                   <DBMovieItem movie={item} />
                 </Link>
               ))}
@@ -112,7 +112,7 @@ const DisplayMovies = ({ all, movieGenres }) => {
           <Tab.Pane attached={false}>
             <div className="poster-container">
               {movieGenres.crime.map(item => (
-                <Link to={`/detail/${item.id}`}>
+                <Link key={item.id} to={`/detail/${item.id}`}>
                   <DBMovieItem movie={item} />
                 </Link>
               ))}
@@ -131,7 +131,7 @@ const DisplayMovies = ({ all, movieGenres }) => {
           <Tab.Pane attached={false}>
             <div className="poster-container">
               {movieGenres.documentary.map(item => (
-                <Link to={`/detail/${item.id}`}>
+                <Link key={item.id} to={`/detail/${item.id}`}>
                   <DBMovieItem movie={item} />
                 </Link>
               ))}
@@ -150,7 +150,7 @@ const DisplayMovies = ({ all, movieGenres }) => {
           <Tab.Pane attached={false}>
             <div className="poster-container">
               {movieGenres.drama.map(item => (
-                <Link to={`/detail/${item.id}`}>
+                <Link key={item.id} to={`/detail/${item.id}`}>
                   <DBMovieItem movie={item} />
                 </Link>
               ))}
@@ -169,7 +169,7 @@ const DisplayMovies = ({ all, movieGenres }) => {
           <Tab.Pane attached={false}>
             <div className="poster-container">
               {movieGenres.family.map(item => (
-                <Link to={`/detail/${item.id}`}>
+                <Link key={item.id} to={`/detail/${item.id}`}>
                   <DBMovieItem movie={item} />
                 </Link>
               ))}
@@ -188,7 +188,7 @@ const DisplayMovies = ({ all, movieGenres }) => {
           <Tab.Pane attached={false}>
             <div className="poster-container">
               {movieGenres.fantasy.map(item => (
-                <Link to={`/detail/${item.id}`}>
+                <Link key={item.id} to={`/detail/${item.id}`}>
                   <DBMovieItem movie={item} />
                 </Link>
               ))}
@@ -207,7 +207,7 @@ const DisplayMovies = ({ all, movieGenres }) => {
           <Tab.Pane attached={false}>
             <div className="poster-container">
               {movieGenres.history.map(item => (
-                <Link to={`/detail/${item.id}`}>
+                <Link key={item.id} to={`/detail/${item.id}`}>
                   <DBMovieItem movie={item} />
                 </Link>
               ))}
@@ -226,7 +226,7 @@ const DisplayMovies = ({ all, movieGenres }) => {
           <Tab.Pane attached={false}>
             <div className="poster-container">
               {movieGenres.horror.map(item => (
-                <Link to={`/detail/${item.id}`}>
+                <Link key={item.id} to={`/detail/${item.id}`}>
                   <DBMovieItem movie={item} />
                 </Link>
               ))}
@@ -245,7 +245,7 @@ const DisplayMovies = ({ all, movieGenres }) => {
           <Tab.Pane attached={false}>
             <div className="poster-container">
               {movieGenres.music.map(item => (
-                <Link to={`/detail/${item.id}`}>
+                <Link key={item.id} to={`/detail/${item.id}`}>
                   <DBMovieItem movie={item} />
                 </Link>
               ))}
@@ -257,14 +257,14 @@ const DisplayMovies = ({ all, movieGenres }) => {
       menuItem: "Mystery",
       render: () =>
         movieGenres.mystery.length === 0 ? (
-          <Tab.Pane attached={false}>
+          <Tab.Pane romance attached={false}>
             <p className="lead">No movie here </p>
           </Tab.Pane>
         ) : (
-          <Tab.Pane attached={false}>
+          <Tab.Pane romance attached={false}>
             <div className="poster-container">
               {movieGenres.mystery.map(item => (
-                <Link to={`/detail/${item.id}`}>
+                <Link key={item.id} to={`/detail/${item.id}`}>
                   <DBMovieItem movie={item} />
                 </Link>
               ))}
@@ -283,7 +283,7 @@ const DisplayMovies = ({ all, movieGenres }) => {
           <Tab.Pane attached={false}>
             <div className="poster-container">
               {movieGenres.romance.map(item => (
-                <Link to={`/detail/${item.id}`}>
+                <Link key={item.id} to={`/detail/${item.id}`}>
                   <DBMovieItem movie={item} />
                 </Link>
               ))}
@@ -302,7 +302,7 @@ const DisplayMovies = ({ all, movieGenres }) => {
           <Tab.Pane attached={false}>
             <div className="poster-container">
               {movieGenres.scienceFiction.map(item => (
-                <Link to={`/detail/${item.id}`}>
+                <Link key={item.id} to={`/detail/${item.id}`}>
                   <DBMovieItem movie={item} />
                 </Link>
               ))}
@@ -321,7 +321,7 @@ const DisplayMovies = ({ all, movieGenres }) => {
           <Tab.Pane attached={false}>
             <div className="poster-container">
               {movieGenres.tvMovie.map(item => (
-                <Link to={`/detail/${item.id}`}>
+                <Link key={item.id} to={`/detail/${item.id}`}>
                   <DBMovieItem movie={item} />
                 </Link>
               ))}
@@ -340,7 +340,7 @@ const DisplayMovies = ({ all, movieGenres }) => {
           <Tab.Pane attached={false}>
             <div className="poster-container">
               {movieGenres.thriller.map(item => (
-                <Link to={`/detail/${item.id}`}>
+                <Link key={item.id} to={`/detail/${item.id}`}>
                   <DBMovieItem movie={item} />
                 </Link>
               ))}
@@ -359,7 +359,7 @@ const DisplayMovies = ({ all, movieGenres }) => {
           <Tab.Pane attached={false}>
             <div className="poster-container">
               {movieGenres.war.map(item => (
-                <Link to={`/detail/${item.id}`}>
+                <Link key={item.id} to={`/detail/${item.id}`}>
                   <DBMovieItem movie={item} />
                 </Link>
               ))}
@@ -370,7 +370,7 @@ const DisplayMovies = ({ all, movieGenres }) => {
     {
       menuItem: "Western",
       render: () =>
-        movieGenres.action.length === 0 ? (
+        movieGenres.western.length === 0 ? (
           <Tab.Pane attached={false}>
             <p className="lead">No movie here </p>
           </Tab.Pane>
@@ -378,7 +378,7 @@ const DisplayMovies = ({ all, movieGenres }) => {
           <Tab.Pane attached={false}>
             <div className="poster-container">
               {movieGenres.western.map(item => (
-                <Link to={`/detail/${item.id}`}>
+                <Link key={item.id} to={`/detail/${item.id}`}>
                   <DBMovieItem movie={item} />
                 </Link>
               ))}

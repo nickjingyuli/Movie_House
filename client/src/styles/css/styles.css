@@ -97,7 +97,7 @@
   color: white; }
 
 .bg-danger {
-  background-color: #dc3545;
+  background-color: #36648B;
   color: white; }
 
 .bg-white {
@@ -187,8 +187,10 @@
 .py-5 {
   padding: 5rem 0; }
 
-#register-form {
-  width: 100%; }
+.form {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr; }
 
 .m-1 {
   margin: 1rem; }
@@ -349,7 +351,7 @@
   color: white; }
 
 .bg-danger {
-  background-color: #dc3545;
+  background-color: #36648B;
   color: white; }
 
 .bg-white {
@@ -1278,7 +1280,8 @@ ul {
 
 img {
   width: 100%;
-  display: block; }
+  display: block;
+  visibility: hidden; }
 
 .navbar {
   display: flex;

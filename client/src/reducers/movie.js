@@ -11,7 +11,9 @@ import {
   WISH_MOVIE_SUCCESS,
   WISH_MOVIE_FAIL,
   UNWISH_MOVIE_SUCCESS,
-  UNWISH_MOVIE_FAIL
+  UNWISH_MOVIE_FAIL,
+  GET_RATING_SUCCESS,
+  GET_RATING_FAIL
 } from "../actions/types";
 import filterGenres from "../utils/filterGenres";
 
@@ -19,6 +21,7 @@ const initialState = {
   DBMovies: [],
   DBMoviesGenres: {},
   currentMovie: {},
+  currentRating: null,
   error: {},
   loading: true,
   detailLoading: true
@@ -73,6 +76,16 @@ export default function(state = initialState, action) {
         ...state,
         error: payload,
         detailLoading: false
+      };
+    case GET_RATING_SUCCESS:
+      return {
+        ...state,
+        currentRating: payload
+      };
+    case GET_RATING_FAIL:
+      return {
+        ...state,
+        error: payload
       };
     default:
       return state;

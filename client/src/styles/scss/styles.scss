@@ -35,6 +35,7 @@ ul {
 img {
   width: 100%;
   display: block;
+  visibility: hidden;
 }
 
 .navbar {
@@ -87,6 +88,8 @@ img {
 
 }
 
+// movie card in dashboard
+
 .poster-container {
   display: grid;
   grid-template-columns: repeat(4, 25%);
@@ -121,6 +124,7 @@ img {
   }
 }
 
+//movie detail top
 .top {
   color: white;
   width: 100%;
@@ -161,3 +165,6 @@ img {
   }
 }
 
+// movie detail comment
+.comment-container {
+}

@@ -12,7 +12,9 @@ import {
   WISH_MOVIE_SUCCESS,
   WISH_MOVIE_FAIL,
   UNWISH_MOVIE_SUCCESS,
-  UNWISH_MOVIE_FAIL
+  UNWISH_MOVIE_FAIL,
+  GET_RATING_FAIL,
+  GET_RATING_SUCCESS
 } from "./types";
 
 import { loadUser } from "./auth";
@@ -94,6 +96,7 @@ export const likeAMovie = id => async dispatch => {
     });
   }
 };
+
 export const unlikeAMovie = id => async dispatch => {
   try {
     const res = await axios.put(`/api/users/likedmovies/remove/${id}`);
@@ -110,6 +113,7 @@ export const unlikeAMovie = id => async dispatch => {
     });
   }
 };
+
 export const wishAMovie = id => async dispatch => {
   try {
     const res = await axios.put(`/api/users/watchlater/${id}`);
@@ -126,6 +130,7 @@ export const wishAMovie = id => async dispatch => {
     });
   }
 };
+
 export const unwishAMovie = id => async dispatch => {
   try {
     const res = await axios.put(`/api/users/watchlater/remove/${id}`);
@@ -138,6 +143,23 @@ export const unwishAMovie = id => async dispatch => {
     console.log(err);
     dispatch({
       type: UNWISH_MOVIE_FAIL,
+      payload: err
+    });
+  }
+};
+
+// Get current movie rating
+export const getRating = id => async dispatch => {
+  try {
+    const res = await axios.get(`api/movie-rating/${id}`);
+    dispatch({
+      type: GET_RATING_SUCCESS,
+      payload: res.data.avgRating
+    });
+  } catch (err) {
+    console.log(err);
+    dispatch({
+      type: GET_RATING_FAIL,
       payload: err
     });
   }

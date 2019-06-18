@@ -10,6 +10,7 @@ import {
   unwishAMovie
 } from "../../actions/movie";
 import Spinner from "../layout/Spinner";
+import Comment from "../comment/Comment";
 
 const MovieDetail = ({
   match: {
@@ -60,20 +61,22 @@ const MovieDetail = ({
     <Spinner />
   ) : (
     <Fragment>
-      <div className="top bg-dark">
-        <section className="tp-lft">
+      <section className="top bg-dark">
+        <div className="tp-lft">
           <img
             src={`https://image.tmdb.org/t/p/w500/${currentMovie.poster_path}`}
             alt={currentMovie.title}
           />
-        </section>
-        <section className="tp-rt">
+        </div>
+        <div className="tp-rt">
           <div className="movie-info">
             <div className="basic-info">
               <h1>{currentMovie.title}</h1>
               <div className="genres my-1">
                 {currentMovie.genres.map(genre => (
-                  <Label color="black">{genre.name}</Label>
+                  <Label key={genre.name} color="black">
+                    {genre.name}
+                  </Label>
                 ))}
               </div>
               <p>Released on: {currentMovie.release_date}</p>
@@ -156,8 +159,9 @@ const MovieDetail = ({
           <div>
             <p className="lead">{currentMovie.overview}</p>
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
+      <Comment id={currentMovie.id} />
     </Fragment>
   );
 };

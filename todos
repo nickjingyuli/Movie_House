@@ -7,7 +7,7 @@ User:
 Frontend:
 
 comment:
-1. 加loading state
+1. cancel edit and delete
 
 dashboard:
 1. 小屏时每排从五个减少。改变grid

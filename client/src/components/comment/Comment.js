@@ -16,7 +16,7 @@ const Comment = ({
   useEffect(() => {
     getRating(id);
     getUserComment(id);
-  }, [getRating, getUserComment, id, userComment && userComment.movieRating]);
+  }, [getRating, getUserComment, id]);
 
   const [cmtState, setCmtState] = useState("disabled");
 

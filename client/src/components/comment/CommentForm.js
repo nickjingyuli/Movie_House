@@ -8,15 +8,17 @@ const CommentForm = ({
   id,
   currentState,
   userComment,
+  currentRating,
   toggle,
   submitComment
 }) => {
-  const [formData, setFormData] = useState("");
-  const [rate, setRate] = useState(userComment.movieRating);
-
   useEffect(() => {
     setFormData(userComment ? userComment.text : "");
-  }, []);
+    setRate(currentRating);
+  }, [userComment, currentRating]);
+
+  const [formData, setFormData] = useState("");
+  const [rate, setRate] = useState(currentRating);
 
   const handleChange = e => {
     setFormData(e.target.value);
@@ -45,7 +47,7 @@ const CommentForm = ({
           <Rating
             icon="star"
             disabled={currentState === "disabled"}
-            defaultRating={rate}
+            rating={rate}
             maxRating={10}
             onRate={handleRate}
           />
@@ -82,14 +84,15 @@ const CommentForm = ({
 
 CommentForm.propTypes = {
   currentState: PropTypes.string.isRequired,
-  userComment: PropTypes.object.isRequired,
+  // userComment: PropTypes.object.isRequired,
   toggle: PropTypes.func.isRequired,
   submitComment: PropTypes.func.isRequired,
   id: PropTypes.number.isRequired
 };
 
 const mapStateToProps = state => ({
-  userComment: state.comment.userComment
+  userComment: state.comment.userComment,
+  currentRating: state.movie.currentRating
 });
 
 export default connect(

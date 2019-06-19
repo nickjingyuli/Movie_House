@@ -5,6 +5,8 @@ import {
   POST_COMMENT_FAIL
 } from "./types";
 import axios from "axios";
+import store from "../store";
+import { getRating } from "./movie";
 
 export const getUserComment = id => async dispatch => {
   try {
@@ -39,6 +41,7 @@ export const submitComment = ({
       type: POST_COMMENT_SUCCESS,
       payload: res.data
     });
+    store.dispatch(getRating(movieId));
   } catch (err) {
     console.log(err);
     dispatch({

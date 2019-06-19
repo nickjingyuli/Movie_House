@@ -1284,7 +1284,7 @@ ul {
 img {
   width: 100%;
   display: block;
-  visibility: hidden; }
+  visibility: visible; }
 
 .navbar {
   display: flex;

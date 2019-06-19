@@ -1,18 +1,61 @@
-import React, { Fragment } from "react";
-import { Button, Form } from "semantic-ui-react";
+import React, { Fragment, useEffect, useState } from "react";
+import { Button, Form, Rating } from "semantic-ui-react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import { submitComment } from "../../actions/comment";
 
-const CommentForm = ({ currentState, userComment, toggle }) => {
+const CommentForm = ({
+  id,
+  currentState,
+  userComment,
+  toggle,
+  submitComment
+}) => {
+  const [formData, setFormData] = useState("");
+  const [rate, setRate] = useState(userComment.movieRating);
+
+  useEffect(() => {
+    setFormData(userComment ? userComment.text : "");
+  }, []);
+
+  const handleChange = e => {
+    setFormData(e.target.value);
+  };
+
+  const handleRate = (e, { rating }) => {
+    setRate(rating);
+  };
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    toggle("disabled");
+    const body = {
+      movieId: id,
+      text: formData,
+      movieRating: rate
+    };
+    submitComment(body);
+  };
+
   return (
     <Fragment>
       <Form size="big" className="comment-form">
         <Form.Field>
           {currentState !== "add" ? <p>Your comment</p> : <p>Make a comment</p>}
+          <Rating
+            icon="star"
+            disabled={currentState === "disabled"}
+            defaultRating={rate}
+            maxRating={10}
+            onRate={handleRate}
+          />
           <Form.TextArea
-            value={userComment && userComment.text}
+            value={formData}
+            onChange={e => handleChange(e)}
             placeholder={
-              currentState === "add" && `Write something about this movie...`
+              currentState === "add"
+                ? "Write something about this movie..."
+                : ""
             }
             style={{ background: "#333", color: "white" }}
             disabled={currentState === "disabled"}
@@ -22,7 +65,12 @@ const CommentForm = ({ currentState, userComment, toggle }) => {
               Edit your comment
             </Button>
           ) : (
-            <Button color="grey" inverted type="submit">
+            <Button
+              color="grey"
+              inverted
+              type="submit"
+              onClick={e => handleSubmit(e)}
+            >
               Submit
             </Button>
           )}
@@ -35,7 +83,9 @@ const CommentForm = ({ currentState, userComment, toggle }) => {
 CommentForm.propTypes = {
   currentState: PropTypes.string.isRequired,
   userComment: PropTypes.object.isRequired,
-  toggle: PropTypes.func.isRequired
+  toggle: PropTypes.func.isRequired,
+  submitComment: PropTypes.func.isRequired,
+  id: PropTypes.number.isRequired
 };
 
 const mapStateToProps = state => ({
@@ -44,5 +94,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  {}
+  { submitComment }
 )(CommentForm);

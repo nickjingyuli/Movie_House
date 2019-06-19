@@ -16,7 +16,7 @@ const Comment = ({
   useEffect(() => {
     getRating(id);
     getUserComment(id);
-  }, [getRating, getUserComment, id]);
+  }, [getRating, getUserComment, id, userComment && userComment.movieRating]);
 
   const [cmtState, setCmtState] = useState("disabled");
 
@@ -47,9 +47,13 @@ const Comment = ({
 
       {isAuthenticated &&
         (userComment ? (
-          <CommentForm currentState={cmtState} toggle={toggleCmtState} />
+          <CommentForm
+            id={id}
+            currentState={cmtState}
+            toggle={toggleCmtState}
+          />
         ) : (
-          <CommentForm currentState={"add"} toggle={toggleCmtState} />
+          <CommentForm id={id} currentState={"add"} toggle={toggleCmtState} />
         ))}
     </section>
   ) : (

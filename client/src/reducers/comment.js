@@ -1,6 +1,8 @@
 import {
   GET_USER_COMMENT_FAIL,
-  GET_USER_COMMENT_SUCCESS
+  GET_USER_COMMENT_SUCCESS,
+  POST_COMMENT_FAIL,
+  POST_COMMENT_SUCCESS
 } from "../actions/types";
 
 const initialState = {
@@ -20,6 +22,18 @@ export default function(state = initialState, action) {
         loading: false
       };
     case GET_USER_COMMENT_FAIL:
+      return {
+        ...state,
+        error: payload,
+        loading: false
+      };
+    case POST_COMMENT_SUCCESS:
+      return {
+        ...state,
+        userComment: payload,
+        loading: false
+      };
+    case POST_COMMENT_FAIL:
       return {
         ...state,
         error: payload,

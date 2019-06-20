@@ -49,6 +49,7 @@ export default function(state = initialState, action) {
       return {
         ...state,
         userComment: payload,
+        allComments: [payload, ...state.allComments],
         loading: false
       };
     case POST_COMMENT_FAIL:

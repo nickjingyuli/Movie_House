@@ -19,7 +19,7 @@ const CommentItem = ({
 }) => {
   return (
     <Fragment>
-      <div className="cmt-container p-1 my-1 bg-dark">
+      <div className="cmt-container p-1 bg-dark">
         <div className="cmt-top">
           <div>
             <h3>

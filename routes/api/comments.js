@@ -10,7 +10,7 @@ const MovieRating = require("../../models/MovieRating");
 // @route    GET api/comments
 // @desc     GET all comments
 // @access   Private
-router.get("/:id", async (req, res) => {
+router.get("/:id", auth, async (req, res) => {
   try {
     const comment = await Comment.find({
       movieId: req.params.id

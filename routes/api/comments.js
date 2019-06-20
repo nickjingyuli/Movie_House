@@ -10,10 +10,15 @@ const MovieRating = require("../../models/MovieRating");
 // @route    GET api/comments
 // @desc     GET all comments
 // @access   Private
-router.get("/", auth, async (req, res) => {
+router.get("/:id", async (req, res) => {
   try {
-    const comments = await Comment.find().sort({ date: -1 });
-    res.json(comments);
+    const comment = await Comment.find({
+      movieId: req.params.id
+    }).sort({ date: -1 });
+    if (!comment) {
+      return res.status(400).json({ msg: "No comment for this movie" });
+    }
+    res.json(comment);
   } catch (err) {
     console.error(err.message);
     res.status(500).send("Server Error");

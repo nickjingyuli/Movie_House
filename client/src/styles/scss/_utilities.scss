@@ -39,6 +39,9 @@
   &-dark {
     @include set-background($dark-color);
   }
+  &-darker {
+    @include set-background($darker-color);
+  }
   &-success {
     @include set-background($success-color);
   }

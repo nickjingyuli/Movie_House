@@ -70,7 +70,7 @@ const Navbar = ({ auth: { loading, isAuthenticated }, logout, history }) => {
         </Link>
       </li>
       <li>
-        <a onClick={logout} href="!#">
+        <a onClick={logout} href="">
           <Icon name="sign-out" /> <span>Logout</span>
         </a>
       </li>

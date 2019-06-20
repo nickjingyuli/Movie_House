@@ -1,4 +1,5 @@
 import React, { Fragment, useEffect } from "react";
+import Moment from "react-moment";
 import { Label, Icon } from "semantic-ui-react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
@@ -61,107 +62,116 @@ const MovieDetail = ({
     <Spinner />
   ) : (
     <Fragment>
-      <section className="top bg-dark">
-        <div className="tp-lft">
-          <img
-            src={`https://image.tmdb.org/t/p/w500/${currentMovie.poster_path}`}
-            alt={currentMovie.title}
-          />
-        </div>
-        <div className="tp-rt">
-          <div className="movie-info">
-            <div className="basic-info">
-              <h1>{currentMovie.title}</h1>
-              <div className="genres my-1">
-                {currentMovie.genres.map(genre => (
-                  <Label key={genre.name} color="black">
-                    {genre.name}
-                  </Label>
-                ))}
-              </div>
-              <p>Released on: {currentMovie.release_date}</p>
-              <p>
-                Revenue:{" "}
-                {currentMovie.revenue > 0 && `$ ${currentMovie.revenue}`}
-              </p>
-              {isAuthenticated && user && (
-                <div className="icons">
-                  <Icon
-                    name={
-                      user.likedMovies
-                        ? user.likedMovies
-                            .map(item => item.movieId)
-                            .indexOf(currentMovie.id.toString()) > -1
-                          ? "heart"
+      <div className="bg-darker">
+        <section className="top">
+          <div className="tp-lft">
+            <img
+              src={`https://image.tmdb.org/t/p/w500/${
+                currentMovie.poster_path
+              }`}
+              alt={currentMovie.title}
+            />
+          </div>
+          <div className="tp-rt">
+            <div className="movie-info">
+              <div className="basic-info">
+                <h1>{currentMovie.title}</h1>
+                <div className="genres my-1">
+                  {currentMovie.genres.map(genre => (
+                    <Label key={genre.name} color="black">
+                      {genre.name}
+                    </Label>
+                  ))}
+                </div>
+                <p>
+                  Released on:{" "}
+                  <Moment format="YYYY/MM/DD">
+                    {currentMovie.release_date}
+                  </Moment>
+                </p>
+                <p>
+                  Revenue:{" "}
+                  {currentMovie.revenue > 0 && `$ ${currentMovie.revenue}`}
+                </p>
+                {isAuthenticated && user && (
+                  <div className="icons">
+                    <Icon
+                      name={
+                        user.likedMovies
+                          ? user.likedMovies
+                              .map(item => item.movieId)
+                              .indexOf(currentMovie.id.toString()) > -1
+                            ? "heart"
+                            : "heart outline"
                           : "heart outline"
-                        : "heart outline"
-                    }
-                    color={
-                      user.likedMovies
-                        ? user.likedMovies
-                            .map(item => item.movieId)
-                            .indexOf(currentMovie.id.toString()) > -1
-                          ? "red"
+                      }
+                      color={
+                        user.likedMovies
+                          ? user.likedMovies
+                              .map(item => item.movieId)
+                              .indexOf(currentMovie.id.toString()) > -1
+                            ? "red"
+                            : "white"
                           : "white"
-                        : "white"
-                    }
-                    size="large"
-                    title="Likes"
-                    onClick={() => handleLike()}
-                  />
-                  <Icon
-                    name={
-                      user.watchLater
-                        ? user.watchLater
-                            .map(item => item.movieId)
-                            .indexOf(currentMovie.id.toString()) > -1
-                          ? "check circle"
+                      }
+                      size="large"
+                      title="Likes"
+                      onClick={() => handleLike()}
+                    />
+                    <Icon
+                      name={
+                        user.watchLater
+                          ? user.watchLater
+                              .map(item => item.movieId)
+                              .indexOf(currentMovie.id.toString()) > -1
+                            ? "check circle"
+                            : "check circle outline"
                           : "check circle outline"
-                        : "check circle outline"
-                    }
-                    color={
-                      user.watchLater
-                        ? user.watchLater
-                            .map(item => item.movieId)
-                            .indexOf(currentMovie.id.toString()) > -1
-                          ? "blue"
+                      }
+                      color={
+                        user.watchLater
+                          ? user.watchLater
+                              .map(item => item.movieId)
+                              .indexOf(currentMovie.id.toString()) > -1
+                            ? "blue"
+                            : "white"
                           : "white"
-                        : "white"
-                    }
-                    size="large"
-                    title="Wish List"
-                    onClick={() => handleWatch()}
-                  />
-                </div>
-              )}
-            </div>
+                      }
+                      size="large"
+                      title="Wish List"
+                      onClick={() => handleWatch()}
+                    />
+                  </div>
+                )}
+              </div>
 
-            <div className="rating m-2">
-              <div
-                className={`c100 p${Math.round(
-                  currentMovie.vote_average * 10
-                )} green dark big`}
-              >
-                <span>{currentMovie.vote_average}</span>
-                <div className="slice">
-                  <div className="bar" />
-                  <div className="fill" />
+              <div className="rating m-2">
+                <div
+                  className={`c100 p${Math.round(
+                    currentMovie.vote_average * 10
+                  )} green dark big`}
+                >
+                  <span>{currentMovie.vote_average}</span>
+                  <div className="slice">
+                    <div className="bar" />
+                    <div className="fill" />
+                  </div>
                 </div>
               </div>
+              {/*<div className="company my-1">*/}
+              {/*  <p>Produced by: </p>*/}
+              {/*  {currentMovie.production_companies.map(comp => (*/}
+              {/*    <p>{comp.name} </p>*/}
+              {/*  ))}*/}
+              {/*</div>*/}
             </div>
-            {/*<div className="company my-1">*/}
-            {/*  <p>Produced by: </p>*/}
-            {/*  {currentMovie.production_companies.map(comp => (*/}
-            {/*    <p>{comp.name} </p>*/}
-            {/*  ))}*/}
-            {/*</div>*/}
+            <div>
+              <p className="lead">{currentMovie.overview}</p>
+            </div>
           </div>
-          <div>
-            <p className="lead">{currentMovie.overview}</p>
-          </div>
-        </div>
-      </section>
-      <Comment id={currentMovie.id} />
+        </section>
+        <Comment id={currentMovie.id} />
+      </div>
     </Fragment>
   );
 };

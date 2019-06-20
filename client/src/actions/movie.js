@@ -69,10 +69,9 @@ export const getOneMovie = id => async dispatch => {
       payload: res.data
     });
   } catch (err) {
-    console.log(err);
     dispatch({
       type: GET_ONE_MOVIE_FAIL,
-      payload: err
+      payload: { msg: err.response.statusText, status: err.response.status }
     });
   }
   if (localStorage.token) {
@@ -89,10 +88,9 @@ export const likeAMovie = id => async dispatch => {
     });
     dispatch(loadUser());
   } catch (err) {
-    console.log(err);
     dispatch({
       type: LIKE_MOVIE_FAIL,
-      payload: err
+      payload: { msg: err.response.statusText, status: err.response.status }
     });
   }
 };
@@ -106,10 +104,9 @@ export const unlikeAMovie = id => async dispatch => {
     });
     dispatch(loadUser());
   } catch (err) {
-    console.log(err);
     dispatch({
       type: UNLIKE_MOVIE_FAIL,
-      payload: err
+      payload: { msg: err.response.statusText, status: err.response.status }
     });
   }
 };
@@ -123,10 +120,9 @@ export const wishAMovie = id => async dispatch => {
     });
     dispatch(loadUser());
   } catch (err) {
-    console.log(err);
     dispatch({
       type: WISH_MOVIE_FAIL,
-      payload: err
+      payload: { msg: err.response.statusText, status: err.response.status }
     });
   }
 };
@@ -140,10 +136,9 @@ export const unwishAMovie = id => async dispatch => {
     });
     dispatch(loadUser());
   } catch (err) {
-    console.log(err);
     dispatch({
       type: UNWISH_MOVIE_FAIL,
-      payload: err
+      payload: { msg: err.response.statusText, status: err.response.status }
     });
   }
 };
@@ -157,10 +152,9 @@ export const getRating = id => async dispatch => {
       payload: res.data.avgRating
     });
   } catch (err) {
-    console.log(err);
     dispatch({
       type: GET_RATING_FAIL,
-      payload: err
+      payload: { msg: err.response.statusText, status: err.response.status }
     });
   }
 };

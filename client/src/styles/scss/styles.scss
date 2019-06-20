@@ -48,7 +48,7 @@ img {
   top: 0;
   border-bottom: solid 1px $primary-color;
   opacity: 0.9;
-  z-index: 1;
+  z-index: 2;
 
   ul {
     display: flex;
@@ -130,7 +130,7 @@ img {
   width: 100%;
   display: grid;
   grid-template-columns: 40% 60%;
-  border-bottom: #cce2ff 1px solid;
+  //border-bottom: #cce2ff 1px solid;
   .tp-lft {
     margin: 0 auto auto 0;
     width: 95%;
@@ -166,7 +166,42 @@ img {
   }
 }
 
-//// movie detail comment
-//.comment-container {
-//  height: 500px;
-//}
+.all-cmt-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr; //change later for responsiveness
+  grid-column-gap: 1rem;
+}
+
+ .cmt-container {
+   display: flex;
+   flex-direction: column;
+   width: 100%;
+   border-radius: 10px;
+   & > div {
+     width: 100%;
+   }
+   .cmt-top {
+     display: flex;
+     flex-direction: column;
+     & > div {
+       display: flex;
+       flex-direction: row;
+       justify-content: space-between;
+       margin-bottom: 1rem;
+     }
+     .cmt-rate {
+       align-self: flex-start;
+     }
+   }
+
+   .cmt-mid {
+     height: 80px;
+     overflow: auto;
+   }
+
+   .cmt-bot {
+     margin-top: 1rem;
+   }
+
+ }

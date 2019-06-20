@@ -39,6 +39,8 @@ const CommentForm = ({
     submitComment(body);
   };
 
+  const handleDelete = () => {};
+
   return (
     <Fragment>
       <Form size="big" className="comment-form">
@@ -63,18 +65,23 @@ const CommentForm = ({
             disabled={currentState === "disabled"}
           />
           {currentState === "disabled" ? (
-            <Button inverted onClick={() => toggle("edit")}>
-              Edit your comment
-            </Button>
+            <Form.Group inline>
+              <Button inverted onClick={() => toggle("edit")}>
+                Edit
+              </Button>
+              <Button color="red" inverted onClick={() => handleDelete()}>
+                Delete
+              </Button>
+            </Form.Group>
           ) : (
-            <Button
-              color="grey"
-              inverted
-              type="submit"
-              onClick={e => handleSubmit(e)}
-            >
-              Submit
-            </Button>
+            <Form.Group inline>
+              <Button inverted type="submit" onClick={e => handleSubmit(e)}>
+                Submit
+              </Button>
+              <Button color="blue" inverted type="submit">
+                Cancel
+              </Button>
+            </Form.Group>
           )}
         </Form.Field>
       </Form>

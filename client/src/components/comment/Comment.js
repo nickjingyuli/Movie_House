@@ -1,22 +1,30 @@
 import React, { useEffect, useState } from "react";
+import { Loader } from "semantic-ui-react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getRating } from "../../actions/movie";
-import { getUserComment } from "../../actions/comment";
+import { getUserComment, getAllComments } from "../../actions/comment";
 import CommentForm from "./CommentForm";
-import Spinner from "../../components/layout/Spinner";
+import CommentItem from "./CommentItem";
+
 const Comment = ({
   id,
   auth: { isAuthenticated },
   movie: { currentRating, ratingLoading },
-  comment: { userComment, loading },
+  comment: { userComment, allComments, loading },
   getRating,
-  getUserComment
+  getUserComment,
+  getAllComments
 }) => {
-  useEffect(() => {
-    getRating(id);
-    getUserComment(id);
-  }, [getRating, getUserComment, id]);
+  useEffect(
+    () => {
+      // getRating(id);
+      // getUserComment(id);
+      getAllComments(id);
+    },
+    [getAllComments, id]
+    // [getRating, getUserComment, id]
+  );
 
   const [cmtState, setCmtState] = useState("disabled");
 
@@ -24,40 +32,44 @@ const Comment = ({
     setCmtState(s);
   };
 
-  return !ratingLoading && !loading ? (
-    <section className="comment-container bg-dark">
-      {currentRating && (
-        <div className="comment-rating">
-          <h2>Rating for this movie based on comments</h2>
-          <div className="rating">
-            <div
-              className={`c100 p${Math.round(
-                currentRating * 10
-              )} orange dark small`}
-            >
-              <span>{currentRating}</span>
-              <div className="slice">
-                <div className="bar" />
-                <div className="fill" />
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {isAuthenticated &&
-        (userComment ? (
-          <CommentForm
-            id={id}
-            currentState={cmtState}
-            toggle={toggleCmtState}
-          />
-        ) : (
-          <CommentForm id={id} currentState={"add"} toggle={toggleCmtState} />
+  return !loading ? (
+    <section className="bg-darker p-1">
+      <div className="all-cmt-container ">
+        {allComments.map(comment => (
+          <CommentItem comment={comment} />
         ))}
+      </div>
+      {/*{currentRating && (*/}
+      {/*  <div className="comment-rating">*/}
+      {/*    <h2>Rating for this movie based on comments</h2>*/}
+      {/*    <div className="rating">*/}
+      {/*      <div*/}
+      {/*        className={`c100 p${Math.round(*/}
+      {/*          currentRating * 10*/}
+      {/*        )} orange dark small`}*/}
+      {/*      >*/}
+      {/*        <span>{currentRating}</span>*/}
+      {/*        <div className="slice">*/}
+      {/*          <div className="bar" />*/}
+      {/*          <div className="fill" />*/}
+      {/*        </div>*/}
+      {/*      </div>*/}
+      {/*    </div>*/}
+      {/*  </div>*/}
+      {/*)}*/}
+      {/*{isAuthenticated &&*/}
+      {/*  (userComment ? (*/}
+      {/*    <CommentForm*/}
+      {/*      id={id}*/}
+      {/*      currentState={cmtState}*/}
+      {/*      toggle={toggleCmtState}*/}
+      {/*    />*/}
+      {/*  ) : (*/}
+      {/*    <CommentForm id={id} currentState={"add"} toggle={toggleCmtState} />*/}
+      {/*  ))}*/}
     </section>
   ) : (
-    <Spinner />
+    <Loader active inline="centered" />
   );
 };
 
@@ -66,7 +78,8 @@ Comment.propTypes = {
   movie: PropTypes.object.isRequired,
   comment: PropTypes.object.isRequired,
   getRating: PropTypes.func.isRequired,
-  getUserComment: PropTypes.func.isRequired
+  getUserComment: PropTypes.func.isRequired,
+  getAllComments: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
@@ -77,5 +90,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getRating, getUserComment }
+  { getRating, getUserComment, getAllComments }
 )(Comment);

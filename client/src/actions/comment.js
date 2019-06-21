@@ -131,7 +131,7 @@ export const getComment = id => async dispatch => {
   }
 };
 
-export const addDiscuss = ({ cmtId, text }) => async dispatch => {
+export const addDis = ({ cmtId, text }) => async dispatch => {
   try {
     const config = {
       headers: {
@@ -146,7 +146,22 @@ export const addDiscuss = ({ cmtId, text }) => async dispatch => {
     );
     dispatch({
       type: UPDATE_COMMENT_SUCCESS,
-      payload: { id: cmtId, data: res.data }
+      payload: res.data
+    });
+  } catch (err) {
+    dispatch({
+      type: UPDATE_COMMENT_FAIL,
+      payload: { msg: err.response.statusText, status: err.response.status }
+    });
+  }
+};
+
+export const deleteDis = (cmtId, disId) => async dispatch => {
+  try {
+    const res = await axios.delete(`/api/comments/comment/${cmtId}/${disId}`);
+    dispatch({
+      type: UPDATE_COMMENT_SUCCESS,
+      payload: res.data
     });
   } catch (err) {
     dispatch({

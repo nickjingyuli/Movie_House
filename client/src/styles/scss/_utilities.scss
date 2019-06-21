@@ -76,6 +76,9 @@
 .bd-radius{
   border-radius: $border-radius;
 }
+.bd-radius-big{
+  border-radius: 2*$border-radius;
+}
 
 .center {
   text-align: center;

@@ -6,7 +6,12 @@ import { connect } from "react-redux";
 import { login } from "../../actions/auth";
 import { clearAlert } from "../../actions/alert";
 
-const Register = ({ isAuthenticated, login, clearAlert, alerts }) => {
+const Register = ({
+  auth: { isAuthenticated, user },
+  login,
+  clearAlert,
+  alerts
+}) => {
   useEffect(() => {
     clearAlert();
   }, [clearAlert]);
@@ -33,7 +38,7 @@ const Register = ({ isAuthenticated, login, clearAlert, alerts }) => {
   }
 
   // Redirect after register
-  if (isAuthenticated) {
+  if (isAuthenticated && user) {
     clearAlert();
     return <Redirect to="/dashboard" />;
   }
@@ -79,14 +84,14 @@ const Register = ({ isAuthenticated, login, clearAlert, alerts }) => {
 };
 
 Register.propTypes = {
-  isAuthenticated: PropTypes.bool.isRequired,
+  auth: PropTypes.object.isRequired,
   login: PropTypes.func.isRequired,
   alerts: PropTypes.array.isRequired,
   clearAlert: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
-  isAuthenticated: state.auth.isAuthenticated,
+  auth: state.auth,
   alerts: state.alert
 });
 

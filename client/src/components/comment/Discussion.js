@@ -3,70 +3,74 @@ import PropTypes from "prop-types";
 import DiscussionItem from "./DiscussionItem";
 import { Button } from "semantic-ui-react";
 import { connect } from "react-redux";
-import { getComment } from "../../actions/comment";
+import { getComment, addDis } from "../../actions/comment";
 import Spinner from "../layout/Spinner";
 
 const Discussion = ({
   match: {
     params: { id }
   },
-  // username,
-  // text,
-  // date,
-  // discussions,
-  comment: { currComment, loading },
-  getComment
+  comment: { currComment, currLoading },
+  getComment,
+  addDis
 }) => {
   const [formData, setFormData] = useState("");
 
   useEffect(() => {
     getComment(id);
-  }, [id]);
+  }, [getComment, id]);
 
   const handleChange = e => {
     setFormData(e.target.value);
   };
 
-  const handleSubmit = () => {};
+  const handleSubmit = () => {
+    addDis({ cmtId: id, text: formData });
+    setFormData("");
+  };
 
-  return loading ? (
+  return currLoading ? (
     <Spinner />
   ) : (
     <Fragment>
-      <div className="bg-darker">
-        <div className="dsc-top">
+      <div className="bg-darker p-1 bd-radius-big">
+        <div className="dis-top my-1">
           <DiscussionItem
             username={currComment.username}
             text={currComment.text}
             date={currComment.date}
+            cmtId={currComment._id}
+            disId={null}
           />
         </div>
 
-        <div className="dsc-mid">
+        <div className="dis-mid my-1">
+          <h1>Make a comment</h1>
           <textarea
             placeholder="Write something..."
-            className="cmt-form bg-dark"
+            className="cmt-form bg-dark my-1"
             onChange={e => handleChange(e)}
             value={formData}
           />
-          <div className="add-cmt">
-            <Button
-              inverted
-              onClick={() => {
-                handleSubmit();
-              }}
-            >
-              <span>Submit</span>
-            </Button>
-          </div>
+          <Button
+            inverted
+            onClick={() => {
+              handleSubmit();
+            }}
+          >
+            <span>Submit</span>
+          </Button>
         </div>
 
-        <div className="dsc-bot">
+        <div className="dis-bot">
           {currComment.comments.map(item => (
             <DiscussionItem
+              key={item._id}
               username={item.username}
               date={item.date}
               text={item.text}
+              cmtId={currComment._id}
+              disId={item._id}
             />
           ))}
         </div>
@@ -76,11 +80,8 @@ const Discussion = ({
 };
 
 Discussion.propTypes = {
-  username: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired,
-  date: PropTypes.string.isRequired,
-  discussion: PropTypes.array.isRequired,
-  comment: PropTypes.object.isRequired
+  comment: PropTypes.object.isRequired,
+  addDis: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
@@ -89,5 +90,5 @@ const mapStateToProps = state => ({
 
 export default connect(
   mapStateToProps,
-  { getComment }
+  { getComment, addDis }
 )(Discussion);

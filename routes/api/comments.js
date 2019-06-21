@@ -130,35 +130,35 @@ router.post(
         await comment.save();
       }
       // Update average rating of the movie
-      let movie = await MovieRating.findOne({ movieId: movieId });
-      if (!movie && movieRating) {
-        movie = new MovieRating({
-          movieId: movieId,
-          avgRating: movieRating,
-          totalVotes: 1
-        });
-        await movie.save();
-        return res.json(comment);
-      }
-      if (movie && movieRating) {
-        let prevTotal = movie.totalVotes;
-        let currTotal;
-        let currAvg;
-        if (prevMovieRating) {
-          currTotal = prevTotal;
-          currAvg =
-            (prevTotal * movie.avgRating - prevMovieRating + movieRating) /
-            currTotal;
-        } else {
-          currTotal = prevTotal + 1;
-          currAvg = (prevTotal * movie.avgRating + movieRating) / currTotal;
-        }
-        await MovieRating.findOneAndUpdate(
-          { movieId: movieId },
-          { $set: { avgRating: currAvg, totalVotes: currTotal } }
-        );
-        return res.json(comment);
-      }
+      // let movie = await MovieRating.findOne({ movieId: movieId });
+      // if (!movie && movieRating) {
+      //   movie = new MovieRating({
+      //     movieId: movieId,
+      //     avgRating: movieRating,
+      //     totalVotes: 1
+      //   });
+      //   await movie.save();
+      //   return res.json(comment);
+      // }
+      // if (movie && movieRating) {
+      //   let prevTotal = movie.totalVotes;
+      //   let currTotal;
+      //   let currAvg;
+      //   if (prevMovieRating) {
+      //     currTotal = prevTotal;
+      //     currAvg =
+      //       (prevTotal * movie.avgRating - prevMovieRating + movieRating) /
+      //       currTotal;
+      //   } else {
+      //     currTotal = prevTotal + 1;
+      //     currAvg = (prevTotal * movie.avgRating + movieRating) / currTotal;
+      //   }
+      //   await MovieRating.findOneAndUpdate(
+      //     { movieId: movieId },
+      //     { $set: { avgRating: currAvg, totalVotes: currTotal } }
+      //   );
+      //   return res.json(comment);
+      // }
 
       res.json(comment);
     } catch (err) {

@@ -20,7 +20,8 @@ const initialState = {
   currComment: null,
   allComments: [],
   error: {},
-  loading: true
+  loading: true,
+  currLoading: true
 };
 
 export default function(state = initialState, action) {
@@ -92,10 +93,8 @@ export default function(state = initialState, action) {
     case UPDATE_COMMENT_SUCCESS:
       return {
         ...state,
-        loading: false,
-        allComments: state.allComments.map(cmt =>
-          cmt._id === payload.id ? { ...cmt, comments: payload.data } : cmt
-        )
+        currComment: { ...state.currComment, comments: payload },
+        currLoading: false
       };
     case UPDATE_COMMENT_FAIL:
       return {
@@ -107,13 +106,13 @@ export default function(state = initialState, action) {
       return {
         ...state,
         currComment: payload,
-        loading: false
+        currLoading: false
       };
     case GET_COMMENT_FAIL:
       return {
         ...state,
         error: payload,
-        loading: false
+        currLoading: false
       };
     default:
       return state;

@@ -27,8 +27,6 @@ const MovieDetail = ({
 }) => {
   useEffect(() => {
     getOneMovie(id);
-    // document.body.classList.add("detail-bg");
-    // return () => document.body.classList.remove("detail-bg");
   }, [getOneMovie, id]);
 
   const handleLike = () => {
@@ -62,7 +60,7 @@ const MovieDetail = ({
     <Spinner />
   ) : (
     <Fragment>
-      <div className="bg-darker">
+      <div className="bg-darker p-1 bd-radius-big">
         <section className="top">
           <div className="tp-lft">
             <img
@@ -70,6 +68,7 @@ const MovieDetail = ({
                 currentMovie.poster_path
               }`}
               alt={currentMovie.title}
+              className="bd-radius"
             />
           </div>
           <div className="tp-rt">
@@ -111,8 +110,8 @@ const MovieDetail = ({
                               .map(item => item.movieId)
                               .indexOf(currentMovie.id.toString()) > -1
                             ? "red"
-                            : "white"
-                          : "white"
+                            : "grey"
+                          : "grey"
                       }
                       size="large"
                       title="Likes"
@@ -134,8 +133,8 @@ const MovieDetail = ({
                               .map(item => item.movieId)
                               .indexOf(currentMovie.id.toString()) > -1
                             ? "blue"
-                            : "white"
-                          : "white"
+                            : "grey"
+                          : "grey"
                       }
                       size="large"
                       title="Wish List"
@@ -158,12 +157,6 @@ const MovieDetail = ({
                   </div>
                 </div>
               </div>
-              {/*<div className="company my-1">*/}
-              {/*  <p>Produced by: </p>*/}
-              {/*  {currentMovie.production_companies.map(comp => (*/}
-              {/*    <p>{comp.name} </p>*/}
-              {/*  ))}*/}
-              {/*</div>*/}
             </div>
             <div>
               <p className="lead">{currentMovie.overview}</p>

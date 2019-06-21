@@ -41,6 +41,22 @@ router.get("/me", auth, async (req, res) => {
   }
 });
 
+// @route    GET api/comments/:id
+// @desc     GET comment by id
+// @access   Private
+router.get("/comment/:id", auth, async (req, res) => {
+  try {
+    const comment = await Comment.findOne({ _id: req.params.id });
+    if (!comment) {
+      return res.status(400).json({ msg: "Comment not found" });
+    }
+    res.json(comment);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send("Server Error");
+  }
+});
+
 // @route    GET api/comments/me/:id
 // @desc     GET current user's comment based on movie id
 // @access   Private

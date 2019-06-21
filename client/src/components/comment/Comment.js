@@ -4,20 +4,19 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getRating } from "../../actions/movie";
 import {
-  getUserComment,
+  // getUserComment,
   getAllComments,
   submitComment
 } from "../../actions/comment";
-import CommentForm from "./CommentForm";
 import CommentItem from "./CommentItem";
 
 const Comment = ({
   id,
   auth: { isAuthenticated, user },
-  movie: { currentRating, ratingLoading },
+  // movie: { currentRating, ratingLoading },
   comment: { userComment, allComments, loading },
-  getRating,
-  getUserComment,
+  // getRating,
+  // getUserComment,
   getAllComments,
   submitComment
 }) => {
@@ -31,7 +30,7 @@ const Comment = ({
     // [getRating, getUserComment, id]
   );
 
-  const [cmtState, setCmtState] = useState("disabled");
+  // const [cmtState, setCmtState] = useState("disabled");
   const [formState, setFormState] = useState(false);
   const [rate, setRate] = useState(5);
   const [formData, setFormData] = useState("");
@@ -55,9 +54,9 @@ const Comment = ({
     toggleForm();
   };
 
-  const toggleCmtState = s => {
-    setCmtState(s);
-  };
+  // const toggleCmtState = s => {
+  //   setCmtState(s);
+  // };
 
   return (
     isAuthenticated &&
@@ -147,21 +146,26 @@ const Comment = ({
 
 Comment.propTypes = {
   auth: PropTypes.object.isRequired,
-  movie: PropTypes.object.isRequired,
+  // movie: PropTypes.object.isRequired,
   comment: PropTypes.object.isRequired,
-  getRating: PropTypes.func.isRequired,
-  getUserComment: PropTypes.func.isRequired,
+  // getRating: PropTypes.func.isRequired,
+  // getUserComment: PropTypes.func.isRequired,
   getAllComments: PropTypes.func.isRequired,
   submitComment: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
   auth: state.auth,
-  movie: state.movie,
+  // movie: state.movie,
   comment: state.comment
 });
 
 export default connect(
   mapStateToProps,
-  { getRating, getUserComment, getAllComments, submitComment }
+  {
+    getRating,
+    // getUserComment,
+    getAllComments,
+    submitComment
+  }
 )(Comment);

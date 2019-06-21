@@ -1,6 +1,6 @@
 import {
-  GET_USER_COMMENT_SUCCESS,
-  GET_USER_COMMENT_FAIL,
+  // GET_USER_COMMENT_SUCCESS,
+  // GET_USER_COMMENT_FAIL,
   POST_COMMENT_SUCCESS,
   POST_COMMENT_FAIL,
   DELETE_COMMENT_SUCCESS,
@@ -8,7 +8,11 @@ import {
   UPDATE_LIKES_SUCCESS,
   UPDATE_LIKES_FAIL,
   GET_ALL_COMMENT_SUCCESS,
-  GET_ALL_COMMENT_FAIL
+  GET_ALL_COMMENT_FAIL,
+  UPDATE_COMMENT_FAIL,
+  UPDATE_COMMENT_SUCCESS,
+  GET_COMMENT_SUCCESS,
+  GET_COMMENT_FAIL
 } from "./types";
 import axios from "axios";
 
@@ -27,20 +31,20 @@ export const getAllComments = movieId => async dispatch => {
   }
 };
 
-export const getUserComment = id => async dispatch => {
-  try {
-    const res = await axios.get(`/api/comments/me/${id}`);
-    dispatch({
-      type: GET_USER_COMMENT_SUCCESS,
-      payload: res.data[0]
-    });
-  } catch (err) {
-    dispatch({
-      type: GET_USER_COMMENT_FAIL,
-      payload: { msg: err.response.statusText, status: err.response.status }
-    });
-  }
-};
+// export const getUserComment = id => async dispatch => {
+//   try {
+//     const res = await axios.get(`/api/comments/me/${id}`);
+//     dispatch({
+//       type: GET_USER_COMMENT_SUCCESS,
+//       payload: res.data[0]
+//     });
+//   } catch (err) {
+//     dispatch({
+//       type: GET_USER_COMMENT_FAIL,
+//       payload: { msg: err.response.statusText, status: err.response.status }
+//     });
+//   }
+// };
 
 export const submitComment = ({
   movieId,
@@ -107,6 +111,46 @@ export const unlikeAComment = id => async dispatch => {
   } catch (err) {
     dispatch({
       type: UPDATE_LIKES_FAIL,
+      payload: { msg: err.response.statusText, status: err.response.status }
+    });
+  }
+};
+
+export const getComment = id => async dispatch => {
+  try {
+    const res = await axios.get(`/api/comments/comment/${id}`);
+    dispatch({
+      type: GET_COMMENT_SUCCESS,
+      payload: res.data
+    });
+  } catch (err) {
+    dispatch({
+      type: GET_COMMENT_FAIL,
+      payload: { msg: err.response.statusText, status: err.response.status }
+    });
+  }
+};
+
+export const addDiscuss = ({ cmtId, text }) => async dispatch => {
+  try {
+    const config = {
+      headers: {
+        "Content-Type": "application/json"
+      }
+    };
+    const body = JSON.stringify({ text });
+    const res = await axios.post(
+      `/api/comments/comment/${cmtId}`,
+      body,
+      config
+    );
+    dispatch({
+      type: UPDATE_COMMENT_SUCCESS,
+      payload: { id: cmtId, data: res.data }
+    });
+  } catch (err) {
+    dispatch({
+      type: UPDATE_COMMENT_FAIL,
       payload: { msg: err.response.statusText, status: err.response.status }
     });
   }

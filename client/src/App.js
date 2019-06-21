@@ -15,6 +15,7 @@ import Landing from "./components/layout/Landing";
 import PrivateRoute from "./components/routing/PrivateRoute";
 import Dashboard from "./components/dashboard/Dashboard";
 import MovieDetail from "./components/movie/MovieDetail";
+import Discussion from "./components/comment/Discussion";
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
@@ -36,6 +37,11 @@ const App = () => {
               <Route exact path="/login" component={Login} />
               <Route exact path="/detail/:id" component={MovieDetail} />
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
+              <PrivateRoute
+                exact
+                path="/discussion/:id"
+                component={Discussion}
+              />
             </Switch>
           </section>
         </Fragment>

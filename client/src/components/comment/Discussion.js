@@ -1,10 +1,9 @@
 import React, { Fragment, useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import DiscussionItem from "./DiscussionItem";
-import { Button } from "semantic-ui-react";
+import { Button, Loader } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { getComment, addDis } from "../../actions/comment";
-import Spinner from "../layout/Spinner";
 
 const Discussion = ({
   match: {
@@ -30,7 +29,7 @@ const Discussion = ({
   };
 
   return currLoading ? (
-    <Spinner />
+    <Loader active inline="centered" />
   ) : (
     <Fragment>
       <div className="bg-darker p-1 bd-radius-big">

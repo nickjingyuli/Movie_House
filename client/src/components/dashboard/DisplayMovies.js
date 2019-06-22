@@ -10,11 +10,11 @@ const DisplayMovies = ({ all, movieGenres }) => {
       menuItem: "All",
       render: () =>
         movieGenres.action.length === 0 ? (
-          <Tab.Pane attached={false}>
+          <Tab.Pane attached={false} color="grey" inverted>
             <p className="lead">No movie here </p>
           </Tab.Pane>
         ) : (
-          <Tab.Pane attached={false}>
+          <Tab.Pane attached={false} color="grey" inverted>
             <div className="poster-container">
               {all.map(item => (
                 <Link key={item.id} to={`/detail/${item.id}`}>
@@ -29,11 +29,11 @@ const DisplayMovies = ({ all, movieGenres }) => {
       menuItem: "Action",
       render: () =>
         movieGenres.action.length === 0 ? (
-          <Tab.Pane attached={false}>
+          <Tab.Pane attached={false} color="grey" inverted>
             <p className="lead">No movie here </p>
           </Tab.Pane>
         ) : (
-          <Tab.Pane attached={false}>
+          <Tab.Pane attached={false} color="grey" inverted>
             <div className="poster-container">
               {movieGenres.action.map(item => (
                 <Link key={item.id} to={`/detail/${item.id}`}>
@@ -48,11 +48,11 @@ const DisplayMovies = ({ all, movieGenres }) => {
       menuItem: "Adventure",
       render: () =>
         movieGenres.adventure.length === 0 ? (
-          <Tab.Pane attached={false}>
+          <Tab.Pane attached={false} color="grey" inverted>
             <p className="lead">No movie here </p>
           </Tab.Pane>
         ) : (
-          <Tab.Pane attached={false}>
+          <Tab.Pane attached={false} color="grey" inverted>
             <div className="poster-container">
               {movieGenres.adventure.map(item => (
                 <Link key={item.id} to={`/detail/${item.id}`}>
@@ -67,11 +67,11 @@ const DisplayMovies = ({ all, movieGenres }) => {
       menuItem: "Animation",
       render: () =>
         movieGenres.animation.length === 0 ? (
-          <Tab.Pane attached={false}>
+          <Tab.Pane attached={false} color="grey" inverted>
             <p className="lead">No movie here </p>
           </Tab.Pane>
         ) : (
-          <Tab.Pane attached={false}>
+          <Tab.Pane attached={false} color="grey" inverted>
             <div className="poster-container">
               {movieGenres.animation.map(item => (
                 <Link key={item.id} to={`/detail/${item.id}`}>
@@ -86,11 +86,11 @@ const DisplayMovies = ({ all, movieGenres }) => {
       menuItem: "Comedy",
       render: () =>
         movieGenres.comedy.length === 0 ? (
-          <Tab.Pane attached={false}>
+          <Tab.Pane attached={false} color="grey" inverted>
             <p className="lead">No movie here </p>
           </Tab.Pane>
         ) : (
-          <Tab.Pane attached={false}>
+          <Tab.Pane attached={false} color="grey" inverted>
             <div className="poster-container">
               {movieGenres.comedy.map(item => (
                 <Link key={item.id} to={`/detail/${item.id}`}>
@@ -105,11 +105,11 @@ const DisplayMovies = ({ all, movieGenres }) => {
       menuItem: "Crime",
       render: () =>
         movieGenres.crime.length === 0 ? (
-          <Tab.Pane attached={false}>
+          <Tab.Pane attached={false} color="grey" inverted>
             <p className="lead">No movie here </p>
           </Tab.Pane>
         ) : (
-          <Tab.Pane attached={false}>
+          <Tab.Pane attached={false} color="grey" inverted>
             <div className="poster-container">
               {movieGenres.crime.map(item => (
                 <Link key={item.id} to={`/detail/${item.id}`}>
@@ -124,11 +124,11 @@ const DisplayMovies = ({ all, movieGenres }) => {
       menuItem: "Documentary",
       render: () =>
         movieGenres.documentary.length === 0 ? (
-          <Tab.Pane attached={false}>
+          <Tab.Pane attached={false} color="grey" inverted>
             <p className="lead">No movie here </p>
           </Tab.Pane>
         ) : (
-          <Tab.Pane attached={false}>
+          <Tab.Pane attached={false} color="grey" inverted>
             <div className="poster-container">
               {movieGenres.documentary.map(item => (
                 <Link key={item.id} to={`/detail/${item.id}`}>
@@ -143,11 +143,11 @@ const DisplayMovies = ({ all, movieGenres }) => {
       menuItem: "Drama",
       render: () =>
         movieGenres.drama.length === 0 ? (
-          <Tab.Pane attached={false}>
+          <Tab.Pane attached={false} color="grey" inverted>
             <p className="lead">No movie here </p>
           </Tab.Pane>
         ) : (
-          <Tab.Pane attached={false}>
+          <Tab.Pane attached={false} color="grey" inverted>
             <div className="poster-container">
               {movieGenres.drama.map(item => (
                 <Link key={item.id} to={`/detail/${item.id}`}>
@@ -162,11 +162,11 @@ const DisplayMovies = ({ all, movieGenres }) => {
       menuItem: "Family",
       render: () =>
         movieGenres.family.length === 0 ? (
-          <Tab.Pane attached={false}>
+          <Tab.Pane attached={false} color="grey" inverted>
             <p className="lead">No movie here </p>
           </Tab.Pane>
         ) : (
-          <Tab.Pane attached={false}>
+          <Tab.Pane attached={false} color="grey" inverted>
             <div className="poster-container">
               {movieGenres.family.map(item => (
                 <Link key={item.id} to={`/detail/${item.id}`}>
@@ -181,11 +181,11 @@ const DisplayMovies = ({ all, movieGenres }) => {
       menuItem: "Fantasy",
       render: () =>
         movieGenres.fantasy.length === 0 ? (
-          <Tab.Pane attached={false}>
+          <Tab.Pane attached={false} color="grey" inverted>
             <p className="lead">No movie here </p>
           </Tab.Pane>
         ) : (
-          <Tab.Pane attached={false}>
+          <Tab.Pane attached={false} color="grey" inverted>
             <div className="poster-container">
               {movieGenres.fantasy.map(item => (
                 <Link key={item.id} to={`/detail/${item.id}`}>
@@ -200,11 +200,11 @@ const DisplayMovies = ({ all, movieGenres }) => {
       menuItem: "History",
       render: () =>
         movieGenres.history.length === 0 ? (
-          <Tab.Pane attached={false}>
+          <Tab.Pane attached={false} color="grey" inverted>
             <p className="lead">No movie here </p>
           </Tab.Pane>
         ) : (
-          <Tab.Pane attached={false}>
+          <Tab.Pane attached={false} color="grey" inverted>
             <div className="poster-container">
               {movieGenres.history.map(item => (
                 <Link key={item.id} to={`/detail/${item.id}`}>
@@ -219,11 +219,11 @@ const DisplayMovies = ({ all, movieGenres }) => {
       menuItem: "Horror",
       render: () =>
         movieGenres.horror.length === 0 ? (
-          <Tab.Pane attached={false}>
+          <Tab.Pane attached={false} color="grey" inverted>
             <p className="lead">No movie here </p>
           </Tab.Pane>
         ) : (
-          <Tab.Pane attached={false}>
+          <Tab.Pane attached={false} color="grey" inverted>
             <div className="poster-container">
               {movieGenres.horror.map(item => (
                 <Link key={item.id} to={`/detail/${item.id}`}>
@@ -238,11 +238,11 @@ const DisplayMovies = ({ all, movieGenres }) => {
       menuItem: "Music",
       render: () =>
         movieGenres.music.length === 0 ? (
-          <Tab.Pane attached={false}>
+          <Tab.Pane attached={false} color="grey" inverted>
             <p className="lead">No movie here </p>
           </Tab.Pane>
         ) : (
-          <Tab.Pane attached={false}>
+          <Tab.Pane attached={false} color="grey" inverted>
             <div className="poster-container">
               {movieGenres.music.map(item => (
                 <Link key={item.id} to={`/detail/${item.id}`}>
@@ -257,11 +257,11 @@ const DisplayMovies = ({ all, movieGenres }) => {
       menuItem: "Mystery",
       render: () =>
         movieGenres.mystery.length === 0 ? (
-          <Tab.Pane romance attached={false}>
+          <Tab.Pane romance attached={false} color="grey" inverted>
             <p className="lead">No movie here </p>
           </Tab.Pane>
         ) : (
-          <Tab.Pane romance attached={false}>
+          <Tab.Pane romance attached={false} color="grey" inverted>
             <div className="poster-container">
               {movieGenres.mystery.map(item => (
                 <Link key={item.id} to={`/detail/${item.id}`}>
@@ -276,11 +276,11 @@ const DisplayMovies = ({ all, movieGenres }) => {
       menuItem: "Romance",
       render: () =>
         movieGenres.romance.length === 0 ? (
-          <Tab.Pane attached={false}>
+          <Tab.Pane attached={false} color="grey" inverted>
             <p className="lead">No movie here </p>
           </Tab.Pane>
         ) : (
-          <Tab.Pane attached={false}>
+          <Tab.Pane attached={false} color="grey" inverted>
             <div className="poster-container">
               {movieGenres.romance.map(item => (
                 <Link key={item.id} to={`/detail/${item.id}`}>
@@ -295,11 +295,11 @@ const DisplayMovies = ({ all, movieGenres }) => {
       menuItem: "Science Fiction",
       render: () =>
         movieGenres.scienceFiction.length === 0 ? (
-          <Tab.Pane attached={false}>
+          <Tab.Pane attached={false} color="grey" inverted>
             <p className="lead">No movie here </p>
           </Tab.Pane>
         ) : (
-          <Tab.Pane attached={false}>
+          <Tab.Pane attached={false} color="grey" inverted>
             <div className="poster-container">
               {movieGenres.scienceFiction.map(item => (
                 <Link key={item.id} to={`/detail/${item.id}`}>
@@ -314,11 +314,11 @@ const DisplayMovies = ({ all, movieGenres }) => {
       menuItem: "TV Movie",
       render: () =>
         movieGenres.tvMovie.length === 0 ? (
-          <Tab.Pane attached={false}>
+          <Tab.Pane attached={false} color="grey" inverted>
             <p className="lead">No movie here </p>
           </Tab.Pane>
         ) : (
-          <Tab.Pane attached={false}>
+          <Tab.Pane attached={false} color="grey" inverted>
             <div className="poster-container">
               {movieGenres.tvMovie.map(item => (
                 <Link key={item.id} to={`/detail/${item.id}`}>
@@ -333,11 +333,11 @@ const DisplayMovies = ({ all, movieGenres }) => {
       menuItem: "Thriller",
       render: () =>
         movieGenres.thriller.length === 0 ? (
-          <Tab.Pane attached={false}>
+          <Tab.Pane attached={false} color="grey" inverted>
             <p className="lead">No movie here </p>
           </Tab.Pane>
         ) : (
-          <Tab.Pane attached={false}>
+          <Tab.Pane attached={false} color="grey" inverted>
             <div className="poster-container">
               {movieGenres.thriller.map(item => (
                 <Link key={item.id} to={`/detail/${item.id}`}>
@@ -352,11 +352,11 @@ const DisplayMovies = ({ all, movieGenres }) => {
       menuItem: "War",
       render: () =>
         movieGenres.war.length === 0 ? (
-          <Tab.Pane attached={false}>
+          <Tab.Pane attached={false} color="grey" inverted>
             <p className="lead">No movie here </p>
           </Tab.Pane>
         ) : (
-          <Tab.Pane attached={false}>
+          <Tab.Pane attached={false} color="grey" inverted>
             <div className="poster-container">
               {movieGenres.war.map(item => (
                 <Link key={item.id} to={`/detail/${item.id}`}>
@@ -371,11 +371,11 @@ const DisplayMovies = ({ all, movieGenres }) => {
       menuItem: "Western",
       render: () =>
         movieGenres.western.length === 0 ? (
-          <Tab.Pane attached={false}>
+          <Tab.Pane attached={false} color="grey" inverted>
             <p className="lead">No movie here </p>
           </Tab.Pane>
         ) : (
-          <Tab.Pane attached={false}>
+          <Tab.Pane attached={false} color="grey" inverted>
             <div className="poster-container">
               {movieGenres.western.map(item => (
                 <Link key={item.id} to={`/detail/${item.id}`}>

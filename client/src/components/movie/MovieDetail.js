@@ -1,6 +1,6 @@
 import React, { Fragment, useEffect } from "react";
 import Moment from "react-moment";
-import { Label, Icon } from "semantic-ui-react";
+import { Label, Icon, Loader } from "semantic-ui-react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import {
@@ -10,7 +10,6 @@ import {
   wishAMovie,
   unwishAMovie
 } from "../../actions/movie";
-import Spinner from "../layout/Spinner";
 import Comment from "../comment/Comment";
 
 const MovieDetail = ({
@@ -57,7 +56,7 @@ const MovieDetail = ({
   };
 
   return detailLoading ? (
-    <Spinner />
+    <Loader active inline="centered" />
   ) : (
     <Fragment>
       <div className="bg-darker p-1 bd-radius-big">
@@ -92,8 +91,11 @@ const MovieDetail = ({
                   Revenue:{" "}
                   {currentMovie.revenue > 0 && `$ ${currentMovie.revenue}`}
                 </p>
+                <a href={currentMovie.homepage} target="_blank">
+                  Movie Homepage
+                </a>
                 {isAuthenticated && user && (
-                  <div className="icons">
+                  <div className="icons my-1">
                     <Icon
                       name={
                         user.likedMovies

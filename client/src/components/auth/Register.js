@@ -60,6 +60,7 @@ const Register = ({ isAuthenticated, register, clearAlert, alerts }) => {
     <Fragment>
       <h1 className="x-large">Register</h1>
       <Form
+        inverted
         size="big"
         onSubmit={e => handleSubmit(e)}
         error={list.length > 0 || allAlerts.length > 0}
@@ -114,7 +115,9 @@ const Register = ({ isAuthenticated, register, clearAlert, alerts }) => {
           />
         </Form.Field>
 
-        <Button type="submit">Submit</Button>
+        <Button inverted type="submit">
+          Submit
+        </Button>
       </Form>
       <p className="my-2">
         Already have an account? <Link to="/login">Login</Link>

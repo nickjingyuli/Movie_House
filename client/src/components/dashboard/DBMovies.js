@@ -2,8 +2,8 @@ import React, { useEffect, Fragment } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getDBMovies } from "../../actions/movie";
-import Spinner from "../layout/Spinner";
 import DisplayMovies from "./DisplayMovies";
+import { Loader } from "semantic-ui-react";
 
 const DBMovies = ({
   movies,
@@ -15,7 +15,7 @@ const DBMovies = ({
   }, [getDBMovies, movies]);
 
   return loading ? (
-    <Spinner />
+    <Loader active inline="centered" />
   ) : (
     <Fragment>
       {DBMovies.length === 0 ? (

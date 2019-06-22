@@ -47,6 +47,7 @@ const Register = ({
     <Fragment>
       <h1 className="x-large">Login</h1>
       <Form
+        inverted
         size="big"
         onSubmit={e => handleSubmit(e)}
         error={allAlerts.length > 0}
@@ -73,7 +74,9 @@ const Register = ({
             required
           />
         </Form.Field>
-        <Button type="submit">Submit</Button>
+        <Button inverted type="submit">
+          Submit
+        </Button>
       </Form>
 
       <p className="my-2">

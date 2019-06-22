@@ -1,8 +1,7 @@
 import React, { Fragment, useState } from "react";
-import { Form, Icon, Radio } from "semantic-ui-react";
+import { Form, Icon, Radio, Loader } from "semantic-ui-react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import Spinner from "../layout/Spinner";
 import DBMovies from "./DBMovies";
 
 const Dashboard = ({ auth }) => {
@@ -13,12 +12,12 @@ const Dashboard = ({ auth }) => {
   };
 
   return auth.loading ? (
-    <Spinner />
+    <Loader active inline="centered" />
   ) : (
     <Fragment>
       <h1 className="x-large">Welcome back {auth.user.username}!</h1>
       <div className="liked-movies-container">
-        <Form>
+        <Form inverted>
           <Form.Group inline>
             <Form.Field>
               <Radio

@@ -16,6 +16,7 @@ import PrivateRoute from "./components/routing/PrivateRoute";
 import Dashboard from "./components/dashboard/Dashboard";
 import MovieDetail from "./components/movie/MovieDetail";
 import Discussion from "./components/comment/Discussion";
+import Search from "./components/search/Search";
 
 if (localStorage.token) {
   setAuthToken(localStorage.token);
@@ -36,6 +37,7 @@ const App = () => {
               <Route exact path="/register" component={Register} />
               <Route exact path="/login" component={Login} />
               <Route exact path="/detail/:id" component={MovieDetail} />
+              <Route exact path="/search" component={Search} />
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
               <PrivateRoute
                 exact

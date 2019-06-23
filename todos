@@ -6,9 +6,13 @@ User:
 
 Frontend:
 
+问题：
+1. 可以删除其他用户的discussion
+2. search list hover的时候字体没变黑
+
+
 comment:
-1. 制作movie item，可以展示likes数量 还有评论按钮 。然后如果是自己的item可以点修改，进到另外一个页面去修改此页面会展示出所有关于此条评论的评论。然后返回detail页
-1. cancel edit and delete
+
 
 dashboard:
 1. 小屏时每排从五个减少。改变grid

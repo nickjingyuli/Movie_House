@@ -91,7 +91,11 @@ const MovieDetail = ({
                   Revenue:{" "}
                   {currentMovie.revenue > 0 && `$ ${currentMovie.revenue}`}
                 </p>
-                <a href={currentMovie.homepage} target="_blank">
+                <a
+                  href={currentMovie.homepage}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   Movie Homepage
                 </a>
                 {isAuthenticated && user && (

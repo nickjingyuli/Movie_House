@@ -6,7 +6,12 @@ import { register } from "../../actions/auth";
 import { clearAlert } from "../../actions/alert";
 import { Link, Redirect } from "react-router-dom";
 
-const Register = ({ isAuthenticated, register, clearAlert, alerts }) => {
+const Register = ({
+  auth: { isAuthenticated, user },
+  register,
+  clearAlert,
+  alerts
+}) => {
   useEffect(() => {
     clearAlert();
   }, [clearAlert]);
@@ -51,7 +56,7 @@ const Register = ({ isAuthenticated, register, clearAlert, alerts }) => {
   }
 
   // Redirect after register
-  if (isAuthenticated) {
+  if (isAuthenticated && user) {
     clearAlert();
     return <Redirect to="/dashboard" />;
   }
@@ -127,14 +132,14 @@ const Register = ({ isAuthenticated, register, clearAlert, alerts }) => {
 };
 
 Register.propTypes = {
-  isAuthenticated: PropTypes.bool.isRequired,
+  auth: PropTypes.object.isRequired,
   register: PropTypes.func.isRequired,
   alerts: PropTypes.array.isRequired,
   clearAlert: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
-  isAuthenticated: state.auth.isAuthenticated,
+  auth: state.auth,
   alerts: state.alert
 });
 

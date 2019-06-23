@@ -275,7 +275,54 @@ img {
     color: $light-color;
     width: 100%;
     &:focus {
-      outline: none
+      outline: none;
     }
   }
+  .search-filter {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+  }
+  .search-result {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 7fr 1fr;
+
+    a {
+      color: $light-color
+    }
+
+    div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      i:hover {
+        cursor: pointer;
+      }
+    }
+
+    ul {
+      width: 100%;
+      li {
+        border: $light-color solid 1px;
+        transition: $transition;
+        cursor: pointer;
+        &:hover {
+          background-color: $light-color;
+          color: black;
+        }
+      }
+    }
+  }
+}
+
+.bg-particle {
+background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+//  background-color: black;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: -1;
 }

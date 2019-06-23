@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 import { login } from "../../actions/auth";
 import { clearAlert } from "../../actions/alert";
 
-const Register = ({
+const Login = ({
   auth: { isAuthenticated, user },
   login,
   clearAlert,
@@ -86,7 +86,7 @@ const Register = ({
   );
 };
 
-Register.propTypes = {
+Login.propTypes = {
   auth: PropTypes.object.isRequired,
   login: PropTypes.func.isRequired,
   alerts: PropTypes.array.isRequired,
@@ -101,4 +101,4 @@ const mapStateToProps = state => ({
 export default connect(
   mapStateToProps,
   { login, clearAlert }
-)(Register);
+)(Login);

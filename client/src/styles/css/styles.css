@@ -1547,3 +1547,37 @@ img {
     width: 100%; }
     .search-container .search-bar:focus {
       outline: none; }
+  .search-container .search-filter {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly; }
+  .search-container .search-result {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 7fr 1fr; }
+    .search-container .search-result a {
+      color: #f4f4f4; }
+    .search-container .search-result div {
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      .search-container .search-result div i:hover {
+        cursor: pointer; }
+    .search-container .search-result ul {
+      width: 100%; }
+      .search-container .search-result ul li {
+        border: #f4f4f4 solid 1px;
+        transition: 0.2s;
+        cursor: pointer; }
+        .search-container .search-result ul li:hover {
+          background-color: #f4f4f4;
+          color: black; }
+
+.bg-particle {
+  background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: -1; }

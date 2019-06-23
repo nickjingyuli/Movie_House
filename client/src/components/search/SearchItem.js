@@ -1,13 +1,15 @@
 import React, { Fragment } from "react";
 import PropTypes from "prop-types";
-import Moment from "react-moment";
+import { Link } from "react-router-dom";
 
 const SearchItem = ({ movie }) => {
   return (
     <Fragment>
-      <p>
-        {movie.title} ({<Moment format="YYYY">{movie.release_date}</Moment>})
-      </p>
+      <Link to={`/detail/${movie.id}`}>
+        <p>
+          {movie.title} ({movie.release_date.slice(0, 4)})
+        </p>
+      </Link>
     </Fragment>
   );
 };

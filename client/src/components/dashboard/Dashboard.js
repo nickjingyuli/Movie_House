@@ -15,8 +15,8 @@ const Dashboard = ({ auth }) => {
     <Loader active inline="centered" />
   ) : (
     <Fragment>
-      <h1 className="x-large">Welcome back {auth.user.username}!</h1>
       <div className="liked-movies-container">
+        <h1 className="x-large">Welcome back {auth.user.username}!</h1>
         <Form inverted>
           <Form.Group inline>
             <Form.Field>
@@ -42,12 +42,12 @@ const Dashboard = ({ auth }) => {
         {value === "like" ? (
           <h3>
             <Icon name="heart" color="red" />
-            Movies you liked
+            <span className="hide-sm">Movies you liked</span>
           </h3>
         ) : (
           <h3>
-            <Icon name="check" color="blue" />
-            Movies in your wish list
+            <Icon name="check" color="blue" />{" "}
+            <span className="hide-sm"> Movies in your wish list</span>
           </h3>
         )}
         <DBMovies

@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import axios from "axios";
 import { connect } from "react-redux";
 import { Icon, Loader, Button } from "semantic-ui-react";
-import particleConfig from "../../utils/particleConfig";
+import { particleConfig1 } from "../../utils/particleConfig";
 import SearchItem from "./SearchItem";
 import Particles from "react-particles-js";
 
@@ -54,7 +54,7 @@ const Search = ({ auth: { user, loading } }) => {
 
   return (
     <div>
-      <Particles params={particleConfig} className="bg-particle" />
+      <Particles params={particleConfig1} className="particle-overlay2" />
       {loading ? (
         <Loader active inline="centered" />
       ) : (
@@ -67,20 +67,21 @@ const Search = ({ auth: { user, loading } }) => {
             onChange={e => handleChange(e)}
           />
           <div className="search-filter my-1">
-            <Button inverted onClick={() => sort(1)}>
-              <span>From newest</span>
-            </Button>
-            <Button inverted onClick={() => sort(-1)}>
-              <span>From oldest</span>
-            </Button>
+            <span>
+              <Button onClick={() => sort(1)}>From newest </Button>
+            </span>
+            <span>
+              <Button onClick={() => sort(-1)}>From oldest </Button>
+            </span>
           </div>
           <div className="search-result ">
             <div>
-              {movies.length > 10 && count === 1 && (
+              {movies.length > 10 && (
                 <Icon
                   size="big"
                   name="arrow circle left"
                   onClick={() => setCount(0)}
+                  disabled={count === 0}
                 />
               )}
             </div>
@@ -92,11 +93,12 @@ const Search = ({ auth: { user, loading } }) => {
               ))}
             </ul>
             <div>
-              {movies.length > 10 && count === 0 && (
+              {movies.length > 10 && (
                 <Icon
                   size="big"
                   name="arrow circle right"
                   onClick={() => setCount(1)}
+                  disabled={count === 1}
                 />
               )}
             </div>

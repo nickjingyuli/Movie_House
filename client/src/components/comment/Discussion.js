@@ -33,7 +33,7 @@ const Discussion = ({
   ) : (
     <Fragment>
       <div className="bg-darker p-1 bd-radius-big">
-        <div className="dis-top my-1">
+        <div className="dis-top">
           <DiscussionItem
             username={currComment.username}
             text={currComment.text}
@@ -44,7 +44,7 @@ const Discussion = ({
         </div>
 
         <div className="dis-mid my-1">
-          <h1>Make a comment</h1>
+          <h1 className="large">Make a comment</h1>
           <textarea
             placeholder="Write something..."
             className="cmt-form bg-dark my-1"

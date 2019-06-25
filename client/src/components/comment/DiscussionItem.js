@@ -15,7 +15,7 @@ const DiscussionItem = ({
   deleteDis
 }) => {
   return (
-    <div className="cmt-container bg-dark p-1">
+    <div className="cmt-container my-1 bg-dark p-1">
       <div className="cmt-top">
         <div>
           <h3>
@@ -32,7 +32,7 @@ const DiscussionItem = ({
       <div className="cmt-mid my-1">
         <p>{text}</p>
       </div>
-      {disId && (
+      {disId && auth.user.username === username && (
         <div>
           <Button
             inverted

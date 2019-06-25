@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { Tab } from "semantic-ui-react";
-import DBMovieItem from "../movie/DBMovieItem";
+import MovieItem from "./MovieItem";
 
 const DisplayMovies = ({ all, movieGenres }) => {
   const panes = [
@@ -18,7 +18,7 @@ const DisplayMovies = ({ all, movieGenres }) => {
             <div className="poster-container">
               {all.map(item => (
                 <Link key={item.id} to={`/detail/${item.id}`}>
-                  <DBMovieItem movie={item} />
+                  <MovieItem movie={item} />
                 </Link>
               ))}
             </div>
@@ -37,7 +37,7 @@ const DisplayMovies = ({ all, movieGenres }) => {
             <div className="poster-container">
               {movieGenres.action.map(item => (
                 <Link key={item.id} to={`/detail/${item.id}`}>
-                  <DBMovieItem movie={item} />
+                  <MovieItem movie={item} />
                 </Link>
               ))}
             </div>
@@ -56,7 +56,7 @@ const DisplayMovies = ({ all, movieGenres }) => {
             <div className="poster-container">
               {movieGenres.adventure.map(item => (
                 <Link key={item.id} to={`/detail/${item.id}`}>
-                  <DBMovieItem movie={item} />
+                  <MovieItem movie={item} />
                 </Link>
               ))}
             </div>
@@ -75,7 +75,7 @@ const DisplayMovies = ({ all, movieGenres }) => {
             <div className="poster-container">
               {movieGenres.animation.map(item => (
                 <Link key={item.id} to={`/detail/${item.id}`}>
-                  <DBMovieItem movie={item} />
+                  <MovieItem movie={item} />
                 </Link>
               ))}
             </div>
@@ -94,7 +94,7 @@ const DisplayMovies = ({ all, movieGenres }) => {
             <div className="poster-container">
               {movieGenres.comedy.map(item => (
                 <Link key={item.id} to={`/detail/${item.id}`}>
-                  <DBMovieItem movie={item} />
+                  <MovieItem movie={item} />
                 </Link>
               ))}
             </div>
@@ -113,7 +113,7 @@ const DisplayMovies = ({ all, movieGenres }) => {
             <div className="poster-container">
               {movieGenres.crime.map(item => (
                 <Link key={item.id} to={`/detail/${item.id}`}>
-                  <DBMovieItem movie={item} />
+                  <MovieItem movie={item} />
                 </Link>
               ))}
             </div>
@@ -132,7 +132,7 @@ const DisplayMovies = ({ all, movieGenres }) => {
             <div className="poster-container">
               {movieGenres.documentary.map(item => (
                 <Link key={item.id} to={`/detail/${item.id}`}>
-                  <DBMovieItem movie={item} />
+                  <MovieItem movie={item} />
                 </Link>
               ))}
             </div>
@@ -151,7 +151,7 @@ const DisplayMovies = ({ all, movieGenres }) => {
             <div className="poster-container">
               {movieGenres.drama.map(item => (
                 <Link key={item.id} to={`/detail/${item.id}`}>
-                  <DBMovieItem movie={item} />
+                  <MovieItem movie={item} />
                 </Link>
               ))}
             </div>
@@ -170,7 +170,7 @@ const DisplayMovies = ({ all, movieGenres }) => {
             <div className="poster-container">
               {movieGenres.family.map(item => (
                 <Link key={item.id} to={`/detail/${item.id}`}>
-                  <DBMovieItem movie={item} />
+                  <MovieItem movie={item} />
                 </Link>
               ))}
             </div>
@@ -189,7 +189,7 @@ const DisplayMovies = ({ all, movieGenres }) => {
             <div className="poster-container">
               {movieGenres.fantasy.map(item => (
                 <Link key={item.id} to={`/detail/${item.id}`}>
-                  <DBMovieItem movie={item} />
+                  <MovieItem movie={item} />
                 </Link>
               ))}
             </div>
@@ -208,7 +208,7 @@ const DisplayMovies = ({ all, movieGenres }) => {
             <div className="poster-container">
               {movieGenres.history.map(item => (
                 <Link key={item.id} to={`/detail/${item.id}`}>
-                  <DBMovieItem movie={item} />
+                  <MovieItem movie={item} />
                 </Link>
               ))}
             </div>
@@ -227,7 +227,7 @@ const DisplayMovies = ({ all, movieGenres }) => {
             <div className="poster-container">
               {movieGenres.horror.map(item => (
                 <Link key={item.id} to={`/detail/${item.id}`}>
-                  <DBMovieItem movie={item} />
+                  <MovieItem movie={item} />
                 </Link>
               ))}
             </div>
@@ -246,7 +246,7 @@ const DisplayMovies = ({ all, movieGenres }) => {
             <div className="poster-container">
               {movieGenres.music.map(item => (
                 <Link key={item.id} to={`/detail/${item.id}`}>
-                  <DBMovieItem movie={item} />
+                  <MovieItem movie={item} />
                 </Link>
               ))}
             </div>
@@ -265,7 +265,7 @@ const DisplayMovies = ({ all, movieGenres }) => {
             <div className="poster-container">
               {movieGenres.mystery.map(item => (
                 <Link key={item.id} to={`/detail/${item.id}`}>
-                  <DBMovieItem movie={item} />
+                  <MovieItem movie={item} />
                 </Link>
               ))}
             </div>
@@ -284,7 +284,7 @@ const DisplayMovies = ({ all, movieGenres }) => {
             <div className="poster-container">
               {movieGenres.romance.map(item => (
                 <Link key={item.id} to={`/detail/${item.id}`}>
-                  <DBMovieItem movie={item} />
+                  <MovieItem movie={item} />
                 </Link>
               ))}
             </div>
@@ -303,7 +303,7 @@ const DisplayMovies = ({ all, movieGenres }) => {
             <div className="poster-container">
               {movieGenres.scienceFiction.map(item => (
                 <Link key={item.id} to={`/detail/${item.id}`}>
-                  <DBMovieItem movie={item} />
+                  <MovieItem movie={item} />
                 </Link>
               ))}
             </div>
@@ -322,7 +322,7 @@ const DisplayMovies = ({ all, movieGenres }) => {
             <div className="poster-container">
               {movieGenres.tvMovie.map(item => (
                 <Link key={item.id} to={`/detail/${item.id}`}>
-                  <DBMovieItem movie={item} />
+                  <MovieItem movie={item} />
                 </Link>
               ))}
             </div>
@@ -341,7 +341,7 @@ const DisplayMovies = ({ all, movieGenres }) => {
             <div className="poster-container">
               {movieGenres.thriller.map(item => (
                 <Link key={item.id} to={`/detail/${item.id}`}>
-                  <DBMovieItem movie={item} />
+                  <MovieItem movie={item} />
                 </Link>
               ))}
             </div>
@@ -360,7 +360,7 @@ const DisplayMovies = ({ all, movieGenres }) => {
             <div className="poster-container">
               {movieGenres.war.map(item => (
                 <Link key={item.id} to={`/detail/${item.id}`}>
-                  <DBMovieItem movie={item} />
+                  <MovieItem movie={item} />
                 </Link>
               ))}
             </div>
@@ -379,7 +379,7 @@ const DisplayMovies = ({ all, movieGenres }) => {
             <div className="poster-container">
               {movieGenres.western.map(item => (
                 <Link key={item.id} to={`/detail/${item.id}`}>
-                  <DBMovieItem movie={item} />
+                  <MovieItem movie={item} />
                 </Link>
               ))}
             </div>
@@ -390,7 +390,12 @@ const DisplayMovies = ({ all, movieGenres }) => {
   return (
     <Fragment>
       <Tab
-        menu={{ color: "grey", inverted: true, fluid: true, vertical: true }}
+        menu={{
+          color: "grey",
+          inverted: true,
+          fluid: true,
+          vertical: true
+        }}
         panes={panes}
       />
     </Fragment>

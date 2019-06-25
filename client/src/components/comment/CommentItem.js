@@ -77,10 +77,8 @@ const CommentItem = ({
               inverted
               onClick={() => deleteAComment(_id)}
             >
-              <span>
-                <Icon name="delete" />
-                Delete
-              </span>
+              <Icon name="delete" />
+              <span className="hide-sm">Delete</span>
             </Button>
           )}
         </div>

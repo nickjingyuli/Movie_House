@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState } from "react";
-import { Button, Loader, Rating } from "semantic-ui-react";
+import { Button, Icon, Loader, Rating } from "semantic-ui-react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { getRating } from "../../actions/movie";
@@ -89,7 +89,9 @@ const Comment = ({
         )}
         {allComments.length > 0 && (
           <div className="my-1">
-            <h1>User comments</h1>
+            <h1 className="large">
+              <Icon name="comments outline" /> User comments
+            </h1>
           </div>
         )}
         <div className="all-cmt-container">

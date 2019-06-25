@@ -10,7 +10,7 @@ router.get("/:movieid", async (req, res) => {
   try {
     const movie = await MovieRating.findOne({ movieId: req.params.movieid });
     if (!movie) {
-      return res.status(400).json({ msg: "Movie Rating not found" });
+      return res.status(400).json({ msg: "Movie MovieDetailRating not found" });
     }
     res.json(movie);
   } catch (err) {

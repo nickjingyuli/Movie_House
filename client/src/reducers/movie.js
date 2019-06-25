@@ -1,6 +1,6 @@
 import {
-  DB_MOVIE_FAIL,
-  DB_MOVIE_SUCCESS,
+  MOVIE_FAIL,
+  MOVIE_SUCCESS,
   NO_MOVIES,
   GET_ONE_MOVIE_FAIL,
   GET_ONE_MOVIE_SUCCESS,
@@ -18,8 +18,8 @@ import {
 import filterGenres from "../utils/filterGenres";
 
 const initialState = {
-  DBMovies: [],
-  DBMoviesGenres: {},
+  Movies: [],
+  MoviesGenres: {},
   currentMovie: {},
   currentRating: null,
   error: {},
@@ -31,14 +31,14 @@ const initialState = {
 export default function(state = initialState, action) {
   const { type, payload } = action;
   switch (type) {
-    case DB_MOVIE_SUCCESS:
+    case MOVIE_SUCCESS:
       return {
         ...state,
-        DBMoviesGenres: filterGenres(payload),
-        DBMovies: payload,
+        MoviesGenres: filterGenres(payload),
+        Movies: payload,
         loading: false
       };
-    case DB_MOVIE_FAIL:
+    case MOVIE_FAIL:
       return {
         ...state,
         error: payload,

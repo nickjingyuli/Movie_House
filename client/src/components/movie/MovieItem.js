@@ -3,7 +3,7 @@ import { Rating } from "semantic-ui-react";
 
 import PropTypes from "prop-types";
 
-class DBMovieItem extends Component {
+class MovieItem extends Component {
   state = {
     imgUrl: `https://image.tmdb.org/t/p/w500/${this.props.movie.poster_path}`
   };
@@ -27,7 +27,7 @@ class DBMovieItem extends Component {
           <Rating
             className="rating"
             icon="star"
-            defaultRating={this.props.movie.vote_average * 0.5}
+            defaultRating={Math.ceil(this.props.movie.vote_average * 0.5)}
             maxRating={5}
             disabled
           />
@@ -37,8 +37,8 @@ class DBMovieItem extends Component {
   }
 }
 
-DBMovieItem.propTypes = {
+MovieItem.propTypes = {
   movie: PropTypes.object.isRequired
 };
 
-export default DBMovieItem;
+export default MovieItem;

@@ -11,6 +11,7 @@ import {
   unwishAMovie
 } from "../../actions/movie";
 import Comment from "../comment/Comment";
+import MovieDetailRating from "./MovieDetailRating";
 
 const MovieDetail = ({
   match: {
@@ -58,120 +59,103 @@ const MovieDetail = ({
   return detailLoading ? (
     <Loader active inline="centered" />
   ) : (
-    <Fragment>
-      <div className="bg-darker p-1 bd-radius-big">
-        <section className="top">
-          <div className="tp-lft">
-            <img
-              src={`https://image.tmdb.org/t/p/w500/${
-                currentMovie.poster_path
-              }`}
-              alt={currentMovie.title}
-              className="bd-radius"
-            />
-          </div>
-          <div className="tp-rt">
-            <div className="movie-info">
-              <div className="basic-info">
-                <h1>{currentMovie.title}</h1>
-                <div className="genres my-1">
-                  {currentMovie.genres.map(genre => (
-                    <Label key={genre.name} color="black">
-                      {genre.name}
-                    </Label>
-                  ))}
-                </div>
-                <p>
-                  Released on:{" "}
-                  <Moment format="YYYY/MM/DD">
-                    {currentMovie.release_date}
-                  </Moment>
-                </p>
-                <p>
-                  Revenue:{" "}
-                  {currentMovie.revenue > 0 && `$ ${currentMovie.revenue}`}
-                </p>
-                <a
-                  href={currentMovie.homepage}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Movie Homepage
-                </a>
-                {isAuthenticated && user && (
-                  <div className="icons my-1">
-                    <Icon
-                      name={
-                        user.likedMovies
-                          ? user.likedMovies
-                              .map(item => item.movieId)
-                              .indexOf(currentMovie.id.toString()) > -1
-                            ? "heart"
-                            : "heart outline"
+    <div className="bg-darker bd-radius-big detail-container">
+      <section className="top">
+        <div className="tp-lft">
+          <img
+            src={`https://image.tmdb.org/t/p/w500/${currentMovie.poster_path}`}
+            alt={currentMovie.title}
+            className="bd-radius-big"
+          />
+        </div>
+        <div className="tp-rt">
+          <div className="movie-info">
+            <div className="basic-info">
+              <h1 className="large">{currentMovie.title}</h1>
+              <div className="genres my-1">
+                {currentMovie.genres.map(genre => (
+                  <Label key={genre.name} color="black">
+                    {genre.name}
+                  </Label>
+                ))}
+              </div>
+              <p className="lead">
+                Released on:{" "}
+                <Moment format="YYYY/MM/DD">{currentMovie.release_date}</Moment>
+              </p>
+              <p className="lead">
+                Revenue:{" "}
+                {currentMovie.revenue > 0 && `$ ${currentMovie.revenue}`}
+              </p>
+              <a
+                href={currentMovie.homepage}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Movie Homepage
+              </a>
+              {isAuthenticated && user && (
+                <div className="icons my-1">
+                  <Icon
+                    name={
+                      user.likedMovies
+                        ? user.likedMovies
+                            .map(item => item.movieId)
+                            .indexOf(currentMovie.id.toString()) > -1
+                          ? "heart"
                           : "heart outline"
-                      }
-                      color={
-                        user.likedMovies
-                          ? user.likedMovies
-                              .map(item => item.movieId)
-                              .indexOf(currentMovie.id.toString()) > -1
-                            ? "red"
-                            : "grey"
+                        : "heart outline"
+                    }
+                    color={
+                      user.likedMovies
+                        ? user.likedMovies
+                            .map(item => item.movieId)
+                            .indexOf(currentMovie.id.toString()) > -1
+                          ? "red"
                           : "grey"
-                      }
-                      size="large"
-                      title="Likes"
-                      onClick={() => handleLike()}
-                    />
-                    <Icon
-                      name={
-                        user.watchLater
-                          ? user.watchLater
-                              .map(item => item.movieId)
-                              .indexOf(currentMovie.id.toString()) > -1
-                            ? "check circle"
-                            : "check circle outline"
+                        : "grey"
+                    }
+                    size="large"
+                    title="Likes"
+                    onClick={() => handleLike()}
+                  />
+                  <Icon
+                    name={
+                      user.watchLater
+                        ? user.watchLater
+                            .map(item => item.movieId)
+                            .indexOf(currentMovie.id.toString()) > -1
+                          ? "check circle"
                           : "check circle outline"
-                      }
-                      color={
-                        user.watchLater
-                          ? user.watchLater
-                              .map(item => item.movieId)
-                              .indexOf(currentMovie.id.toString()) > -1
-                            ? "blue"
-                            : "grey"
+                        : "check circle outline"
+                    }
+                    color={
+                      user.watchLater
+                        ? user.watchLater
+                            .map(item => item.movieId)
+                            .indexOf(currentMovie.id.toString()) > -1
+                          ? "blue"
                           : "grey"
-                      }
-                      size="large"
-                      title="Wish List"
-                      onClick={() => handleWatch()}
-                    />
-                  </div>
-                )}
-              </div>
-
-              <div className="rating m-2">
-                <div
-                  className={`c100 p${Math.round(
-                    currentMovie.vote_average * 10
-                  )} green dark big`}
-                >
-                  <span>{currentMovie.vote_average}</span>
-                  <div className="slice">
-                    <div className="bar" />
-                    <div className="fill" />
-                  </div>
+                        : "grey"
+                    }
+                    size="large"
+                    title="Wish List"
+                    onClick={() => handleWatch()}
+                  />
                 </div>
-              </div>
+              )}
             </div>
-            <div>
-              <p className="lead">{currentMovie.overview}</p>
+            <div className="rating m-2">
+              <MovieDetailRating currentMovie={currentMovie} />
             </div>
           </div>
-        </section>
-        <Comment id={currentMovie.id} />
-      </div>
-    </Fragment>
+          <div>
+            <p className="lead">{currentMovie.overview}</p>
+          </div>
+        </div>
+      </section>
+      <Comment id={currentMovie.id} />
+    </div>
   );
 };
 

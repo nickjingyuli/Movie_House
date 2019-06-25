@@ -1,7 +1,7 @@
 import axios from "axios";
 import {
-  DB_MOVIE_FAIL,
-  DB_MOVIE_SUCCESS,
+  MOVIE_FAIL,
+  MOVIE_SUCCESS,
   NO_MOVIES,
   GET_ONE_MOVIE_FAIL,
   GET_ONE_MOVIE_SUCCESS,
@@ -20,7 +20,7 @@ import {
 import { loadUser } from "./auth";
 
 // load Dashboard movies
-export const getDBMovies = arr => async dispatch => {
+export const getMovies = arr => async dispatch => {
   if (arr.length === 0) {
     dispatch({
       type: NO_MOVIES
@@ -42,12 +42,12 @@ export const getDBMovies = arr => async dispatch => {
     const results = await axios.all(promises);
     const movies = results.map(item => item.data);
     dispatch({
-      type: DB_MOVIE_SUCCESS,
+      type: MOVIE_SUCCESS,
       payload: movies
     });
   } catch (err) {
     dispatch({
-      type: DB_MOVIE_FAIL,
+      type: MOVIE_FAIL,
       payload: { msg: err.response.statusText, status: err.response.status }
     });
   }
@@ -82,7 +82,7 @@ export const getOneMovie = id => async dispatch => {
 export const likeAMovie = id => async dispatch => {
   try {
     const res = await axios.put(`/api/users/likedmovies/${id}`);
-    await dispatch(getDBMovies(res));
+    await dispatch(getMovies(res));
     dispatch({
       type: LIKE_MOVIE_SUCCESS
     });
@@ -98,7 +98,7 @@ export const likeAMovie = id => async dispatch => {
 export const unlikeAMovie = id => async dispatch => {
   try {
     const res = await axios.put(`/api/users/likedmovies/remove/${id}`);
-    await dispatch(getDBMovies(res));
+    await dispatch(getMovies(res));
     dispatch({
       type: UNLIKE_MOVIE_SUCCESS
     });
@@ -114,7 +114,7 @@ export const unlikeAMovie = id => async dispatch => {
 export const wishAMovie = id => async dispatch => {
   try {
     const res = await axios.put(`/api/users/watchlater/${id}`);
-    await dispatch(getDBMovies(res));
+    await dispatch(getMovies(res));
     dispatch({
       type: WISH_MOVIE_SUCCESS
     });
@@ -130,7 +130,7 @@ export const wishAMovie = id => async dispatch => {
 export const unwishAMovie = id => async dispatch => {
   try {
     const res = await axios.put(`/api/users/watchlater/remove/${id}`);
-    await dispatch(getDBMovies(res));
+    await dispatch(getMovies(res));
     dispatch({
       type: UNWISH_MOVIE_SUCCESS
     });
@@ -156,5 +156,36 @@ export const getRating = id => async dispatch => {
       type: GET_RATING_FAIL,
       payload: { msg: err.response.statusText, status: err.response.status }
     });
+  }
+};
+
+// Get popular movies
+export const getPopMovies = () => async dispatch => {
+  if (localStorage.token) {
+    delete axios.defaults.headers.common["x-auth-token"];
+  }
+  const pages = [1, 2, 3, 4, 5];
+
+  const promises = pages.map(page =>
+    axios.get(
+      `https://api.themoviedb.org/3/movie/popular?api_key=57597e10d2a4be7b31ce5f3098929194&language=en-US&page=${page}`
+    )
+  );
+  try {
+    const results = await axios.all(promises);
+    const movies = results.map(item => item.data.results).flat();
+    dispatch({
+      type: MOVIE_SUCCESS,
+      payload: movies
+    });
+  } catch (err) {
+    console.log(err);
+    dispatch({
+      type: MOVIE_FAIL,
+      payload: { msg: err.response.statusText, status: err.response.status }
+    });
+  }
+  if (localStorage.token) {
+    axios.defaults.headers.common["x-auth-token"] = localStorage.token;
   }
 };

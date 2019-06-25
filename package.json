@@ -29,6 +29,7 @@
     "mongoose": "^5.5.12",
     "react-helmet": "^5.2.1",
     "react-particles-js": "^2.6.0",
+    "react-responsive": "^7.0.0",
     "request": "^2.88.0"
   }
 }

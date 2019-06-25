@@ -25,7 +25,12 @@ export default function(movies) {
     return result;
   }
   Array.from(movies).forEach(movie => {
-    const genres = movie.genres.map(item => item.id);
+    let genres;
+    if (movie.genres) {
+      genres = movie.genres.map(item => item.id);
+    } else {
+      genres = movie.genre_ids;
+    }
     if (genres.indexOf(28) !== -1) {
       result.action.push(movie);
     }

@@ -2,38 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9d10927f-e0d6-4766-b9bc-aed988629957" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/client/src/components/movie/Trending.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/client/src/img/library.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/actions/movie.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/actions/movie.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/actions/types.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/actions/types.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/comment/Comment.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/comment/Comment.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/comment/CommentItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/comment/CommentItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/comment/Discussion.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/comment/Discussion.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/comment/DiscussionItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/comment/DiscussionItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/dashboard/DBMovies.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/dashboard/DBMovies.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/dashboard/Dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/dashboard/Dashboard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/dashboard/DisplayMovies.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/movie/DisplayMovies.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/dashboard/profile.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/layout/Landing.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/layout/Landing.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/layout/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/layout/Navbar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/movie/DBMovieItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/movie/MovieItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/movie/MovieDetail.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/movie/MovieDetail.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/search/Search.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/search/Search.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/img/cover.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/reducers/movie.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/reducers/movie.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/styles/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/styles/css/styles.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/styles/scss/_circle.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/styles/scss/_circle.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/styles/scss/_config.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/styles/scss/_config.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/styles/scss/_utilities.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/styles/scss/_utilities.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/styles/scss/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/styles/scss/styles.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/utils/filterGenres.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/utils/filterGenres.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/utils/particleConfig.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/utils/particleConfig.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api/movieratings.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api/movieratings.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todos" beforeDir="false" afterPath="$PROJECT_DIR$/todos" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -50,48 +21,21 @@
     </favorites_list>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/components/dashboard/DBMovies.js">
+        <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="972">
-              <caret line="36" column="2" lean-forward="true" selection-start-line="36" selection-start-column="2" selection-end-line="36" selection-end-column="2" />
-              <folding>
-                <element signature="e#0#51#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="324">
+              <caret line="12" column="113" selection-start-line="12" selection-start-column="113" selection-end-line="12" selection-end-column="113" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/client/src/styles/scss/_mobile.scss">
+        <entry file="file://$PROJECT_DIR$/server.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2793">
-              <caret line="125" column="7" lean-forward="true" selection-start-line="125" selection-start-column="7" selection-end-line="125" selection-end-column="7" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/components/movie/DisplayMovieSmall.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-288">
-              <caret line="41" selection-start-line="41" selection-end-line="41" />
-              <folding>
-                <element signature="e#228#1366#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/src/components/movie/MovieItem.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="498">
-              <caret line="36" column="3" lean-forward="true" selection-start-line="36" selection-start-column="3" selection-end-line="36" selection-end-column="3" />
-              <folding>
-                <element signature="e#0#41#0" expanded="true" />
-              </folding>
+            <state>
+              <caret column="1" selection-start-column="1" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -151,10 +95,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/client/src/components/routing/PrivateRoute.js" />
-        <option value="$PROJECT_DIR$/server.js" />
-        <option value="$PROJECT_DIR$/client/src/components/dashboard/DisplayLikes.js" />
-        <option value="$PROJECT_DIR$/client/src/actions/auth.js" />
         <option value="$PROJECT_DIR$/client/src/components/dashboard/Likes.js" />
         <option value="$PROJECT_DIR$/client/src/components/comment/Commen5.js" />
         <option value="$PROJECT_DIR$/client/src/reducers/index.js" />
@@ -202,6 +142,10 @@
         <option value="$PROJECT_DIR$/client/src/components/movie/Trending.js" />
         <option value="$PROJECT_DIR$/client/src/components/auth/Login.js" />
         <option value="$PROJECT_DIR$/client/src/components/movie/MovieItem.js" />
+        <option value="$PROJECT_DIR$/config/production.json" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/server.js" />
       </list>
     </option>
   </component>
@@ -232,43 +176,7 @@
             <path>
               <item name="Movie-House" type="b2602c69:ProjectViewProjectNode" />
               <item name="Movie-House" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Movie-House" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Movie-House" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Movie-House" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Movie-House" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Movie-House" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Movie-House" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="components" type="462c0819:PsiDirectoryNode" />
-              <item name="movie" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Movie-House" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Movie-House" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="styles" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Movie-House" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Movie-House" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="styles" type="462c0819:PsiDirectoryNode" />
-              <item name="scss" type="462c0819:PsiDirectoryNode" />
+              <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -378,12 +286,13 @@
       <workItem from="1561272290983" duration="5024000" />
       <workItem from="1561288570561" duration="9964000" />
       <workItem from="1561357342740" duration="10356000" />
-      <workItem from="1561433410716" duration="22694000" />
+      <workItem from="1561433410716" duration="22828000" />
+      <workItem from="1561474198823" duration="768000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="301598000" />
+    <option name="totallyTimeSpent" value="302500000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -396,13 +305,11 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6518424" visible="true" weight="0.24171951" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.65057176" visible="true" weight="0.24171951" />
       <window_info id="Structure" order="1" sideWeight="0.34053367" side_tool="true" weight="0.24947146" />
       <window_info id="Favorites" order="2" sideWeight="0.34053367" side_tool="true" weight="0.24947146" />
-      <window_info id="Terminal" order="3" sideWeight="0.34815755" side_tool="true" weight="0.24171951" />
-      <window_info id="npm" order="4" sideWeight="0.34053367" side_tool="true" weight="0.24947146" />
+      <window_info id="npm" order="3" sideWeight="0.34053367" side_tool="true" weight="0.24947146" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32909784" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3278272" />
@@ -413,6 +320,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" sideWeight="0.3494282" visible="true" weight="0.24142313" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -442,34 +350,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/client/src/styles/css/styles.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/User.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="344">
-          <caret line="27" column="5" lean-forward="true" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="27" column="26" selection-start-line="27" selection-start-column="26" selection-end-line="27" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/models/MovieRating.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="6" column="4" lean-forward="true" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/models/Comment.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1074">
@@ -503,9 +383,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/src/components/comment/CommentForm.js" />
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/api/users.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-517">
@@ -662,16 +539,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/src/components/movie/MovieDetailSmall.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="20" column="14" lean-forward="true" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#51#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/client/src/components/movie/MovieDetailSmall.js" />
     <entry file="file://$PROJECT_DIR$/client/src/components/movie/DisplayMovies.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="147">
@@ -838,6 +706,41 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2793">
           <caret line="125" column="7" lean-forward="true" selection-start-line="125" selection-start-column="7" selection-end-line="125" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/default.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="81">
+          <caret line="3" column="1" lean-forward="true" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/production.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="4" selection-start-line="4" selection-end-line="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="27">
+          <caret line="1" column="19" selection-start-line="1" selection-start-column="19" selection-end-line="1" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="12" column="113" selection-start-line="12" selection-start-column="113" selection-end-line="12" selection-end-column="113" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="1" selection-start-column="1" selection-end-column="1" />
         </state>
       </provider>
     </entry>

@@ -21,7 +21,7 @@ const DBMovies = ({
   ) : (
     <Fragment>
       {Movies.length === 0 ? (
-        <h3>No movie</h3>
+        <h3 className="large my-1">No movies found!</h3>
       ) : (
         <Fragment>
           <MediaQuery minWidth={700}>

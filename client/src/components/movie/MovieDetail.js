@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from "react";
+import React, { useEffect } from "react";
 import Moment from "react-moment";
 import { Label, Icon, Loader } from "semantic-ui-react";
 import PropTypes from "prop-types";

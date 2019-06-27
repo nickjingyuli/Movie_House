@@ -76,12 +76,13 @@ const Register = ({
           list={[...list, ...allAlerts]}
         />
         <Form.Field>
-          <label>Username</label>
+          <label>Username (max characters: 50)</label>
           <input
             name="username"
             value={username}
             onChange={e => handleChange(e)}
             placeholder="Username"
+            maxLength={50}
             required
           />
         </Form.Field>

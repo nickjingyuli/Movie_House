@@ -9,9 +9,9 @@ const DisplayMovies = ({ all, movieGenres }) => {
     {
       menuItem: "All",
       render: () =>
-        movieGenres.action.length === 0 ? (
+        all.length === 0 ? (
           <Tab.Pane attached={false} color="grey" inverted>
-            <p className="lead">No movie here </p>
+            <p className="lead">No movies here </p>
           </Tab.Pane>
         ) : (
           <Tab.Pane attached={false} color="grey" inverted>
@@ -30,7 +30,7 @@ const DisplayMovies = ({ all, movieGenres }) => {
       render: () =>
         movieGenres.action.length === 0 ? (
           <Tab.Pane attached={false} color="grey" inverted>
-            <p className="lead">No movie here </p>
+            <p className="lead">No movies here </p>
           </Tab.Pane>
         ) : (
           <Tab.Pane attached={false} color="grey" inverted>
@@ -49,7 +49,7 @@ const DisplayMovies = ({ all, movieGenres }) => {
       render: () =>
         movieGenres.adventure.length === 0 ? (
           <Tab.Pane attached={false} color="grey" inverted>
-            <p className="lead">No movie here </p>
+            <p className="lead">No movies here </p>
           </Tab.Pane>
         ) : (
           <Tab.Pane attached={false} color="grey" inverted>
@@ -68,7 +68,7 @@ const DisplayMovies = ({ all, movieGenres }) => {
       render: () =>
         movieGenres.animation.length === 0 ? (
           <Tab.Pane attached={false} color="grey" inverted>
-            <p className="lead">No movie here </p>
+            <p className="lead">No movies here </p>
           </Tab.Pane>
         ) : (
           <Tab.Pane attached={false} color="grey" inverted>
@@ -87,7 +87,7 @@ const DisplayMovies = ({ all, movieGenres }) => {
       render: () =>
         movieGenres.comedy.length === 0 ? (
           <Tab.Pane attached={false} color="grey" inverted>
-            <p className="lead">No movie here </p>
+            <p className="lead">No movies here </p>
           </Tab.Pane>
         ) : (
           <Tab.Pane attached={false} color="grey" inverted>
@@ -106,7 +106,7 @@ const DisplayMovies = ({ all, movieGenres }) => {
       render: () =>
         movieGenres.crime.length === 0 ? (
           <Tab.Pane attached={false} color="grey" inverted>
-            <p className="lead">No movie here </p>
+            <p className="lead">No movies here </p>
           </Tab.Pane>
         ) : (
           <Tab.Pane attached={false} color="grey" inverted>
@@ -125,7 +125,7 @@ const DisplayMovies = ({ all, movieGenres }) => {
       render: () =>
         movieGenres.documentary.length === 0 ? (
           <Tab.Pane attached={false} color="grey" inverted>
-            <p className="lead">No movie here </p>
+            <p className="lead">No movies here </p>
           </Tab.Pane>
         ) : (
           <Tab.Pane attached={false} color="grey" inverted>
@@ -144,7 +144,7 @@ const DisplayMovies = ({ all, movieGenres }) => {
       render: () =>
         movieGenres.drama.length === 0 ? (
           <Tab.Pane attached={false} color="grey" inverted>
-            <p className="lead">No movie here </p>
+            <p className="lead">No movies here </p>
           </Tab.Pane>
         ) : (
           <Tab.Pane attached={false} color="grey" inverted>
@@ -163,7 +163,7 @@ const DisplayMovies = ({ all, movieGenres }) => {
       render: () =>
         movieGenres.family.length === 0 ? (
           <Tab.Pane attached={false} color="grey" inverted>
-            <p className="lead">No movie here </p>
+            <p className="lead">No movies here </p>
           </Tab.Pane>
         ) : (
           <Tab.Pane attached={false} color="grey" inverted>
@@ -182,7 +182,7 @@ const DisplayMovies = ({ all, movieGenres }) => {
       render: () =>
         movieGenres.fantasy.length === 0 ? (
           <Tab.Pane attached={false} color="grey" inverted>
-            <p className="lead">No movie here </p>
+            <p className="lead">No movies here </p>
           </Tab.Pane>
         ) : (
           <Tab.Pane attached={false} color="grey" inverted>
@@ -201,7 +201,7 @@ const DisplayMovies = ({ all, movieGenres }) => {
       render: () =>
         movieGenres.history.length === 0 ? (
           <Tab.Pane attached={false} color="grey" inverted>
-            <p className="lead">No movie here </p>
+            <p className="lead">No movies here </p>
           </Tab.Pane>
         ) : (
           <Tab.Pane attached={false} color="grey" inverted>
@@ -220,7 +220,7 @@ const DisplayMovies = ({ all, movieGenres }) => {
       render: () =>
         movieGenres.horror.length === 0 ? (
           <Tab.Pane attached={false} color="grey" inverted>
-            <p className="lead">No movie here </p>
+            <p className="lead">No movies here </p>
           </Tab.Pane>
         ) : (
           <Tab.Pane attached={false} color="grey" inverted>
@@ -239,7 +239,7 @@ const DisplayMovies = ({ all, movieGenres }) => {
       render: () =>
         movieGenres.music.length === 0 ? (
           <Tab.Pane attached={false} color="grey" inverted>
-            <p className="lead">No movie here </p>
+            <p className="lead">No movies here </p>
           </Tab.Pane>
         ) : (
           <Tab.Pane attached={false} color="grey" inverted>
@@ -257,11 +257,11 @@ const DisplayMovies = ({ all, movieGenres }) => {
       menuItem: "Mystery",
       render: () =>
         movieGenres.mystery.length === 0 ? (
-          <Tab.Pane romance attached={false} color="grey" inverted>
-            <p className="lead">No movie here </p>
+          <Tab.Pane attached={false} color="grey" inverted>
+            <p className="lead">No movies here </p>
           </Tab.Pane>
         ) : (
-          <Tab.Pane romance attached={false} color="grey" inverted>
+          <Tab.Pane attached={false} color="grey" inverted>
             <div className="poster-container">
               {movieGenres.mystery.map(item => (
                 <Link key={item.id} to={`/detail/${item.id}`}>
@@ -277,7 +277,7 @@ const DisplayMovies = ({ all, movieGenres }) => {
       render: () =>
         movieGenres.romance.length === 0 ? (
           <Tab.Pane attached={false} color="grey" inverted>
-            <p className="lead">No movie here </p>
+            <p className="lead">No movies here </p>
           </Tab.Pane>
         ) : (
           <Tab.Pane attached={false} color="grey" inverted>
@@ -296,7 +296,7 @@ const DisplayMovies = ({ all, movieGenres }) => {
       render: () =>
         movieGenres.scienceFiction.length === 0 ? (
           <Tab.Pane attached={false} color="grey" inverted>
-            <p className="lead">No movie here </p>
+            <p className="lead">No movies here </p>
           </Tab.Pane>
         ) : (
           <Tab.Pane attached={false} color="grey" inverted>
@@ -315,7 +315,7 @@ const DisplayMovies = ({ all, movieGenres }) => {
       render: () =>
         movieGenres.tvMovie.length === 0 ? (
           <Tab.Pane attached={false} color="grey" inverted>
-            <p className="lead">No movie here </p>
+            <p className="lead">No movies here </p>
           </Tab.Pane>
         ) : (
           <Tab.Pane attached={false} color="grey" inverted>
@@ -334,7 +334,7 @@ const DisplayMovies = ({ all, movieGenres }) => {
       render: () =>
         movieGenres.thriller.length === 0 ? (
           <Tab.Pane attached={false} color="grey" inverted>
-            <p className="lead">No movie here </p>
+            <p className="lead">No movies here </p>
           </Tab.Pane>
         ) : (
           <Tab.Pane attached={false} color="grey" inverted>
@@ -353,7 +353,7 @@ const DisplayMovies = ({ all, movieGenres }) => {
       render: () =>
         movieGenres.war.length === 0 ? (
           <Tab.Pane attached={false} color="grey" inverted>
-            <p className="lead">No movie here </p>
+            <p className="lead">No movies here </p>
           </Tab.Pane>
         ) : (
           <Tab.Pane attached={false} color="grey" inverted>
@@ -372,7 +372,7 @@ const DisplayMovies = ({ all, movieGenres }) => {
       render: () =>
         movieGenres.western.length === 0 ? (
           <Tab.Pane attached={false} color="grey" inverted>
-            <p className="lead">No movie here </p>
+            <p className="lead">No movies here </p>
           </Tab.Pane>
         ) : (
           <Tab.Pane attached={false} color="grey" inverted>

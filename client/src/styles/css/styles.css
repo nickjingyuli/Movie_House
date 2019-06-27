@@ -1747,7 +1747,7 @@ img {
   .search-container .search-filter {
     width: 100%;
     display: flex;
-    justify-content: space-evenly; }
+    justify-content: center; }
   .search-container .search-result {
     width: 100%;
     display: grid;

@@ -2,15 +2,26 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import axios from "axios";
 import { connect } from "react-redux";
-import { Icon, Loader, Button } from "semantic-ui-react";
+import { Icon, Loader, Dropdown } from "semantic-ui-react";
 import { particleConfig1 } from "../../utils/particleConfig";
 import SearchItem from "./SearchItem";
 import Particles from "react-particles-js";
+
+const options = [
+  { key: "newest", value: "newest", text: "by newest" },
+  { key: "oldest", value: "oldest", text: "by oldest" }
+];
 
 const Search = ({ auth: { user, loading } }) => {
   const [value, setValue] = useState("");
   const [movies, setMovies] = useState([]);
   const [count, setCount] = useState(0);
+  const [sortValue, setSortValue] = useState("");
+
+  const handleChange = (e, { value }) => {
+    sort(value === "newest" ? 1 : -1);
+    setSortValue(value);
+  };
 
   const sort = key => {
     let tmp = movies;
@@ -26,16 +37,13 @@ const Search = ({ auth: { user, loading } }) => {
     setMovies([...tmp]);
   };
 
-  const handleChange = e => {
-    setValue(e.target.value);
-    searchMovie();
-  };
-
-  const searchMovie = async () => {
-    if (value === "") {
+  const searchMovie = async e => {
+    if (e.target.value === "") {
       return;
     }
-    let url = `https://api.themoviedb.org/3/search/movie?api_key=57597e10d2a4be7b31ce5f3098929194&language=en-US&query=${value}&include_adult=${
+    let url = `https://api.themoviedb.org/3/search/movie?api_key=57597e10d2a4be7b31ce5f3098929194&language=en-US&query=${
+      e.target.value
+    }&include_adult=${
       user
         ? Math.floor(
             (new Date() - user.birthday) / (1000 * 3600 * 24 * 365) >= 18
@@ -64,16 +72,25 @@ const Search = ({ auth: { user, loading } }) => {
             className="search-bar bd-radius-big bg-darker p-1"
             type="text"
             placeholder="Type in movie name"
-            onChange={e => handleChange(e)}
+            value={value}
+            onChange={e => {
+              setValue(e.target.value);
+              searchMovie(e);
+            }}
           />
-          <div className="search-filter my-1">
-            <span>
-              <Button onClick={() => sort(1)}>From newest </Button>
-            </span>
-            <span>
-              <Button onClick={() => sort(-1)}>From oldest </Button>
-            </span>
-          </div>
+          {movies.length > 2 && (
+            <div className="search-filter my-1">
+              <Dropdown
+                compact
+                placeholder="Sort by"
+                selection
+                value={sortValue}
+                options={options}
+                onChange={handleChange}
+              />
+            </div>
+          )}
+
           <div className="search-result ">
             <div>
               {movies.length > 10 && (

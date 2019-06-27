@@ -25,7 +25,7 @@ const Navbar = ({ auth: { loading, isAuthenticated }, logout, history }) => {
           <Dropdown.Menu>
             <Dropdown.Item
               icon="search"
-              text="search"
+              text="Search"
               onClick={() => redirect("search")}
             />
             <Dropdown.Item
@@ -64,7 +64,7 @@ const Navbar = ({ auth: { loading, isAuthenticated }, logout, history }) => {
           <Dropdown.Menu>
             <Dropdown.Item
               icon="search"
-              text="search"
+              text="Search"
               onClick={() => redirect("search")}
             />
             <Dropdown.Item

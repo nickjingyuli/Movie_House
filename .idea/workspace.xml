@@ -19,20 +19,7 @@
     </favorites_list>
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/client/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="372">
-                <caret line="17" column="49" selection-start-line="17" selection-start-column="49" selection-end-line="17" selection-end-column="49" />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -281,12 +268,12 @@
       <workItem from="1561433410716" duration="22828000" />
       <workItem from="1561474198823" duration="1373000" />
       <workItem from="1561633104077" duration="20000" />
-      <workItem from="1561633232155" duration="5165000" />
+      <workItem from="1561633232155" duration="5233000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="308795000" />
+    <option name="totallyTimeSpent" value="308863000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -299,7 +286,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.65057176" visible="true" weight="0.24171951" />
       <window_info id="Structure" order="1" sideWeight="0.34053367" side_tool="true" weight="0.24947146" />
@@ -725,7 +711,7 @@
     <entry file="file://$PROJECT_DIR$/client/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="372">
+          <first_editor relative-caret-position="459">
             <caret line="17" column="49" selection-start-line="17" selection-start-column="49" selection-end-line="17" selection-end-column="49" />
           </first_editor>
           <second_editor />
